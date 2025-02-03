@@ -152,6 +152,6 @@ export default {
 </template>
 <style>
 .auth-page-wrapper {
-    background-color: #405189;
+    background-color: #066b5e;
 }
 </style>

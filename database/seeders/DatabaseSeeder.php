@@ -23,9 +23,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \DB::table('user_profiles')->insert([
-            'firstname' => 'Prince Salman',
-            'lastname' => 'Cabir',
-            'middlename' => 'M',
+            'firstname' => 'Chilleinne',
+            'lastname' => 'Tingkahan',
+            'middlename' => 'A',
             'avatar' => 'avatar.jpg',
             'gender' => 'Male',
             'user_id' => 1,

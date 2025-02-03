@@ -9,21 +9,24 @@
                         <BCard no-body class="mt-4">
 
                             <BCardBody class="p-4">
-                                <div class="row mb-2 text-center">
-                                    <div class="col-12 mb-2">
-                                        <img src="@assets/images/adzu.png" alt="" style="height: auto; width: 70px;">
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="text-primary mt-1">
-                                            <h4 class="fs-16 fw-semibold">MediRecords</h4>
-                                            <p class="mt-n2">Document Management System</p>
+                                <div class="row">
+                                    <div class="d-flex mb-n3">
+                                        <div class="flex-shrink-0 me-4">
+                                            <div style="height:2.5rem;width:2.5rem;">
+                                                <img src="@assets/images/doh-logo.png" alt="" class="avatar-sm">
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 mt-1">
+                                            <h5 class="mb-0 fw-semibold fs-16"><span class="text-body">Health Center - Tugbungan</span></h5>
+                                            <p class="text-muted text-truncate-two-lines fs-12">DOH | Health Center Information System</p>
                                         </div>
                                     </div>
                                 </div>
+                                <hr class="text-muted mt-4"/>
                                 <div v-if="status" class="alert alert-success text-success">
                                     {{ status }}
                                 </div>
-                                <div class="p-2 mt-n2">
+                                <div class="p-2 mt-n1">
                                     <form class="customform" @submit.prevent="submit">
 
                                         <div class="mb-2">
@@ -105,6 +108,6 @@ export default {
 </script>
 <style>
 .auth-page-wrapper {
-    background-color: #405189;
+    background-color: #066b5e;
 }
 </style>

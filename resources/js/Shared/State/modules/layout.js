@@ -1,7 +1,7 @@
 const state = {
   layoutType: 'vertical',
   layoutWidth: 'fluid',
-  sidebarSize: 'sm',
+  sidebarSize: 'lg',
   topbar: 'light',
   mode: 'light',
   position: 'fixed',

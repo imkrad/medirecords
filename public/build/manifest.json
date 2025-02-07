@@ -163,10 +163,6 @@
     "file": "assets/remixicon-B83Wci9r.woff2",
     "src": "public/fonts/remixicon.woff2"
   },
-  "public/images/doh-logo.png": {
-    "file": "assets/job-IuhbbFLJ.png",
-    "src": "public/images/doh-logo.png"
-  },
   "public/images/bg-pattern.png": {
     "file": "assets/bg-pattern-C6uw14rj.png",
     "src": "public/images/bg-pattern.png"
@@ -179,21 +175,13 @@
     "file": "assets/doh-logo-DIuqTx-E.png",
     "src": "public/images/doh-logo.png"
   },
-  "public/images/doh-logo.png": {
-    "file": "assets/job-IuhbbFLJ.png",
-    "src": "public/images/doh-logo.png"
-  },
   "public/images/logo-dark.png": {
-    "file": "assets/logo-dark-B3FnuBf_.png",
+    "file": "assets/logo-dark-BTL3MAYz.png",
     "src": "public/images/logo-dark.png"
   },
   "public/images/logo-light.png": {
-    "file": "assets/logo-dark-B3FnuBf_.png",
+    "file": "assets/logo-dark-BTL3MAYz.png",
     "src": "public/images/logo-dark.png"
-  },
-  "public/images/doh-logo.png": {
-    "file": "assets/job-IuhbbFLJ.png",
-    "src": "public/images/doh-logo.png"
   },
   "public/images/sidebar/img-1.jpg": {
     "file": "assets/img-1-C6VsSbnm.jpg",
@@ -212,21 +200,20 @@
     "src": "public/images/sidebar/img-4.jpg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-CumrZAnf.js",
+    "file": "assets/app-DOtGVin-.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-BbxfTGzm.css"
+      "assets/app-Bo16lXc6.css"
     ],
     "assets": [
       "assets/doh-logo-DIuqTx-E.png",
-      "assets/job-IuhbbFLJ.png",
       "assets/img-1-C6VsSbnm.jpg",
       "assets/img-2-B0ULeiCa.jpg",
       "assets/img-3-h1U1KdmN.jpg",
       "assets/img-4-iSVl4_tu.jpg",
-      "assets/logo-dark-B3FnuBf_.png",
+      "assets/logo-dark-BTL3MAYz.png",
       "assets/hkgrotesk-light-CFOlwwJU.eot",
       "assets/hkgrotesk-light-Bch7Jc8H.woff",
       "assets/hkgrotesk-regular-C5FQFgYW.eot",

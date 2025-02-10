@@ -14,41 +14,34 @@
                 </Link>
             </li>
             <li class="menu-title">
-                <span data-key="t-menu">Consultation & Treatment</span>
+                <span data-key="t-menu">Health Care Services</span>
             </li>
             <li class="nav-item">
-                <Link href="/dashboard" class="nav-link menu-link"
+                <Link href="/tcls" class="nav-link menu-link"
                     :class="{'active': $page.component.startsWith('Inpatients') }">
                 <i class="ri-account-circle-line"></i>
-                <span class="fw-semibold fs-14" data-key="t-dashboards">Inpatient Details</span>
-                </Link>
-            </li>
-            <li class="nav-item">
-                <Link href="/dashboard" class="nav-link menu-link"
-                    :class="{'active': $page.component.startsWith('Outpatients') }">
-                <i class="ri-account-circle-fill"></i>
-                <span class="fw-semibold fs-14" data-key="t-dashboards">Outpatient Details</span>
+                <span class="fw-semibold fs-14" data-key="t-dashboards">Target Client Lists</span>
                 </Link>
             </li>
             <li class="menu-title">
                 <span data-key="t-menu">Patient Management</span>
             </li>
             <li class="nav-item">
-                <Link href="/dashboard" class="nav-link menu-link"
-                    :class="{'active': $page.component.startsWith('Registration') }">
+                <Link href="/patients/create" class="nav-link menu-link"
+                :class="{ 'active': $page.component === 'Patients/Create' }">
                 <i class="ri-user-add-fill"></i>
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Patient Registration</span>
                 </Link>
             </li>
             <li class="nav-item">
-                <Link href="/dashboard" class="nav-link menu-link"
-                    :class="{'active': $page.component.startsWith('Patients') }">
+                <Link href="/patients" class="nav-link menu-link"
+                :class="{ 'active': $page.component === 'Patients/Index' }">
                 <i class="ri-team-fill"></i>
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Patient Records (EMR)</span>
                 </Link>
             </li>
             <li class="nav-item">
-                <Link href="/dashboard" class="nav-link menu-link"
+                <Link href="/appointments" class="nav-link menu-link"
                     :class="{'active': $page.component.startsWith('Appointments') }">
                 <i class="ri-calendar-todo-fill"></i>
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Appointments</span>
@@ -60,30 +53,30 @@
             <li class="nav-item">
                 <Link href="/dashboard" class="nav-link menu-link"
                     :class="{'active': $page.component.startsWith('Appointments') }">
-                <i class="ri-calendar-todo-fill"></i>
+                <i class="ri-user-2-fill"></i>
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Doctor Profiles</span>
                 </Link>
             </li>
             <li class="nav-item">
                 <Link href="/dashboard" class="nav-link menu-link"
                     :class="{'active': $page.component.startsWith('Appointments') }">
-                <i class="ri-calendar-todo-fill"></i>
+                <i class="ri-user-2-line"></i>
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Staff Directory</span>
                 </Link>
             </li>
             <li class="menu-title">
-                <span data-key="t-menu">Communication & Feedback</span>
+                <span data-key="t-menu">Communication</span>
             </li>
             <li class="nav-item">
+                <Link href="/dashboard" class="nav-link menu-link"
+                    :class="{'active': $page.component.startsWith('Feedbacks') }">
+                <i class="ri-calendar-2-line"></i>
+                <span class="fw-semibold fs-14" data-key="t-dashboards">Calendar</span>
+                </Link>
                 <Link href="/dashboard" class="nav-link menu-link"
                     :class="{'active': $page.component.startsWith('Announcements') }">
                 <i class="ri-file-list-fill"></i>
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Announcements</span>
-                </Link>
-                <Link href="/dashboard" class="nav-link menu-link"
-                    :class="{'active': $page.component.startsWith('Feedbacks') }">
-                <i class="ri-emotion-laugh-fill"></i>
-                <span class="fw-semibold fs-14" data-key="t-dashboards">Patient Feedback</span>
                 </Link>
             </li>
             <!-- <li class="nav-item">

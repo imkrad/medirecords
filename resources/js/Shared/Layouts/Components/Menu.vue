@@ -35,7 +35,7 @@
             </li>
             <li class="nav-item">
                 <Link href="/patients" class="nav-link menu-link"
-                :class="{ 'active': $page.component === 'Patients/Index' }">
+                :class="{'active': $page.component.startsWith('Patients') }">
                 <i class="ri-team-fill"></i>
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Patient Records (EMR)</span>
                 </Link>

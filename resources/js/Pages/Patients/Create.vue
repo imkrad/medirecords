@@ -56,12 +56,12 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">Sex</label>
-                                            <input type="text" v-model="form.sex" class="form-control bg-light border-0" placeholder="Please enter sex">
+                                            <Multiselect :options="['Male','Female']" label="name" v-model="form.sex" :message="form.errors.sex" placeholder="Select Sex" ref="multiselect1"/>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">Marital Status</label>
                                             <!-- <input type="text" v-model="form.status" class="form-control bg-light border-0" placeholder="Please enter email"> -->
-                                            <Multiselect :options="['Single','Married','Divorced','Separated']" label="name" v-model="form.status" :message="form.errors.status" placeholder="Select Status" ref="multiselect1"/>
+                                            <Multiselect :options="['Single','Married','Divorced','Separated','Widowed']" label="name" v-model="form.status" :message="form.errors.status" placeholder="Select Status" ref="multiselect1"/>
                                         </div>
                                     </div>
                                     <div class="row g-2">

@@ -200,12 +200,12 @@
     "src": "public/images/sidebar/img-4.jpg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-B8y0JvrM.js",
+    "file": "assets/app-MzigvgXp.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-Bo16lXc6.css"
+      "assets/app-CkLbA5EK.css"
     ],
     "assets": [
       "assets/doh-logo-DIuqTx-E.png",

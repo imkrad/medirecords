@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use App\Http\Resources\PatientResource;
 
 class PatientController extends Controller
 {
@@ -15,6 +16,19 @@ class PatientController extends Controller
             default: 
                 return inertia('Patients/Index');
         }
+    }
+
+    private function lists($request){
+        $data = Patient::query()
+            ->with('contact')
+            ->when($request->keyword, function ($query, $keyword) {
+                $query->where(\DB::raw('concat(firstname," ",lastname)'), 'LIKE', "%{$keyword}%")
+                ->orWhere(\DB::raw('concat(lastname," ",firstname)'), 'LIKE', "%{$keyword}%");
+            })
+            ->orderBy('created_at','DESC')
+            ->paginate($request->count);
+
+        return PatientResource::collection($data);
     }
 
     public function create(Request $request){
@@ -46,6 +60,12 @@ class PatientController extends Controller
             'message' => 'Patient was added.',
             'info' => 'You\'ve successfully created new user.',
             'status' => true,
+        ]);
+    }
+
+    public function show($code){
+        return inertia('Patients/View',[
+            'p' => new PatientResource(Patient::with('contact')->where('code',$code)->first()),
         ]);
     }
 }

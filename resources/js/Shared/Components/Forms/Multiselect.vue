@@ -29,6 +29,7 @@ export default {
 </script>
 <style>
 .multiselect-wrapper {
-  background-color: #f5f6f7;
+  background-color: #f3f6f9;
+  min-height: 34.5px !important;
 }
 </style>

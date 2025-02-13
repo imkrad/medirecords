@@ -40,27 +40,28 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">First Name</label>
-                                            <input type="text" class="form-control bg-light border-0" placeholder="Please enter first name">
+                                            <input type="text" v-model="form.firstname" class="form-control bg-light border-0" placeholder="Please enter first name">
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">Middle Name</label>
-                                            <input type="text" class="form-control bg-light border-0" placeholder="Please enter middle name">
+                                            <input type="text" v-model="form.middlename" class="form-control bg-light border-0" placeholder="Please enter middle name">
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">Last Name</label>
-                                            <input type="text" class="form-control bg-light border-0" placeholder="Please enter last name">
+                                            <input type="text" v-model="form.lastname" class="form-control bg-light border-0" placeholder="Please enter last name">
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">Date of Birth</label>
-                                            <input type="date" class="form-control bg-light border-0" placeholder="Please enter date of birth">
+                                            <input type="date" v-model="form.birthdate" class="form-control bg-light border-0" placeholder="Please enter date of birth">
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">Sex</label>
-                                            <input type="text" class="form-control bg-light border-0" placeholder="Please enter sex">
+                                            <input type="text" v-model="form.sex" class="form-control bg-light border-0" placeholder="Please enter sex">
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">Marital Status</label>
-                                            <input type="text" class="form-control bg-light border-0" placeholder="Please enter email">
+                                            <!-- <input type="text" v-model="form.status" class="form-control bg-light border-0" placeholder="Please enter email"> -->
+                                            <Multiselect :options="['Single','Married','Divorced','Separated']" label="name" v-model="form.status" :message="form.errors.status" placeholder="Select Status" ref="multiselect1"/>
                                         </div>
                                     </div>
                                     <div class="row g-2">
@@ -73,19 +74,19 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">Email</label>
-                                            <input type="text" class="form-control bg-light border-0" placeholder="Please enter email">
+                                            <input type="text" v-model="form.email" class="form-control bg-light border-0" placeholder="Please enter email">
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">Home Phone</label>
-                                            <input type="text" class="form-control bg-light border-0" placeholder="Please enter home phone no.">
+                                            <input type="text" v-model="form.homephone" class="form-control bg-light border-0" placeholder="Please enter home phone no.">
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">Cell Phone</label>
-                                            <input type="text" class="form-control bg-light border-0" placeholder="Please enter cell phone no.">
+                                            <input type="text" v-model="form.cellphone" class="form-control bg-light border-0" placeholder="Please enter cell phone no.">
                                         </div>
                                         <div class="col-md-12">
                                             <label class="form-label">Address</label>
-                                            <input type="text" class="form-control bg-light border-0" placeholder="Please enter street address">
+                                            <input type="text" v-model="form.address" class="form-control bg-light border-0" placeholder="Please enter street address">
                                         </div>
                                     </div>
                                     <div class="row g-2">
@@ -98,15 +99,15 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">Full Name</label>
-                                            <input type="text" class="form-control bg-light border-0" placeholder="Please enter full name">
+                                            <input type="text" v-model="form.fullname" class="form-control bg-light border-0" placeholder="Please enter full name">
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">Cell Phone</label>
-                                            <input type="text" class="form-control bg-light border-0" placeholder="Please enter cell phone no.">
+                                            <input type="text" v-model="form.contact_no" class="form-control bg-light border-0" placeholder="Please enter cell phone no.">
                                         </div>
                                         <div class="col-md-4">
                                             <label class="form-label">Relationship</label>
-                                            <input type="text" class="form-control bg-light border-0" placeholder="Please enter relationship">
+                                            <Multiselect :options="['Spouse','Mother','Father','Sibling', 'Others']" label="name" v-model="form.relationship" :message="form.errors.relationship" :appendToBody="true"  placeholder="Select Relationship" ref="multiselect1"/>
                                         </div>
                                     </div>
                                 </div>
@@ -116,7 +117,7 @@
                 </div>
                 <div class="card-body p-4">
                     <div class="hstack gap-2 justify-content-end d-print-none mt-4">
-                        <button class="btn btn-success btn-md" type="button">
+                        <button @click="submit('ok')" class="btn btn-success btn-md" type="button">
                             <div class="btn-content">
                                 <i class="ri-user-add-fill align-bottom me-1"></i> Create Patient
                             </div>
@@ -129,11 +130,12 @@
 </div>
 </template>
 <script>
-import { useForm } from "@inertiajs/vue3"
+import { useForm } from "@inertiajs/vue3";
+import Multiselect from "@vueform/multiselect";
 import PageHeader from '@/Shared/Components/PageHeader.vue';
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
-    components: { Pagination, PageHeader }, 
+    components: { Pagination, PageHeader, Multiselect }, 
     props: ['statuses'],
     data(){
         return {
@@ -181,8 +183,8 @@ export default {
             this.form.post('/patients',{
                 preserveScroll: true,
                 onSuccess: (response) => {
-                    this.$emit('update',true);
-                    this.hide();
+                    // this.$emit('update',true);
+                    // this.hide();
                 },
             });
         },

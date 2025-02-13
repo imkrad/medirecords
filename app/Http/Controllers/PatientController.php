@@ -21,7 +21,7 @@ class PatientController extends Controller
         return inertia('Patients/Create');
     }
 
-    public function store(UserRequest $request){
+    public function store(Request $request){
         $data = Patient::create([
             'code' => 'PTL-'.date('Y').'-'.str_pad((Patient::count()+1), 5, '0', STR_PAD_LEFT),
             'firstname' => $request->firstname,
@@ -40,9 +40,10 @@ class PatientController extends Controller
             'contact_no' => $request->contact_no,
             'relationship' => $request->relationship,
         ]);
+
         return back()->with([
             'data' => $data,
-            'message' => 'User was created.',
+            'message' => 'Patient was added.',
             'info' => 'You\'ve successfully created new user.',
             'status' => true,
         ]);

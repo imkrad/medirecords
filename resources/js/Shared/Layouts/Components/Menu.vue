@@ -50,13 +50,7 @@
             <li class="menu-title">
                 <span data-key="t-menu">Staff Management</span>
             </li>
-            <li class="nav-item">
-                <Link href="/dashboard" class="nav-link menu-link"
-                    :class="{'active': $page.component.startsWith('Appointments') }">
-                <i class="ri-user-2-fill"></i>
-                <span class="fw-semibold fs-14" data-key="t-dashboards">Doctor Profiles</span>
-                </Link>
-            </li>
+          
             <li class="nav-item">
                 <Link href="/dashboard" class="nav-link menu-link"
                     :class="{'active': $page.component.startsWith('Appointments') }">

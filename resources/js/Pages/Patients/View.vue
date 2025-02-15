@@ -29,6 +29,10 @@
                                                         <div><span class="text-muted">Marital :</span> <span class="fw-medium">{{patient.status}}</span></div>
                                                         <div class="vr" style="width: 1px;"></div>
                                                         <div><span class="text-muted">Sex :</span> <span class="fw-medium">{{patient.sex}}</span></div>
+                                                        <div class="vr" style="width: 1px;"></div>
+                                                        <div><span class="text-muted">Cellphone :</span> <span class="fw-medium">{{patient.cellphone}}</span></div>
+                                                        <div class="vr" style="width: 1px;"></div>
+                                                        <div><span class="text-muted">Email :</span> <span class="fw-medium">{{patient.email}}</span></div>
                                                         <div class="vr"></div>
                                                     </div>
                                                 </div>
@@ -49,6 +53,34 @@
                             </BCardBody>
                         </div>
                     </BCard>
+                </BCol>
+                <BCol lg="12">
+                    <div class="card">
+                        <div class="card-body" style="height: calc(100vh - 290px);">
+                            <BTabs nav-class="nav-pills nav-custom nav-custom-light" pills>
+                                <BTab title="Overview">
+                                  
+
+                                </BTab>
+                                <BTab title="Patient Information">
+                                  
+
+                                </BTab>
+                                <BTab title="Medical History">
+                                   
+                                </BTab>
+                                <BTab title="Appointments">
+                                   
+                                </BTab>
+                                <BTab title="Laboratory & Diagnostic Tests">
+                                   
+                                </BTab>
+                                <BTab title="Prescription & Medication Dispensing">
+                                   
+                                </BTab>
+                            </BTabs>
+                        </div>
+                    </div>
                 </BCol>
             </BRow>
         </div>

@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('patient_contacts', function (Blueprint $table) {
+        Schema::create('patients', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('code',50)->unique();
             $table->string('email',150)->nullable();
             $table->string('homephone',20)->nullable();
             $table->string('cellphone',20)->nullable();
@@ -21,8 +22,8 @@ return new class extends Migration
             $table->string('fullname');
             $table->string('contact_no')->nullable();
             $table->string('relationship');
-            $table->integer('patient_id')->unsigned()->index();
-            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
+            $table->integer('member_id')->unsigned()->index();
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('patient_contacts');
+        Schema::dropIfExists('patients');
     }
 };

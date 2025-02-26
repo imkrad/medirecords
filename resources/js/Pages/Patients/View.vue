@@ -78,6 +78,9 @@
                                 <BTab title="Prescription & Medication Dispensing">
                                    
                                 </BTab>
+                                <BTab title="Family Member">
+                                    {{ patient.families }}
+                                </BTab>
                             </BTabs>
                         </div>
                     </div>

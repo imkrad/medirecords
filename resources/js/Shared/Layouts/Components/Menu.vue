@@ -17,10 +17,24 @@
                 <span data-key="t-menu">Health Care Services</span>
             </li>
             <li class="nav-item">
+                <Link href="/appointments" class="nav-link menu-link"
+                    :class="{'active': $page.component.startsWith('Appointments') }">
+                <i class="ri-calendar-todo-fill"></i>
+                <span class="fw-semibold fs-14" data-key="t-dashboards">Appointments</span>
+                </Link>
+            </li>
+            <li class="nav-item">
                 <Link href="/tcls" class="nav-link menu-link"
-                    :class="{'active': $page.component.startsWith('Inpatients') }">
+                    :class="{'active': $page.component.startsWith('Tcl') }">
                 <i class="ri-account-circle-line"></i>
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Target Client Lists</span>
+                </Link>
+            </li>
+            <li class="nav-item">
+                <Link href="/immunizations" class="nav-link menu-link"
+                    :class="{'active': $page.component.startsWith('Immunizations') }">
+                <i class="bx bx-injection"></i>
+                <span class="fw-semibold fs-14" data-key="t-dashboards">Immunizations</span>
                 </Link>
             </li>
             <li class="menu-title">
@@ -35,16 +49,9 @@
             </li>
             <li class="nav-item">
                 <Link href="/patients" class="nav-link menu-link"
-                :class="{'active': $page.component.startsWith('Patients') }">
+                :class="{ 'active': $page.component === 'Patients/Index' }">
                 <i class="ri-team-fill"></i>
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Patient Records (EMR)</span>
-                </Link>
-            </li>
-            <li class="nav-item">
-                <Link href="/appointments" class="nav-link menu-link"
-                    :class="{'active': $page.component.startsWith('Appointments') }">
-                <i class="ri-calendar-todo-fill"></i>
-                <span class="fw-semibold fs-14" data-key="t-dashboards">Appointments</span>
                 </Link>
             </li>
             <li class="menu-title">
@@ -52,10 +59,10 @@
             </li>
           
             <li class="nav-item">
-                <Link href="/dashboard" class="nav-link menu-link"
-                    :class="{'active': $page.component.startsWith('Appointments') }">
+                <Link href="/users" class="nav-link menu-link"
+                    :class="{'active': $page.component.startsWith('Users') }">
                 <i class="ri-user-2-line"></i>
-                <span class="fw-semibold fs-14" data-key="t-dashboards">Staff Directory</span>
+                <span class="fw-semibold fs-14" data-key="t-dashboards">Users Directory</span>
                 </Link>
             </li>
             <li class="menu-title">

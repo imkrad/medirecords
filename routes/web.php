@@ -12,7 +12,10 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::resource('/locations', App\Http\Controllers\LocationController::class);
 
     Route::resource('/tcls', App\Http\Controllers\TclController::class);
+    Route::resource('/immunizations', App\Http\Controllers\ImmunizationController::class);
+
     Route::resource('/patients', App\Http\Controllers\PatientController::class);
+    Route::get('/members', [App\Http\Controllers\MemberController::class, 'members']);
     Route::resource('/staffs', App\Http\Controllers\StaffController::class);
     Route::resource('/appointments', App\Http\Controllers\AppointmentController::class);
 });

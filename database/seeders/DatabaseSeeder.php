@@ -12,7 +12,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         \DB::table('users')->insert([
-            'username' => 'administrator',
             'email' => 'admin@medirecords.com',
             'password' => bcrypt('123456789'),
             'role' => 'Administrator',
@@ -39,8 +38,10 @@ class DatabaseSeeder extends Seeder
         $this->call(LocationMunicipalitiesTableSeeder::class);
         $this->call(LocationBarangaysTableSeeder::class);
 
-        $this->call(ListMenusTableSeeder::class);
         $this->call(ListStatusesTableSeeder::class);
         $this->call(ListDropdownsTableSeeder::class);
+        $this->call(VaccinesTableSeeder::class);
+        $this->call(VaccinesTableSeeder::class);
+        $this->call(ImmunizationsTableSeeder::class);
     }
 }

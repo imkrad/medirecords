@@ -31,8 +31,8 @@ class ListDropdownsTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
-                'name' => 'College Unit',
-                'classification' => 'Document Type',
+                'name' => 'Mother',
+                'classification' => 'Family',
                 'type' => 'n/a',
                 'color' => 'n/a',
                 'others' => 'n/a',
@@ -41,8 +41,8 @@ class ListDropdownsTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 3,
-                'name' => 'Graduate School',
-                'classification' => 'Document Type',
+                'name' => 'Father',
+                'classification' => 'Family',
                 'type' => 'n/a',
                 'color' => 'n/a',
                 'others' => 'n/a',
@@ -51,21 +51,11 @@ class ListDropdownsTableSeeder extends Seeder
             3 => 
             array (
                 'id' => 4,
-                'name' => 'Regular Processing Fee',
-                'classification' => 'Fee Type',
-                'type' => 'Regular',
+                'name' => 'Children',
+                'classification' => 'Family',
+                'type' => 'n/a',
                 'color' => 'n/a',
-                'others' => '5-7 days',
-                'is_active' => 1,
-            ),
-            4 => 
-            array (
-                'id' => 5,
-                'name' => 'Express Processing Fee',
-                'classification' => 'Fee Type',
-                'type' => 'Express',
-                'color' => 'n/a',
-                'others' => '1-3 days',
+                'others' => 'n/a',
                 'is_active' => 1,
             ),
         ));

@@ -12,21 +12,22 @@ class PatientResource extends JsonResource
         return [
             'id' => $this->id,
             'code' => $this->code,
-            'avatar' => ($this->avatar === 'avatar.jpg') ? '/images/avatars/'.$this->avatar : '/storage/'.$this->avatar,
-            'firstname' => $this->firstname,
-            'lastname' => $this->lastname,
-            'middlename' => $this->middlename,
-            'sex' => $this->sex,
-            'status' => $this->status,
-            'birthdate' => $this->birthdate,
-            'homephone' => $this->contact->homephone,
-            'cellphone' => $this->contact->cellphone,
-            'email' => $this->contact->email,
-            'address' => $this->contact->address,
-            'relationship' => $this->contact->relationship,
-            'contact_no' => $this->contact->contact_no,
+            'avatar' => ($this->member->avatar === 'avatar.jpg') ? '/images/avatars/'.$this->member->avatar : '/storage/'.$this->member->avatar,
+            'firstname' => $this->member->firstname,
+            'lastname' => $this->member->lastname,
+            'middlename' => $this->member->middlename,
+            'sex' => $this->member->sex,
+            'status' => $this->member->status,
+            'birthdate' => $this->member->birthdate,
+            'homephone' => $this->homephone,
+            'cellphone' => $this->cellphone,
+            'email' => $this->email,
+            'address' => $this->address,
+            'relationship' => $this->relationship,
+            'contact_no' => $this->contact_no,
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at
+            'updated_at' => $this->updated_at,
+            'families' => FamilyResource::collection($this->member->families)
         ];
     }
 }

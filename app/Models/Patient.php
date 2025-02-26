@@ -11,18 +11,19 @@ class Patient extends Model
 
     protected $fillable = [
         'code',
-        'firstname', 
-        'lastname', 
-        'middlename',
-        'birthdate',
-        'sex',
-        'status',
-        'avatar'
+        'email',
+        'homephone',
+        'cellphone',
+        'address',
+        'fullname',
+        'contact_no',
+        'relationship',
+        'member_id'
     ];
 
-    public function contact()
+    public function member()
     {
-        return $this->hasOne('App\Models\PatientContact', 'patient_id');
+        return $this->belongsTo('App\Models\Member', 'member_id', 'id');
     }
 
     public function getUpdatedAtAttribute($value)

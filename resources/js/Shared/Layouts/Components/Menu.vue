@@ -23,13 +23,13 @@
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Appointments</span>
                 </Link>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <Link href="/tcls" class="nav-link menu-link"
                     :class="{'active': $page.component.startsWith('Tcl') }">
                 <i class="ri-account-circle-line"></i>
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Target Client Lists</span>
                 </Link>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <Link href="/immunizations" class="nav-link menu-link"
                     :class="{'active': $page.component.startsWith('Immunizations') }">
@@ -50,8 +50,15 @@
             <li class="nav-item">
                 <Link href="/patients" class="nav-link menu-link"
                 :class="{ 'active': $page.component === 'Patients/Index' }">
-                <i class="ri-team-fill"></i>
+                <i class="ri-account-circle-fill"></i>
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Patient Records (EMR)</span>
+                </Link>
+            </li>
+            <li class="nav-item">
+                <Link href="/families" class="nav-link menu-link"
+                :class="{ 'active': $page.component === 'Families/Index' }">
+                <i class="ri-team-fill"></i>
+                <span class="fw-semibold fs-14" data-key="t-dashboards">Family Masterlist</span>
                 </Link>
             </li>
             <li class="menu-title">

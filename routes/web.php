@@ -14,6 +14,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::resource('/tcls', App\Http\Controllers\TclController::class);
     Route::resource('/immunizations', App\Http\Controllers\ImmunizationController::class);
 
+    Route::resource('/families', App\Http\Controllers\FamilyController::class);
     Route::resource('/patients', App\Http\Controllers\PatientController::class);
     Route::get('/members', [App\Http\Controllers\MemberController::class, 'members']);
     Route::resource('/staffs', App\Http\Controllers\StaffController::class);

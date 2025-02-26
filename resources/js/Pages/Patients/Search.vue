@@ -63,7 +63,7 @@
         </form>
         <template v-slot:footer>
             <b-button @click="hide()" variant="light" block>Cancel</b-button>
-            <b-button @click="submit()" variant="primary" :disabled="form.processing" block>Search</b-button>
+            <b-button @click="submit()" variant="primary" :disabled="form.processing" block>Continue</b-button>
         </template>
     </b-modal>
 </template>
@@ -96,6 +96,9 @@ export default {
             this.emitData();
         },
         'form.code'(newVal) {
+            if(newVal){
+                this.form.has_member = 1;
+            }
             this.emitData();
         }
     },

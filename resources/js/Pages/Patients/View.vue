@@ -41,9 +41,6 @@
                                     </BCol>
                                     <BCol md="auto">
                                         <div class="hstack gap-1 flex-wrap">
-                                            <button @click="openName()" type="button" v-b-tooltip.hover title="Add name" class="btn py-0 fs-16 text-body me-n3">
-                                                <i class="ri-add-circle-fill"></i>
-                                            </button>
                                             <button @click="back()" type="button" class="btn py-0 fs-16 text-body">
                                                 <i class="ri-share-line"></i>
                                             </button>

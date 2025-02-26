@@ -17,4 +17,15 @@ class Family extends Model
     {
         return $this->hasMany('App\Models\FamilyMember', 'family_id');
     }
+
+    public function getUpdatedAtAttribute($value)
+    {
+        return date('M d, Y g:i a', strtotime($value));
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return date('F d, Y g:i a', strtotime($value));
+    }
+
 }

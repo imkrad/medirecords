@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('age');
+            $table->string('socioeconomic');
             $table->tinyInteger('service_id')->unsigned()->index();
             $table->foreign('service_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
             $table->timestamps();

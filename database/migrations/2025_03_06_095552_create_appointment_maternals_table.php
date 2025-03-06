@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('appointment_immunizations', function (Blueprint $table) {
+        Schema::create('appointment_maternals', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->date('lmp_at');
+            $table->date('edc_at');
             $table->integer('appointment_id')->unsigned()->index();
             $table->foreign('appointment_id')->references('id')->on('appointments')->onDelete('cascade');
             $table->timestamps();
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('appointment_immunizations');
+        Schema::dropIfExists('appointment_maternals');
     }
 };

@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('appointment_details', function (Blueprint $table) {
-            $table->id();
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->integer('appointment_id')->unsigned()->index();
+            $table->foreign('appointment_id')->references('id')->on('appointments')->onDelete('cascade');
             $table->timestamps();
         });
     }

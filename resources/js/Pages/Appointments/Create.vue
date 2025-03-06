@@ -5,9 +5,15 @@
             <div class="row g-3 mt-0 mb-3">
                 <div class="col-md-12 mt-0">
                     <label class="form-label">Service</label>
-                    <Multiselect :options="services" label="name" v-model="form.role" :message="form.errors.role" placeholder="Select role" ref="multiselect1"/>
+                    <Multiselect :options="services" label="name" v-model="form.service" :message="form.errors.service" placeholder="Select service" ref="multiselect1"/>
                 </div>
             </div>
+            <template v-if="form.service">
+                <Family v-if="form.service === 9" ref="family"/>
+                <Prenatal v-else-if="form.service === 8"  ref="prenatal"/>
+                <Immunization v-else-if="form.service === 7" ref="immunization"/>
+                <Consultation v-else  ref="consultation"/>
+            </template>
         </form>
         <template v-slot:footer>
             <b-button @click="hide()" variant="light" block>Cancel</b-button>
@@ -17,24 +23,21 @@
 </template>
 <script>
 import _ from 'lodash';
+import Family from './Forms/Family.vue';
+import Prenatal from './Forms/Prenatal.vue';
+import Consultation from './Forms/Consultation.vue';
+import Immunization from './Forms/Immunization.vue';
 import { useForm } from '@inertiajs/vue3';
 import Multiselect from "@vueform/multiselect";
 export default {
-    components: { Multiselect },
+    components: { Multiselect, Family, Prenatal, Consultation, Immunization },
     props: ['services'],
     data(){
         return {
             currentUrl: window.location.origin,
             form: useForm({
                 id: null,
-                firstname: null,
-                middlename: null,
-                lastname: null,
-                suffix: null,
-                email: null,
-                mobile: null,
-                gender: null,
-                role: null
+                service: null
             }),
             showModal: false,
             editable: false

@@ -428,6 +428,66 @@ class ListDropdownsTableSeeder extends Seeder
                 'others' => 'n/a',
                 'is_active' => 1,
             ),
+            41 => 
+            array (
+                'id' => 42,
+                'name' => 'Infectious Disease Surveillance',
+                'classification' => 'Maternal',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            42 => 
+            array (
+                'id' => 43,
+                'name' => 'Laboratory Screening',
+                'classification' => 'Maternal',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            43 => 
+            array (
+                'id' => 44,
+                'name' => 'Full Term',
+                'classification' => 'Outcome',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'FT',
+                'is_active' => 1,
+            ),
+            44 => 
+            array (
+                'id' => 45,
+                'name' => 'Pre-Term',
+                'classification' => 'Outcome',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'PT',
+                'is_active' => 1,
+            ),
+            45 => 
+            array (
+                'id' => 46,
+                'name' => 'Fetal Death',
+                'classification' => 'Outcome',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'FD',
+                'is_active' => 1,
+            ),
+            46 => 
+            array (
+                'id' => 47,
+                'name' => 'Abortion/Miscarriage',
+                'classification' => 'Outcome',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'AB',
+                'is_active' => 1,
+            ),
         ));
 
         

@@ -19,8 +19,11 @@ return new class extends Migration
             $table->longText('remarks')->nullable();
             $table->tinyInteger('service_id')->unsigned()->index();
             $table->foreign('service_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
+            $table->tinyInteger('status_id')->unsigned()->index();
+            $table->foreign('status_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
             $table->integer('patient_id')->unsigned()->index();
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
+            $table->date('registration_at');
             $table->timestamps();
         });
     }

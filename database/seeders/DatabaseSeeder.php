@@ -43,5 +43,9 @@ class DatabaseSeeder extends Seeder
         $this->call(VaccinesTableSeeder::class);
         $this->call(VaccinesTableSeeder::class);
         $this->call(ImmunizationsTableSeeder::class);
+        $this->call(FamiliesTableSeeder::class);
+        $this->call(MembersTableSeeder::class);
+        $this->call(FamilyMembersTableSeeder::class);
+        $this->call(PatientsTableSeeder::class);
     }
 }

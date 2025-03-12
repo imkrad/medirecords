@@ -328,6 +328,106 @@ class ListDropdownsTableSeeder extends Seeder
                 'others' => 'O',
                 'is_active' => 1,
             ),
+            31 => 
+            array (
+                'id' => 32,
+                'name' => 'None or New Acceptor',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'FSTR/BTL',
+                'is_active' => 1,
+            ),
+            32 => 
+            array (
+                'id' => 33,
+                'name' => 'Pending',
+                'classification' => 'Status',
+                'type' => 'n/a',
+                'color' => 'bg-warning',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            33 => 
+            array (
+                'id' => 34,
+                'name' => 'Ongoing',
+                'classification' => 'Status',
+                'type' => 'n/a',
+                'color' => 'bg-info',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            34 => 
+            array (
+                'id' => 35,
+                'name' => 'Completed',
+                'classification' => 'Status',
+                'type' => 'n/a',
+                'color' => 'bg-success',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            35 => 
+            array (
+                'id' => 36,
+                'name' => 'Cancelled',
+                'classification' => 'Status',
+                'type' => 'n/a',
+                'color' => 'bg-danger',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            36 => 
+            array (
+                'id' => 37,
+                'name' => 'Dropped',
+                'classification' => 'Status',
+                'type' => 'n/a',
+                'color' => 'bg-dark',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            37 => 
+            array (
+                'id' => 38,
+                'name' => 'Immunization Status',
+                'classification' => 'Maternal',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            38 => 
+            array (
+                'id' => 39,
+                'name' => 'Micronutrient Supplementation',
+                'classification' => 'Maternal',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            39 => 
+            array (
+                'id' => 40,
+                'name' => 'Nutritional Assessment',
+                'classification' => 'Maternal',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            40 => 
+            array (
+                'id' => 41,
+                'name' => 'Deworming Tablet',
+                'classification' => 'Maternal',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
         ));
 
         

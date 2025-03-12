@@ -30,7 +30,8 @@ class WelcomeController extends Controller
         })->take(5)->get()->map(function ($item) {
             return [
                 'value' => $item->id,
-                'name' => $item->member->firstname.' '. $item->member->lastname
+                'name' => $item->member->firstname.' '. $item->member->lastname,
+                'birthdate' => $item->member->birthdate
             ];
         });
         return $data;

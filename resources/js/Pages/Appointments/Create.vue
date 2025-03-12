@@ -4,18 +4,36 @@
         <form class="customform">
             <div class="row g-3 mt-0 mb-3">
                 <div class="col-md-6">
-                    <label class="form-label">Patient</label>
-                    <Multiselect v-model="form.patient_id" @search-change="fetchPatient" placeholder="Search patient" :searchable="true" :close-on-select="true" label="name" :options="patients" />
+                    <label class="form-label">Patient <span v-if="form.errors.patient_id" class="text-danger" style="font-size: 9px;">({{form.errors.patient_id}})</span></label>
+                    <Multiselect v-model="form.patient_id" @search-change="fetchPatient" object placeholder="Search patient" :searchable="true" :close-on-select="true" label="name" :options="patients" />
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label">Service</label>
+                    <label class="form-label">Service <span v-if="form.errors.service_id" class="text-danger" style="font-size: 9px;">({{form.errors.service_id}})</span></label>
                     <Multiselect :options="services" label="name" v-model="form.service_id" :message="form.errors.service_id" placeholder="Select service" ref="multiselect1"/>
                 </div>
-                <div class="col-md-12">
-                    <hr class="text-muted mt-0 mb-0"/>
-                </div>
+                <BCol lg="12" class="mt-0 mb-n3"><hr class="text-muted"/></BCol>
+                <BCol lg="8" style="margin-top: 13px; margin-bottom: -12px;" class="fs-12" :class="form.errors.is_nhts ? 'text-danger' : ''">
+                    Please specify: Is it NHTS (Yes) or Non-NHTS (No)?
+                </BCol>
+                <BCol lg="4" style="margin-top: 13px; margin-bottom: -12px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="custom-control custom-radio mb-3">
+                                <input type="radio" id="customRadio1" class="custom-control-input me-2" @input="handleInput('is_nhts')" value="1" v-model="form.is_nhts">
+                                <label class="custom-control-label fw-normal fs-12" for="customRadio1">Yes</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="custom-control custom-radio mb-3">
+                                <input type="radio" id="customRadio2" class="custom-control-input me-2" @input="handleInput('is_nhts')" value="0" v-model="form.is_nhts">
+                                <label class="custom-control-label fw-normal fs-12" for="customRadio2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </BCol>
+                <BCol lg="12" class="mt-n2 mb-n3"><hr class="text-muted"/></BCol>
                 <template v-if="form.service_id">
-                    <Family v-if="form.service_id === 9" ref="family"/>
+                    <Family :errors="form.errors" :form="form" :dropdowns="families" v-if="form.service_id === 9" ref="family"/>
                     <Prenatal v-else-if="form.service_id === 8"  ref="prenatal"/>
                     <Immunization v-else-if="form.service_id === 7" ref="immunization"/>
                     <Consultation v-else  ref="consultation"/>
@@ -38,18 +56,37 @@ import { useForm } from '@inertiajs/vue3';
 import Multiselect from "@vueform/multiselect";
 export default {
     components: { Multiselect, Family, Prenatal, Consultation, Immunization },
-    props: ['services'],
+    props: ['services','families'],
     data(){
         return {
             currentUrl: window.location.origin,
             form: useForm({
                 id: null,
                 patient_id: null,
-                service_id: null
+                service_id: null,
+                is_nhts: null,
+                type_id: null,
+                method_id: null,
+                source: null,
+                registration_at: null
             }),
             patients: [],
             showModal: false,
             editable: false
+        }
+    },
+    watch: {
+        'form.service_id'(newVal) {
+            if (newVal === 9) {
+                this.form.type_id = null;
+                this.form.method_id = null;
+                this.form.source = null;
+                this.form.registration_at = null;
+            } else if (newVal === 10) {
+               
+            } else {
+            
+            }
         }
     },
     methods: { 
@@ -70,24 +107,13 @@ export default {
             .catch(err => console.log(err));
         },
         submit(){
-            if(this.editable){
-                this.form.put('/users/update',{
-                    preserveScroll: true,
-                    onSuccess: (response) => {
-                        this.$emit('update',true);
-                        this.form.reset();
-                        this.hide();
-                    }
-                });
-            }else{
-                this.form.post('/users',{
-                    preserveScroll: true,
-                    onSuccess: (response) => {
-                        this.$emit('update',true);
-                        this.hide();
-                    },
-                });
-            }
+            this.form.post('/appointments',{
+                preserveScroll: true,
+                onSuccess: (response) => {
+                    this.$emit('update',true);
+                    this.hide();
+                },
+            });
         },
         handleInput(field) {
             this.form.errors[field] = false;

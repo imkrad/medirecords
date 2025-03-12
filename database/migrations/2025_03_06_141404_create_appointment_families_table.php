@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('appointment_families', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('source')->nullable();
             $table->date('dropout_at')->nullable();
             $table->boolean('is_dropout')->default(0);
             $table->tinyInteger('reason_id')->unsigned()->nullable(); //reason family planning

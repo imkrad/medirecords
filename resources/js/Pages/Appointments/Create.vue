@@ -1,19 +1,26 @@
 <template>
     <!-- style="--vz-modal-width: 700px -->
-    <b-modal v-model="showModal" header-class="p-3 bg-primary-subtle" title="Create Appointment" class="v-modal-custom" modal-class="zoomIn" centered no-close-on-backdrop>
+    <b-modal v-model="showModal" size="lg" header-class="p-3 bg-primary-subtle" title="Create Appointment" class="v-modal-custom" modal-class="zoomIn" centered no-close-on-backdrop>
         <form class="customform">
             <div class="row g-3 mt-0 mb-3">
-                <div class="col-md-12 mt-0">
-                    <label class="form-label">Service</label>
-                    <Multiselect :options="services" label="name" v-model="form.service" :message="form.errors.service" placeholder="Select service" ref="multiselect1"/>
+                <div class="col-md-6">
+                    <label class="form-label">Patient</label>
+                    <Multiselect v-model="form.patient_id" @search-change="fetchPatient" placeholder="Search patient" :searchable="true" :close-on-select="true" label="name" :options="patients" />
                 </div>
+                <div class="col-md-6">
+                    <label class="form-label">Service</label>
+                    <Multiselect :options="services" label="name" v-model="form.service_id" :message="form.errors.service_id" placeholder="Select service" ref="multiselect1"/>
+                </div>
+                <div class="col-md-12">
+                    <hr class="text-muted mt-0 mb-0"/>
+                </div>
+                <template v-if="form.service_id">
+                    <Family v-if="form.service_id === 9" ref="family"/>
+                    <Prenatal v-else-if="form.service_id === 8"  ref="prenatal"/>
+                    <Immunization v-else-if="form.service_id === 7" ref="immunization"/>
+                    <Consultation v-else  ref="consultation"/>
+                </template>
             </div>
-            <template v-if="form.service">
-                <Family v-if="form.service === 9" ref="family"/>
-                <Prenatal v-else-if="form.service === 8"  ref="prenatal"/>
-                <Immunization v-else-if="form.service === 7" ref="immunization"/>
-                <Consultation v-else  ref="consultation"/>
-            </template>
         </form>
         <template v-slot:footer>
             <b-button @click="hide()" variant="light" block>Cancel</b-button>
@@ -37,8 +44,10 @@ export default {
             currentUrl: window.location.origin,
             form: useForm({
                 id: null,
-                service: null
+                patient_id: null,
+                service_id: null
             }),
+            patients: [],
             showModal: false,
             editable: false
         }
@@ -47,6 +56,18 @@ export default {
         show(){
             this.form.reset();
             this.showModal = true;
+        },
+        fetchPatient(code){
+            axios.get('/search',{
+                params: {
+                    option: 'patient',
+                    code: code
+                }
+            })
+            .then(response => {
+                this.patients = response.data;
+            })
+            .catch(err => console.log(err));
         },
         submit(){
             if(this.editable){

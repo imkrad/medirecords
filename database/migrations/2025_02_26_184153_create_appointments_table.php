@@ -15,9 +15,12 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('age');
-            $table->string('socioeconomic');
+            $table->boolean('is_nhts');
+            $table->longText('remarks')->nullable();
             $table->tinyInteger('service_id')->unsigned()->index();
             $table->foreign('service_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
+            $table->integer('patient_id')->unsigned()->index();
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->timestamps();
         });
     }

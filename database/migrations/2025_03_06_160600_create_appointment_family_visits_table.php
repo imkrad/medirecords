@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('appointment_immunizations', function (Blueprint $table) {
+        Schema::create('appointment_family_visits', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('appointment_id')->unsigned()->index();
-            $table->foreign('appointment_id')->references('id')->on('appointments')->onDelete('cascade');
+            $table->longText('remarks');
+            $table->integer('af_id')->unsigned()->index();
+            $table->foreign('af_id')->references('id')->on('appointment_families')->onDelete('cascade');
+            $table->date('visited_at')->nullable();
+            $table->date('scheduled_at');
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('appointment_immunizations');
+        Schema::dropIfExists('appointment_family_visits');
     }
 };

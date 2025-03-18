@@ -34,8 +34,8 @@
                 <BCol lg="12" class="mt-n2 mb-n3"><hr class="text-muted"/></BCol>
                 <template v-if="form.service_id">
                     <Family :errors="form.errors" :form="form" :dropdowns="families" v-if="form.service_id === 9" ref="family"/>
-                    <Prenatal v-else-if="form.service_id === 8"  ref="prenatal"/>
-                    <Immunization v-else-if="form.service_id === 7" ref="immunization"/>
+                    <Prenatal :errors="form.errors" :form="form" v-else-if="form.service_id === 8"  ref="prenatal"/>
+                    <Immunization :errors="form.errors" :form="form" :dropdowns="immunizations" v-else-if="form.service_id === 7" ref="immunization"/>
                     <Consultation v-else  ref="consultation"/>
                 </template>
             </div>
@@ -56,7 +56,7 @@ import { useForm } from '@inertiajs/vue3';
 import Multiselect from "@vueform/multiselect";
 export default {
     components: { Multiselect, Family, Prenatal, Consultation, Immunization },
-    props: ['services','families'],
+    props: ['services','families','immunizations'],
     data(){
         return {
             currentUrl: window.location.origin,
@@ -68,7 +68,17 @@ export default {
                 type_id: null,
                 method_id: null,
                 source: null,
-                registration_at: null
+                registration_at: null,
+                lmp_at: null,
+                edc_at: null,
+                weight: null,
+                height: null,
+                cpab_id: null,
+                weight_id: null,
+                weight: null,
+                length: null,
+                was_breastfeed: null
+
             }),
             patients: [],
             showModal: false,

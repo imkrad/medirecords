@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('appointment_maternal_deliveries', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->string('weight');
-            $table->string('sex');
+            $table->integer('count');
             $table->string('attendant_name');
             $table->string('attendant_type');
             $table->longText('remarks');

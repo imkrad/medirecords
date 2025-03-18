@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class AppointmentFamilyVisit extends Model
 {
     use HasFactory;
+
+    public function af()
+    {
+        return $this->belongsTo('App\Models\AppointmentFamily', 'af_id', 'id');
+    }
 }

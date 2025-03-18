@@ -35,7 +35,7 @@ class AppointmentFamily extends Model
  
      public function visits()
      {
-         return $this->hasMany('App\Models\AppointmentFamilyVisit', 'appointment_id');
+         return $this->hasMany('App\Models\AppointmentFamilyVisit', 'af_id');
      }
  
      public function getUpdatedAtAttribute($value)
@@ -46,5 +46,10 @@ class AppointmentFamily extends Model
      public function getCreatedAtAttribute($value)
      {
          return date('F d, Y g:i a', strtotime($value));
+     }
+
+     public function getDropoutAtAttribute($value)
+     {
+         return ($value) ? date('F d, Y', strtotime($value)) : null;
      }
 }

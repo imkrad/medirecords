@@ -20,5 +20,10 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/members', [App\Http\Controllers\MemberController::class, 'members']);
     Route::resource('/staffs', App\Http\Controllers\StaffController::class);
     Route::resource('/appointments', App\Http\Controllers\AppointmentController::class);
+
+    Route::post('/dropout', [App\Http\Controllers\AppointmentController::class, 'dropout']);
+    Route::post('/schedule', [App\Http\Controllers\AppointmentController::class, 'schedule']);
+    Route::post('/visit', [App\Http\Controllers\AppointmentController::class, 'visit']);
+    Route::post('/status', [App\Http\Controllers\AppointmentController::class, 'status']);
 });
 require __DIR__.'/auth.php';

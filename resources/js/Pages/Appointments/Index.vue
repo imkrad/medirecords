@@ -41,7 +41,7 @@
                                 <span :class="'badge '+list.status.color">{{list.status.name}}</span>
                             </td>
                             <td class="text-end">
-                                <Link :href="`/patients/${list.code}`">
+                                <Link :href="`/appointments/${list.id}`">
                                     <button type="button" class="btn btn-dark btn-sm bg-gradient waves-effect waves-light">View Appointment</button>
                                 </Link>
                             </td>
@@ -51,7 +51,11 @@
             </div>
         </div>
     </div>
-    <Create :services="services" :families="families" ref="create"/>
+    <Create @update="fetch()" 
+    :services="services" 
+    :families="families" 
+    :immunizations="immunizations"
+    ref="create"/>
 </template>
 <script>
 import _ from 'lodash';
@@ -60,7 +64,7 @@ import PageHeader from '@/Shared/Components/PageHeader.vue';
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
     components: { Pagination, PageHeader, Create }, 
-    props: ['services','families'],
+    props: ['services','families','immunizations'],
     data(){
         return {
             currentUrl: window.location.origin,

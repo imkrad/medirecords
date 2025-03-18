@@ -10,7 +10,7 @@ class Appointment extends Model
     use HasFactory;
 
     protected $fillable = [
-       'patient_id','service_id','is_nhts','age','registration_at','status_id'
+       'patient_id','service_id','is_nhts','age','registration_at','status_id','code'
     ];
 
     public function patient()
@@ -31,6 +31,11 @@ class Appointment extends Model
     public function family()
     {
         return $this->hasOne('App\Models\AppointmentFamily', 'appointment_id');
+    }
+
+    public function maternal()
+    {
+        return $this->hasOne('App\Models\AppointmentMaternal', 'appointment_id');
     }
 
     public function getUpdatedAtAttribute($value)

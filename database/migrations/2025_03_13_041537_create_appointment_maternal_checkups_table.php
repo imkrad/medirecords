@@ -15,9 +15,12 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->longText('remarks');
+            $table->integer('count');
+            $table->tinyInteger('type_id')->unsigned()->nullable(); 
+            $table->foreign('type_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
             $table->integer('am_id')->unsigned()->index();
             $table->foreign('am_id')->references('id')->on('appointment_maternals')->onDelete('cascade');
-            $table->date('checkup_at');
+            $table->date('date_at');
             $table->timestamps();
         });
     }

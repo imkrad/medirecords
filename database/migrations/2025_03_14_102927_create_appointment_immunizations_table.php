@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('appointment_maternals', function (Blueprint $table) {
+        Schema::create('appointment_immunizations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->date('lmp_at');
-            $table->date('edc_at');
             $table->decimal('height', 5, 2)->nullable();
             $table->decimal('weight', 6, 2)->nullable();
+            $table->boolean('was_breastfeed');
+            $table->tinyInteger('weight_id')->unsigned()->nullable();
+            $table->foreign('weight_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
+            $table->tinyInteger('cpab_id')->unsigned()->nullable();
+            $table->foreign('cpab_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
             $table->integer('appointment_id')->unsigned()->index();
             $table->foreign('appointment_id')->references('id')->on('appointments')->onDelete('cascade');
             $table->timestamps();
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('appointment_maternals');
+        Schema::dropIfExists('appointment_immunizations');
     }
 };

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('code',50)->unique();
             $table->integer('age');
             $table->boolean('is_nhts');
             $table->longText('remarks')->nullable();

@@ -488,6 +488,236 @@ class ListDropdownsTableSeeder extends Seeder
                 'others' => 'AB',
                 'is_active' => 1,
             ),
+            47 => 
+            array (
+                'id' => 48,
+                'name' => 'Barangay Health Station',
+                'classification' => 'Facility',
+                'type' => 'Health',
+                'color' => 'n/a',
+                'others' => 'BHS',
+                'is_active' => 1,
+            ),
+            48 => 
+            array (
+                'id' => 49,
+                'name' => 'Rural Health Unit',
+                'classification' => 'Facility',
+                'type' => 'Health',
+                'color' => 'n/a',
+                'others' => 'RHU',
+                'is_active' => 1,
+            ),
+            49 => 
+            array (
+                'id' => 50,
+                'name' => 'Maternal and Newborn Care',
+                'classification' => 'Facility',
+                'type' => 'Health',
+                'color' => 'n/a',
+                'others' => 'MNC',
+                'is_active' => 1,
+            ),
+            50 => 
+            array (
+                'id' => 51,
+                'name' => 'Lying-In',
+                'classification' => 'Facility',
+                'type' => 'Health',
+                'color' => 'n/a',
+                'others' => 'Lying-In',
+                'is_active' => 1,
+            ),
+            51 => 
+            array (
+                'id' => 52,
+                'name' => 'Birthing Homes',
+                'classification' => 'Facility',
+                'type' => 'Health',
+                'color' => 'n/a',
+                'others' => 'Birthing Homes',
+                'is_active' => 1,
+            ),
+            52 => 
+            array (
+                'id' => 53,
+                'name' => 'DOH Licenses',
+                'classification' => 'Facility',
+                'type' => 'Health',
+                'color' => 'n/a',
+                'others' => 'DOH Licenses',
+                'is_active' => 1,
+            ),
+            53 => 
+            array (
+                'id' => 54,
+                'name' => 'Ambulance',
+                'classification' => 'Facility',
+                'type' => 'Health',
+                'color' => 'n/a',
+                'others' => 'Ambulance',
+                'is_active' => 1,
+            ),
+            54 => 
+            array (
+                'id' => 55,
+                'name' => 'Home',
+                'classification' => 'Facility',
+                'type' => 'Non-health',
+                'color' => 'n/a',
+                'others' => 'Home',
+                'is_active' => 1,
+            ),
+            55 => 
+            array (
+                'id' => 56,
+                'name' => 'Others',
+                'classification' => 'Facility',
+                'type' => 'Non-health',
+                'color' => 'n/a',
+                'others' => 'Others',
+                'is_active' => 1,
+            ),
+            56 => 
+            array (
+                'id' => 57,
+            'name' => 'TT2/Td2 given to the mo the mother a mon prior to delivery (fir mother pregnant for the 1st time)',
+                'classification' => 'Cpab',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            57 => 
+            array (
+                'id' => 58,
+            'name' => 'TT3/Td3 to TT5/Td5 (or TT21/Td1 TT5/Td5 ) given to the mother anytime prior to delivery.',
+                'classification' => 'Cpab',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            58 => 
+            array (
+                'id' => 59,
+                'name' => 'Stunted',
+                'classification' => 'Nsa',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'S',
+                'is_active' => 1,
+            ),
+            59 => 
+            array (
+                'id' => 60,
+                'name' => 'Wasted - Moderate Acute Malnutrition',
+                'classification' => 'Nsa',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'W-MAM',
+                'is_active' => 1,
+            ),
+            60 => 
+            array (
+                'id' => 61,
+                'name' => 'Wasted - Severe Acute Malnutrition',
+                'classification' => 'Nsa',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'W-SAM',
+                'is_active' => 1,
+            ),
+            61 => 
+            array (
+                'id' => 62,
+                'name' => 'Obese',
+                'classification' => 'Nsa',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'O',
+                'is_active' => 1,
+            ),
+            62 => 
+            array (
+                'id' => 63,
+                'name' => 'Normal',
+                'classification' => 'Nsa',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'N',
+                'is_active' => 1,
+            ),
+            63 => 
+            array (
+                'id' => 64,
+                'name' => '0-28 days old',
+                'classification' => 'Range',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'N',
+                'is_active' => 1,
+            ),
+            64 => 
+            array (
+                'id' => 65,
+                'name' => '1-3 months old',
+                'classification' => 'Range',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'N',
+                'is_active' => 1,
+            ),
+            65 => 
+            array (
+                'id' => 66,
+                'name' => '6-11 months old',
+                'classification' => 'Range',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'N',
+                'is_active' => 1,
+            ),
+            66 => 
+            array (
+                'id' => 67,
+                'name' => '12 months old',
+                'classification' => 'Range',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'N',
+                'is_active' => 1,
+            ),
+            67 => 
+            array (
+                'id' => 68,
+                'name' => 'Low < 2500 gms',
+                'classification' => 'Weight',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'N',
+                'is_active' => 1,
+            ),
+            68 => 
+            array (
+                'id' => 69,
+                'name' => 'Normal >= 2500 gms',
+                'classification' => 'Weight',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'N',
+                'is_active' => 1,
+            ),
+            69 => 
+            array (
+                'id' => 70,
+                'name' => 'Unknown',
+                'classification' => 'Weight',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'N',
+                'is_active' => 1,
+            ),
         ));
 
         

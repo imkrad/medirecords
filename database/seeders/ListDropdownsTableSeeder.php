@@ -718,6 +718,56 @@ class ListDropdownsTableSeeder extends Seeder
                 'others' => 'N',
                 'is_active' => 1,
             ),
+            70 => 
+            array (
+                'id' => 71,
+                'name' => 'Doctor',
+                'classification' => 'Attendant',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'MD',
+                'is_active' => 1,
+            ),
+            71 => 
+            array (
+                'id' => 72,
+                'name' => 'Nurse',
+                'classification' => 'Attendant',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'RN',
+                'is_active' => 1,
+            ),
+            72 => 
+            array (
+                'id' => 73,
+                'name' => 'Midwife',
+                'classification' => 'Attendant',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'MW',
+                'is_active' => 1,
+            ),
+            73 => 
+            array (
+                'id' => 74,
+                'name' => 'Hilot',
+                'classification' => 'Attendant',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'H',
+                'is_active' => 1,
+            ),
+            74 => 
+            array (
+                'id' => 75,
+                'name' => 'Others',
+                'classification' => 'Attendant',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'O',
+                'is_active' => 1,
+            ),
         ));
 
         

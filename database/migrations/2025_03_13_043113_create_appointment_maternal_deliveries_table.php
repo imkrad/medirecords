@@ -13,19 +13,23 @@ return new class extends Migration
     {
         Schema::create('appointment_maternal_deliveries', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->integer('count');
             $table->string('attendant_name');
-            $table->string('attendant_type');
             $table->longText('remarks');
+            $table->datetime('delivery_at');
+            $table->tinyInteger('weight_id')->unsigned()->nullable(); 
+            $table->foreign('weight_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
             $table->tinyInteger('outcome_id')->unsigned()->nullable(); 
             $table->foreign('outcome_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
+            $table->tinyInteger('attendant_id')->unsigned()->nullable(); 
+            $table->foreign('attendant_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
             $table->tinyInteger('facility_id')->unsigned()->nullable(); 
             $table->foreign('facility_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
             $table->tinyInteger('delivery_id')->unsigned()->nullable();
             $table->foreign('delivery_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
+            $table->integer('member_id')->unsigned()->index();
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
             $table->integer('am_id')->unsigned()->index();
             $table->foreign('am_id')->references('id')->on('appointment_maternals')->onDelete('cascade');
-            $table->datetime('delivery_at');
             $table->timestamps();
         });
     }

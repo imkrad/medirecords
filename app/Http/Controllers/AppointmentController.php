@@ -195,6 +195,14 @@ class AppointmentController extends Controller
                 'families' => [
                     'reasons' => $this->dropdowns('Reason')
                 ],
+                'maternals' => [
+                    'lists' => $this->dropdowns('Maternal'),
+                    'outcomes' => $this->dropdowns('Outcome'),
+                    'facilities' => $this->dropdowns('Facility'),
+                    'deliveries' => $this->dropdowns('Delivery'),
+                    'attendants' => $this->dropdowns('Attendant'),
+                    'weights' => $this->dropdowns('Weight')
+                ],
             ]
         ]);
     }

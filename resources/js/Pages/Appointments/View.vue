@@ -53,6 +53,7 @@
                     </BCard>
                 </BCol>
                 <Family :a="a" :appointment="appointment" :dropdowns="dropdowns.families" v-if="appointment.service_id == 9"/>
+                <Maternal :a="a" :appointment="appointment" :dropdowns="dropdowns.maternals" v-if="appointment.service_id == 8"/>
             </BRow>
         </div>
     </div>
@@ -61,8 +62,9 @@
 <script>
 import Status from './Modals/Status.vue';
 import Family from './Pages/Family.vue';
+import Maternal from './Pages/Maternal.vue';
 export default {
-    components: { Family, Status },
+    components: { Family, Maternal, Status },
     props:['a','dropdowns'],
     data(){
         return {

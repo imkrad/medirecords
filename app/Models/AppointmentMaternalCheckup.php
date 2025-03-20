@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class AppointmentMaternalCheckup extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'remarks','value','count','type_id','subtype_id','am_id','date_at'
+    ];
+
+    public function type()
+    {
+        return $this->belongsTo('App\Models\ListDropdown', 'type_id', 'id');
+    }
+
+    public function subtype()
+    {
+        return $this->belongsTo('App\Models\ListDropdown', 'subtype_id', 'id');
+    }
 }

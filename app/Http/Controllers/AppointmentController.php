@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Member;
+use App\Models\FamilyMember;
 use App\Models\Appointment;
 use App\Models\AppointmentFamily;
 use App\Models\AppointmentFamilyVisit;
+use App\Models\AppointmentMaternalCheckup;
+use App\Models\AppointmentMaternalDelivery;
 use App\Models\ListDropdown;
 use Illuminate\Http\Request;
 use App\Http\Requests\AppointmentRequest;
@@ -163,11 +167,105 @@ class AppointmentController extends Controller
         ]);
     }
 
+    public function delivery(Request $request){
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'middlename' => 'required',
+            'birthdate' => 'required',
+            'sex' => 'required',
+            'status' => 'required',
+            'delivery_id' => 'required',
+            'outcome_id' => 'required',
+            'weight_id' => 'required',
+            'facility_id' => 'required',
+            'attendant_id' => 'required',
+            'attendant_name' => 'required'
+        ]);
+        $result = $this->handleTransaction(function () use ($request) {
+            $member = Member::create([
+                'firstname' => $request->firstname,
+                'middlename' => $request->middlename,
+                'lastname' => $request->lastname,
+                'sex' => $request->sex,
+                'status' => $request->status,
+                'birthdate' => $request->birthdate,
+            ]);
+            if($member){
+                FamilyMember::create([
+                    'type_id' => 4,
+                    'member_id' => $member->id,
+                    'family_id' => FamilyMember::where('member_id',$request->id)->value('family_id'),
+                ]);
+                
+                AppointmentMaternalDelivery::create([
+                    'delivery_id' => $request->delivery_id,
+                    'outcome_id' => $request->outcome_id,
+                    'weight_id' => $request->weight_id,
+                    'facility_id' => $request->facility_id,
+                    'attendant_id' => $request->attendant_id,
+                    'attendant_name' => $request->attendant_name,
+                    'remarks' => $request->remarks,
+                    'delivery_at' => $request->birthdate,
+                    'member_id' => $member->id,
+                    'am_id' => $request->id
+                ]);
+            }
+
+            return [
+                'data' => [],
+                'message' => 'Delivery creation was successful!', 
+                'info' => "You've successfully added delivery."
+            ];
+        });
+
+        return back()->with([
+            'data' => $result['data'],
+            'message' => $result['message'],
+            'info' => $result['info'],
+            'status' => $result['status'],
+        ]);
+    }
+
+    public function checkup(Request $request){
+        $request->validate([
+            'type_id' => 'required',
+            'subtype_id' => 'required_if:type_id.value:38,39,42,43',
+            'count' => 'required_if:type_id.value,38,39',
+            'value' => 'required_if:type_id.value,39,42,43',
+            'date_at' => 'required'
+        ]);
+
+        $result = $this->handleTransaction(function () use ($request) {
+            $data = new AppointmentMaternalCheckup;
+            $data->remarks = $request->remarks;
+            $data->value = $request->value;
+            $data->count = $request->count;
+            $data->subtype_id = $request->subtype_id;
+            $data->type_id = $request->type_id['value'];
+            $data->date_at = $request->date_at;
+            $data->am_id = $request->id;
+            $data->save();
+            return [
+                'data' => [],
+                'message' => 'Delivery creation was successful!', 
+                'info' => "You've successfully added delivery."
+            ];
+        });
+
+        return back()->with([
+            'data' => $result['data'],
+            'message' => $result['message'],
+            'info' => $result['info'],
+            'status' => $result['status'],
+        ]);
+    }
+
     private function lists($request){
         $data = Appointment::query()
         ->with('patient.member','service','status')
         ->with('family.reason','family.type','family.method')
-        ->with('maternal.checkups','maternal.delivery')
+        ->with('maternal.checkups','maternal.deliveries')
         ->when($request->keyword, function ($query, $keyword) {
            
         })
@@ -178,10 +276,11 @@ class AppointmentController extends Controller
     }
 
     private function dropdowns($data){
-        return ListDropdown::where('classification',$data)->get()->map(function ($item) {
+        return ListDropdown::where('classification',$data)->where('is_active',1)->get()->map(function ($item) {
             return [
                 'value' => $item->id,
-                'name' => $item->name
+                'name' => $item->name,
+                'type' => $item->type,
             ];
         });
     }
@@ -190,7 +289,9 @@ class AppointmentController extends Controller
         return inertia('Appointments/View',[
             'a' => new AppointmentResource(Appointment::with('patient.member','service','status')
             ->with('family.reason','family.type','family.method','family.visits')
-            ->with('maternal.checkups','maternal.delivery')->where('id',$code)->first()),
+            ->with('maternal.checkups.type','maternal.checkups.subtype')
+            ->with('maternal.deliveries.outcome','maternal.deliveries.facility','maternal.deliveries.attendant','maternal.deliveries.weight','maternal.deliveries.delivery','maternal.deliveries.member')
+            ->where('id',$code)->first()),
             'dropdowns' => [
                 'families' => [
                     'reasons' => $this->dropdowns('Reason')
@@ -201,7 +302,9 @@ class AppointmentController extends Controller
                     'facilities' => $this->dropdowns('Facility'),
                     'deliveries' => $this->dropdowns('Delivery'),
                     'attendants' => $this->dropdowns('Attendant'),
-                    'weights' => $this->dropdowns('Weight')
+                    'weights' => $this->dropdowns('Weight'),
+                    'maternals' => $this->dropdowns('Maternal'),
+                    'submaternals' => $this->dropdowns('Submaternal')
                 ],
             ]
         ]);

@@ -18,9 +18,9 @@ class AppointmentMaternal extends Model
         return $this->hasMany('App\Models\AppointmentMaternalCheckup', 'am_id');
     }
 
-    public function delivery()
+    public function deliveries()
     {
-        return $this->hasOne('App\Models\AppointmentMaternalDelivery', 'am_id');
+        return $this->hasMany('App\Models\AppointmentMaternalDelivery', 'am_id');
     }
 
     public function appointment()

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('appointment_maternal_deliveries', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->string('attendant_name');
-            $table->longText('remarks');
+            $table->longText('remarks')->nullable();
             $table->datetime('delivery_at');
             $table->tinyInteger('weight_id')->unsigned()->nullable(); 
             $table->foreign('weight_id')->references('id')->on('list_dropdowns')->onDelete('cascade');

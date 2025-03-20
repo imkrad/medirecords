@@ -22,4 +22,9 @@ class AppointmentMaternalCheckup extends Model
     {
         return $this->belongsTo('App\Models\ListDropdown', 'subtype_id', 'id');
     }
+
+    public function getDateAtAttribute($value)
+    {
+        return date('F d, Y', strtotime($value));
+    }
 }

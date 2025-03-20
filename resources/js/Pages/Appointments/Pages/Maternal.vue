@@ -71,7 +71,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="table-white fs-10">
-                                        <tr v-for="(list,index) in appointment.maternal.checkups" v-bind:key="index" >
+                                        <tr v-for="(list,index) in a.data.maternal.checkups" v-bind:key="index" >
                                             <td>{{ list.type.name }}</td>
                                             <td class="text-center">{{ list.subtype.name }}</td>
                                             <td class="text-center">{{ (list.count) ? list.count : '-' }}</td>
@@ -108,7 +108,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="table-white fs-10">
-                                        <tr v-for="(list,index) in appointment.maternal.deliveries" v-bind:key="index" >
+                                        <tr v-for="(list,index) in a.data.maternal.deliveries" v-bind:key="index" >
                                             <td>
                                                 <h5 class="fs-11 mb-0 fw-semibold text-uppercase" :class="(list.member.sex == 'Male') ? 'text-info' : 'text-danger'">{{list.member.lastname}}, {{list.member.firstname}} {{list.member.middlename}}.</h5>
                                                 <p class="fs-10 text-muted mb-0">{{list.member.birthdate}} | </p>

@@ -10,7 +10,21 @@
                 </button>
             </div>
         </div>
-        <div class="card-body" style="height: calc(100vh - 270px); overflow: auto;">
+        <div class="card-body" style="height: calc(100vh - 290px); overflow: auto;">
+            <div class="d-flex justify-content-sm-end gap-2" style="margin-bottom: 30px;">
+                <div class="search-box" style="width: 60%;">
+                    <input type="text" v-model="filter.keyword" class="form-control" placeholder="Search...">
+                    <i class="ri-search-line search-icon"></i>
+                </div>
+                <select v-model="filter.service" class="form-control" style="width: 20%;">
+                    <option :value="null">All Services</option>
+                    <option v-for="(list,index) in services" v-bind:key="index" :value="list.value">{{list.name}}</option>
+                </select>
+                <select v-model="filter.status" class="form-control" style="width: 20%;">
+                    <option :value="null">All Statuses</option>
+                    <option v-for="(list,index) in statuses" v-bind:key="index" :value="list.value">{{list.name}}</option>
+                </select>
+            </div>
             <div class="table-responsive table-card" style=" height: calc(100vh - 545px)">
                 <table class="table align-middle table-centered mb-0">
                     <thead class="table-light thead-fixed">
@@ -28,7 +42,6 @@
                             <td class="text-center"> 
                                 <div class="avatar-xs chat-user-img online">
                                     <img :src="'images/avatars/'+list.patient.member.avatar" alt="" class="avatar-xs rounded-circle">
-                                    <!-- <span v-if="list.is_active" class="user-status text-success"></span> -->
                                 </div>
                             </td>
                             <td>
@@ -64,7 +77,7 @@ import PageHeader from '@/Shared/Components/PageHeader.vue';
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
     components: { Pagination, PageHeader, Create }, 
-    props: ['services','families','immunizations'],
+    props: ['services','families','immunizations','statuses'],
     data(){
         return {
             currentUrl: window.location.origin,
@@ -73,7 +86,20 @@ export default {
             links: {},
             filter: {
                 keyword: null,
+                service: null,
+                status: null
             },
+        }
+    },
+    watch: {
+        "filter.keyword"(newVal){
+            this.checkSearchStr(newVal)
+        },
+        "filter.service"(newVal){
+            this.fetch();
+        },
+        "filter.status"(newVal){
+            this.fetch();
         }
     },
     created(){
@@ -88,6 +114,8 @@ export default {
             axios.get(page_url,{
                 params : {
                     keyword: this.filter.keyword,
+                    service: this.filter.service,
+                    status: this.filter.status,
                     option: 'lists',
                     count: 10
                 }

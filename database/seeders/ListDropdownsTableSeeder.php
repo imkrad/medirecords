@@ -66,7 +66,7 @@ class ListDropdownsTableSeeder extends Seeder
                 'type' => 'n/a',
                 'color' => 'n/a',
                 'others' => 'n/a',
-                'is_active' => 1,
+                'is_active' => 0,
             ),
             5 => 
             array (
@@ -76,7 +76,7 @@ class ListDropdownsTableSeeder extends Seeder
                 'type' => 'n/a',
                 'color' => 'n/a',
                 'others' => 'n/a',
-                'is_active' => 1,
+                'is_active' => 0,
             ),
             6 => 
             array (

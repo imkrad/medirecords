@@ -28,8 +28,10 @@ class PatientController extends Controller
         $data = Patient::query()
             ->with('member.families.family.members')
             ->when($request->keyword, function ($query, $keyword) {
-                $query->where(\DB::raw('concat(firstname," ",lastname)'), 'LIKE', "%{$keyword}%")
-                ->orWhere(\DB::raw('concat(lastname," ",firstname)'), 'LIKE', "%{$keyword}%");
+                $query->whereHas('member',function ($query) use ($keyword) {
+                    $query->where(\DB::raw('concat(firstname," ",lastname)'), 'LIKE', "%{$keyword}%")
+                    ->orWhere(\DB::raw('concat(lastname," ",firstname)'), 'LIKE', "%{$keyword}%");
+                });
             })
             ->orderBy('created_at','DESC')
             ->paginate($request->count);

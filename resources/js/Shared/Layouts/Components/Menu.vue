@@ -72,7 +72,7 @@
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Users Directory</span>
                 </Link>
             </li>
-            <li class="menu-title">
+            <!-- <li class="menu-title">
                 <span data-key="t-menu">Communication</span>
             </li>
             <li class="nav-item">
@@ -86,7 +86,7 @@
                 <i class="ri-file-list-fill"></i>
                 <span class="fw-semibold fs-14" data-key="t-dashboards">Announcements</span>
                 </Link>
-            </li>
+            </li> -->
             <!-- <li class="nav-item">
                 <Link class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button"
                   aria-expanded="false" aria-controls="sidebarDashboards">

@@ -28,6 +28,7 @@ class AppointmentController extends Controller
             default: 
                 return inertia('Appointments/Index',[
                     'services' => $this->dropdowns('Service'),
+                    'statuses' => $this->dropdowns('Status'),
                     'families' => [
                         'types' => $this->dropdowns('Type'),
                         'methods' => $this->dropdowns('Method'),
@@ -267,8 +268,19 @@ class AppointmentController extends Controller
         ->with('family.reason','family.type','family.method')
         ->with('maternal.checkups','maternal.deliveries')
         ->when($request->keyword, function ($query, $keyword) {
-           
+            $query->whereHas('patient',function ($query) use ($keyword) {
+                $query->whereHas('member',function ($query) use ($keyword) {
+                    $query->where(\DB::raw('concat(firstname," ",lastname)'), 'LIKE', "%{$keyword}%")
+                    ->orWhere(\DB::raw('concat(lastname," ",firstname)'), 'LIKE', "%{$keyword}%");
+                });
+            });
         })
+        ->when($request->service, function ($query, $service) {
+           $query->where('service_id',$service);
+        })
+        ->when($request->status, function ($query, $status) {
+            $query->where('status_id',$status);
+         })
         ->orderBy('created_at','DESC')
         ->paginate($request->count);
 

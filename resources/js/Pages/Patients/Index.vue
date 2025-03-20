@@ -11,6 +11,12 @@
             </div>
         </div>
         <div class="card-body" style="height: calc(100vh - 270px); overflow: auto;">
+            <div class="d-flex justify-content-sm-end gap-2" style="margin-bottom: 30px;">
+                <div class="search-box" style="width: 100%;">
+                    <input type="text" v-model="filter.keyword" class="form-control" placeholder="Search...">
+                    <i class="ri-search-line search-icon"></i>
+                </div>
+            </div>
             <div class="table-responsive table-card" style=" height: calc(100vh - 545px)">
                 <table class="table align-middle table-centered mb-0">
                     <thead class="table-light thead-fixed">
@@ -83,6 +89,11 @@ export default {
     },
     created(){
         this.fetch();
+    },
+    watch: {
+        "filter.keyword"(newVal){
+            this.checkSearchStr(newVal)
+        }
     },
     methods: {
         checkSearchStr: _.debounce(function(string) {

@@ -28,4 +28,13 @@ class AppointmentMaternal extends Model
         return $this->belongsTo('App\Models\Appointment', 'appointment_id', 'id');
     }
  
+    public function getLmpAtAttribute($value)
+    {
+        return date('F d, Y', strtotime($value));
+    }
+
+    public function getEdcAtAttribute($value)
+    {
+        return date('F d, Y', strtotime($value));
+    }
 }

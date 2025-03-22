@@ -7,7 +7,7 @@
                         <div class="card-header">
                             <h5 class="card-title text-success fw-semibold mb-0">{{appointment.service.name}}</h5>
                         </div>
-                        <div class="card-body" style="height: calc((100vh - 420px) / 2); overflow: auto;">
+                        <div class="card-body" style="height: calc(100vh - 343px); overflow: auto;">
                             <div class="table-responsive">
                                 <table class="table table-borderless mb-0 mt-0">
                                     <tbody>
@@ -24,6 +24,26 @@
                                             <th class="text-primary">{{appointment.registration_at}}</th>
                                         </tr>
                                         <tr>
+                                            <th class="ps-0" scope="row">Age</th>
+                                            <th class="text-primary">{{appointment.age}}</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0" scope="row">Last Menstrual Period :</th>
+                                            <th class="text-primary">{{appointment.maternal.lmp_at}}</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0" scope="row">Last Menstrual Period :</th>
+                                            <th class="text-primary">{{appointment.maternal.edc_at}}</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0" scope="row">Height :</th>
+                                            <th class="text-primary">{{appointment.maternal.height}}</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0" scope="row">Weight :</th>
+                                            <th class="text-primary">{{appointment.maternal.weight}}</th>
+                                        </tr>
+                                        <tr>
                                             <th class="ps-0" scope="row">Remarks</th>
                                             <td class="text-truncate" v-if="appointment.remarks">{{appointment.remarks}}</td>
                                             <th class="text-primary" v-else>-</th>
@@ -31,16 +51,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
-                    </div>
-                </BCol>
-                <BCol lg="12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title text-success fw-semibold mb-0">{{appointment.service.name}}</h5>
-                        </div>
-                        <div class="card-body" style="height: calc((100vh - 420px) / 2); overflow: auto;">
-                           
                         </div>
                     </div>
                 </BCol>

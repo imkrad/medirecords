@@ -5,9 +5,11 @@
         <div class="card-header align-items-center d-flex">
             <h4 class="card-title mb-0 flex-grow-1">Lists of Patients</h4>
             <div class="flex-shrink-0">
-                <!-- <button class="btn btn-soft-info btn-sm" type="button">
-                    <div class="btn-content"><i class="ri-file-list-3-line align-middle"></i> Generate Report </div>
-                </button> -->
+                <Link :href="`/patients/create`">
+                    <button class="btn btn-primary btn-sm" type="button">
+                        <div class="btn-content"><i class="ri-user-line align-middle"></i> New Patient </div>
+                    </button>
+                </Link>
             </div>
         </div>
         <div class="card-body" style="height: calc(100vh - 270px); overflow: auto;">

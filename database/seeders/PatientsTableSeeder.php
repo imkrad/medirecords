@@ -22,7 +22,7 @@ class PatientsTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'code' => 'PTL-2025-00001',
-                'email' => 'ixantipphy@gmail.com',
+                'email' => 'maedoe@gmail.com',
                 'homephone' => '9918766',
                 'cellphone' => '09171531652',
                 'address' => 'Guiwa Aurora Village',

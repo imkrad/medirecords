@@ -22,7 +22,7 @@ class FamiliesTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'code' => '2025-00001',
-                'name' => 'Jumli',
+                'name' => 'Doe',
                 'created_at' => '2025-03-12 11:06:02',
                 'updated_at' => '2025-03-12 11:06:02',
             ),

@@ -19,6 +19,10 @@
                                         <th class="text-primary">{{appointment.status.name}}</th>
                                     </tr>
                                     <tr>
+                                        <th class="ps-0" scope="row">Age</th>
+                                        <th class="text-primary">{{appointment.age}}</th>
+                                    </tr>
+                                    <tr>
                                         <th class="ps-0" scope="row">Method :</th>
                                         <th class="text-primary">{{appointment.family.method.name}}</th>
                                     </tr>

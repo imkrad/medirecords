@@ -21,8 +21,8 @@ class MembersTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'firstname' => 'Xantipphy',
-                'lastname' => 'Jumli',
+                'firstname' => 'Mae',
+                'lastname' => 'Doe',
                 'middlename' => 'Ibrahim',
                 'sex' => 'Female',
                 'status' => 'Married',
@@ -34,8 +34,8 @@ class MembersTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
-                'firstname' => 'Ra-ouf',
-                'lastname' => 'Jumli',
+                'firstname' => 'John',
+                'lastname' => 'Doe',
                 'middlename' => 'Indanan',
                 'sex' => 'Male',
                 'status' => 'Married',

@@ -43,7 +43,7 @@ class InsightController extends Controller
     }
 
     private function visits_sched($request){
-        $data = AppointmentFamilyVisit::with('af.appointment.patient.member')->whereNull('visited_at')->get();
+        $data = AppointmentFamilyVisit::with('af.appointment.patient.member')->whereNull('visited_at')->orderBy('scheduled_at')->get()->unique('af.appointment.patient.id');
         return $data;
     }
 

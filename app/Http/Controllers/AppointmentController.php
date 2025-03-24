@@ -66,6 +66,14 @@ class AppointmentController extends Controller
                         'height' => $request->height,
                         'weight' => $request->weight,
                     ]);
+                }else if($request->service_id == 7){
+                    $immunization = $data->immunization()->create([
+                        'was_breastfeed' => $request->was_breastfeed,
+                        'weight_id' => $request->weight_id,
+                        'cpab_id' => $request->cpab_id,
+                        'height' => $request->height,
+                        'weight' => $request->weight,
+                    ]);
                 }
             }
 

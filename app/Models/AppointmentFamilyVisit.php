@@ -13,4 +13,14 @@ class AppointmentFamilyVisit extends Model
     {
         return $this->belongsTo('App\Models\AppointmentFamily', 'af_id', 'id');
     }
+
+    public function getScheduledAtAttribute($value)
+    {
+        return date('F d, Y', strtotime($value));
+    }
+
+    public function getVisitedAtAttribute($value)
+    {
+        return ($value) ? date('F d, Y', strtotime($value)) : null;
+    }
 }

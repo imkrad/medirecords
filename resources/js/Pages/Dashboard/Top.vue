@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-4 mb-n4" v-for="(item, index) of counts" :key="index"> 
+    <div class="col-md-4" style="margin-bottom: -40px;" v-for="(item, index) of counts" :key="index"> 
         <div class="card shadow-none border">
             <div class="card-header bg-light-subtle">
                 <div class="d-flex mb-n3">

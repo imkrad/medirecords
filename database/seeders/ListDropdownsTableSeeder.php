@@ -768,6 +768,126 @@ class ListDropdownsTableSeeder extends Seeder
                 'others' => 'O',
                 'is_active' => 1,
             ),
+            75 => 
+            array (
+                'id' => 76,
+                'name' => 'Tetanus Diphteria / Tetanus Toxoid',
+                'classification' => 'Submaternal',
+                'type' => 'Immunization Status',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            76 => 
+            array (
+                'id' => 77,
+                'name' => 'Iron Sulfate with Folic Acid',
+                'classification' => 'Submaternal',
+                'type' => 'Micronutrient Supplementation',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            77 => 
+            array (
+                'id' => 78,
+                'name' => 'Calcium Carbonate',
+                'classification' => 'Submaternal',
+                'type' => 'Micronutrient Supplementation',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            78 => 
+            array (
+                'id' => 79,
+                'name' => 'Low < 18.5',
+                'classification' => 'Submaternal',
+                'type' => 'Nutritional Assessment',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            79 => 
+            array (
+                'id' => 80,
+                'name' => 'Normal 18.5-22.9',
+                'classification' => 'Submaternal',
+                'type' => 'Nutritional Assessment',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            80 => 
+            array (
+                'id' => 81,
+                'name' => 'High >= 23',
+                'classification' => 'Submaternal',
+                'type' => 'Nutritional Assessment',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            81 => 
+            array (
+                'id' => 82,
+                'name' => 'Screening',
+                'classification' => 'Submaternal',
+                'type' => 'Infectious Disease Surveillance',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            82 => 
+            array (
+                'id' => 83,
+            'name' => 'Hepatitis B (Result of HbsAg)',
+                'classification' => 'Submaternal',
+                'type' => 'Infectious Disease Surveillance',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            83 => 
+            array (
+                'id' => 84,
+            'name' => 'HIV (Date of Screening)',
+                'classification' => 'Submaternal',
+                'type' => 'Infectious Disease Surveillance',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            84 => 
+            array (
+                'id' => 85,
+                'name' => 'Gestational Diabetes',
+                'classification' => 'Submaternal',
+                'type' => 'Laboratory Screening',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            85 => 
+            array (
+                'id' => 86,
+                'name' => 'CBC/Hgb & Hct Count',
+                'classification' => 'Submaternal',
+                'type' => 'Laboratory Screening',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            86 => 
+            array (
+                'id' => 87,
+                'name' => 'Iodine Capsules',
+                'classification' => 'Submaternal',
+                'type' => 'Micronutrient Supplementation',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
         ));
 
         

@@ -83,7 +83,7 @@
                                     <tbody class="table-white fs-10">
                                         <tr v-for="(list,index) in a.data.maternal.checkups" v-bind:key="index" >
                                             <td>{{ list.type.name }}</td>
-                                            <td class="text-center">{{ list.subtype.name }}</td>
+                                            <td class="text-center">{{ (list.subtype) ? list.subtype.name : '-' }}</td>
                                             <td class="text-center">{{ (list.count) ? list.count : '-' }}</td>
                                             <td class="text-center">{{ (list.value) ? list.value : '-' }}</td>
                                             <td class="text-center">{{ list.date_at }}</td>

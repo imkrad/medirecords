@@ -54,6 +54,7 @@
                 </BCol>
                 <Family :a="a" :appointment="appointment" :dropdowns="dropdowns.families" v-if="appointment.service_id == 9"/>
                 <Maternal :a="a" :appointment="appointment" :dropdowns="dropdowns.maternals" v-if="appointment.service_id == 8"/>
+                <Immunization :a="a" :appointment="appointment" :dropdowns="dropdowns.maternals" v-if="appointment.service_id == 7"/>
             </BRow>
         </div>
     </div>
@@ -63,8 +64,9 @@
 import Status from './Modals/Status.vue';
 import Family from './Pages/Family.vue';
 import Maternal from './Pages/Maternal.vue';
+import Immunization from './Pages/Immunization.vue';
 export default {
-    components: { Family, Maternal, Status },
+    components: { Family, Maternal, Status, Immunization },
     props:['a','dropdowns'],
     data(){
         return {

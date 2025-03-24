@@ -27,5 +27,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::post('/status', [App\Http\Controllers\AppointmentController::class, 'status']);
     Route::post('/delivery', [App\Http\Controllers\AppointmentController::class, 'delivery']);
     Route::post('/checkup', [App\Http\Controllers\AppointmentController::class, 'checkup']);
+
+    Route::get('/insights', [App\Http\Controllers\InsightController::class, 'index']);
 });
 require __DIR__.'/auth.php';

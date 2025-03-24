@@ -1,20 +1,23 @@
 <template>
     <Head title="Dashboard" />
     <PageHeader title="Dashboard" pageTitle="Page" />
-    <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-1">
-        <div class="file-manager-content w-100 p-4 pb-0" style="height: calc(100vh - 180px); overflow: auto;" ref="box">
-            <div class="row">
-                sd
-            </div>
-        </div>
-    </div>
+    <BRow class="g-3" style="height: calc(100vh - 300px); overflow: auto;">
+        <BCol xl="8">
+            <Bar ref="bar"/>
+        </BCol>
+        <BCol xl="4">
+            <Info ref="info"/>
+        </BCol>
+    </BRow>
 </template>
 <script>
 import _ from 'lodash';
+import Bar from './Bar.vue';
+import Info from './Info.vue';
 import PageHeader from '@/Shared/Components/PageHeader.vue';
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
-    components: { Pagination, PageHeader }, 
+    components: { Pagination, PageHeader, Bar, Info }, 
     data(){
         return {
             currentUrl: window.location.origin,

@@ -7,21 +7,27 @@
                     <tr class="fs-11">
                         <th style="width: 3%;"></th>
                         <th>Name</th>
-                        <th style="width: 25%;" class="text-center">Appointment Code</th>
-                        <th style="width: 25%;" class="text-center">Schedule</th>
+                        <th style="width: 20%;" class="text-center">Appointment Code</th>
+                        <th style="width: 20%;" class="text-center">Contact Number</th>
+                        <th style="width: 20%;" class="text-center">Schedule</th>
                         <th style="width: 7%;"></th>
                     </tr>
                 </thead>
                 <tbody class="table-white">
                     <tr v-for="(list,index) in visits" v-bind:key="index" >
-                        <td class="text-center"></td>
-                        <td>
-                            <h5 class="fs-13 mb-0 fw-semibold text-primary text-uppercase">{{list.af.appointment.patient.member.lastname}}</h5>
+                        <td class="text-center">
+                            {{ index + 1 }}.
                         </td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
                         <td>
-                          
+                            <h5 class="fs-13 mb-0 fw-semibold text-primary text-uppercase">{{list.af.appointment.patient.member.lastname}}, {{list.af.appointment.patient.member.firstname}} {{list.af.appointment.patient.member.middlename[0]}}.</h5>
+                        </td>
+                        <td class="text-center">{{ list.af.appointment.code }}</td>
+                        <td class="text-center">{{ list.af.appointment.patient.cellphone}}</td>
+                        <td class="text-center">{{ list.scheduled_at }}</td>
+                        <td>
+                            <button @click="openSched(item.t)" class="btn btn-danger btn-sm bg-gradient float-end waves-effect waves-light mt-n1 mb-n1" type="button">
+                                <div class="btn-content">Notify</div>
+                            </button>
                         </td>
                     </tr>
                 </tbody>

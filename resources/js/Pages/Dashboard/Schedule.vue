@@ -10,7 +10,7 @@
                         <th style="width: 20%;" class="text-center">Appointment Code</th>
                         <th style="width: 20%;" class="text-center">Contact Number</th>
                         <th style="width: 20%;" class="text-center">Schedule</th>
-                        <th style="width: 7%;"></th>
+                        <!-- <th style="width: 7%;"></th> -->
                     </tr>
                 </thead>
                 <tbody class="table-white">
@@ -24,11 +24,11 @@
                         <td class="text-center">{{ list.af.appointment.code }}</td>
                         <td class="text-center">{{ list.af.appointment.patient.cellphone}}</td>
                         <td class="text-center">{{ list.scheduled_at }}</td>
-                        <td>
+                        <!-- <td>
                             <button @click="openSched(item.t)" class="btn btn-danger btn-sm bg-gradient float-end waves-effect waves-light mt-n1 mb-n1" type="button">
                                 <div class="btn-content">Notify</div>
                             </button>
-                        </td>
+                        </td> -->
                     </tr>
                 </tbody>
             </table>

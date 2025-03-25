@@ -68,12 +68,9 @@
             
         </div>
     </div>
-    <View ref="view"/>
 </template>
 <script>
-import View from './View.vue';
 export default {
-    components : { View },
     data(){
         return {
             currentUrl: window.location.origin,

@@ -4,9 +4,10 @@
         <div class="auth-page-content">
             <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-1">
                 <div class="file-manager-content w-100 p-4 pb-0" ref="box">
-                        <table class="table table-bordered table-nowrap align-middle mb-0 mt-2">
+                        <table class="table table-bordered table-nowrap align-middle">
                             <thead class="bg-primary text-white">
                                 <tr class="fs-10">
+                                    <th class="text-center align-middle" rowspan="2">Fullname</th>
                                     <th class="text-center" colspan="12">Follow-up Visits</th>
                                     <th class="text-center" colspan="3">Deworming Drugs Given to 20-40 yrs old</th>
                                     <th class="text-center align-middle" rowspan="2">Drop-out</th>

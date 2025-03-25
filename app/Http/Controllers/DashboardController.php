@@ -15,7 +15,9 @@ class DashboardController extends Controller
     }
 
     public function tcls($id){
-        return inertia('Dashboard/View');
+        if($id == 9){
+            return inertia('Dashboard/Family');
+        }
     }
 
 }

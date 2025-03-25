@@ -53,7 +53,7 @@
                     </BCard>
                 </BCol>
                 <Family :a="a" :appointment="appointment" :dropdowns="dropdowns.families" v-if="appointment.service_id == 9"/>
-                <Maternal :a="a" :appointment="appointment" :dropdowns="dropdowns.maternals" v-if="appointment.service_id == 8"/>
+                <Maternal :a="a" :appointment="appointment" :dropdowns="dropdowns.maternals" :results="results" v-if="appointment.service_id == 8"/>
                 <Immunization :a="a" :appointment="appointment" :dropdowns="dropdowns.maternals" v-if="appointment.service_id == 7"/>
             </BRow>
         </div>
@@ -67,7 +67,7 @@ import Maternal from './Pages/Maternal.vue';
 import Immunization from './Pages/Immunization.vue';
 export default {
     components: { Family, Maternal, Status, Immunization },
-    props:['a','dropdowns'],
+    props:['a','dropdowns','results'],
     data(){
         return {
             currentUrl: window.location.origin,

@@ -22,7 +22,7 @@
                 <th class="text-center">-</th>
             </tr>
         </thead> 
-        </table>
+    </table>
 </template>
 <script>
 export default {

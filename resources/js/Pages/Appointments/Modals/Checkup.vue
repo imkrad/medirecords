@@ -3,7 +3,7 @@
         <form class="customform">
             <BRow class="g-3 mt-n3">
                 <div class="col-md-6 mt-0">
-                    <label class="form-label">Typ <span v-if="form.errors.type_id" class="text-danger" style="font-size: 9px;">({{form.errors.type_id}})</span></label>
+                    <label class="form-label">Type <span v-if="form.errors.type_id" class="text-danger" style="font-size: 9px;">({{form.errors.type_id}})</span></label>
                     <Multiselect :options="dropdowns.maternals" label="name" v-model="form.type_id" object :message="form.errors.type_id" placeholder="Select type" ref="multiselect1"/>
                 </div>  
                 <div class="col-md-6 mt-0">
@@ -23,6 +23,10 @@
                         <label class="form-label">Count <span v-if="form.errors.count" class="text-danger" style="font-size: 9px;">({{form.errors.count}})</span></label>
                         <Multiselect :options="filteredCounts" label="name" v-model="form.count" :message="form.errors.count" placeholder="Select count" ref="multiselect1"/>
                     </div>  
+                    <div class="col-md-6 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                        <label class="form-label">Count <span v-if="form.errors.count" class="text-danger" style="font-size: 9px;">({{form.errors.count}})</span></label>
+                        <Multiselect :options="filteredCounts" label="name" v-model="form.count" :message="form.errors.count" placeholder="Select count" ref="multiselect1"/>
+                    </div> 
                     <div class="col-md-6 mt-2" v-if="this.form.type_id.name == 'Nutritional Assessment'">
                         <label class="form-label">Value <span v-if="form.errors.value" class="text-danger" style="font-size: 9px;">({{form.errors.value}})</span></label>
                         <input type="text" v-model="form.value" class="form-control bg-light border-0" placeholder="Please enter value">
@@ -78,6 +82,7 @@ export default {
             list2: ['1st Trimester','2nd Trimester','3rd Trimester','4th Trimester'],
             list3: ['2nd Trimester','3rd Trimester','4th Trimester'],
             list4: ['1st Trimester'],
+            list5: ['1st Trimester','2nd Trimester','3rd Trimester'],
             showModal: false
         }
     },
@@ -97,6 +102,8 @@ export default {
                 return this.list3;
             }else if(this.form.subtype_id == '87'){
                 return this.list4;
+            }else if(this.form.type_id.value == '92'){
+                return this.list5;
             }else{
                 return [];
             }

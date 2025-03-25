@@ -305,13 +305,168 @@ class AppointmentController extends Controller
         });
     }
 
+    private function result($appointment){
+        if($appointment->service_id == 8){
+            $id = $appointment->maternal->id;
+            return [
+                '1' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                        $query->where('name', 'Prenatal Check-ups');
+                    })->where('count','1st Trimester')->where('am_id', $id)->get(),
+                '2' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Prenatal Check-ups');
+                })->where('count','2nd Trimester')->where('am_id', $id)->get(),
+                '3' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Prenatal Check-ups');
+                })->where('count','3rd Trimester')->where('am_id', $id)->get(),
+                '4' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Immunization Status');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Tetanus Diphteria / Tetanus Toxoid');
+                })
+                ->where('count','Td1/TT1')->where('am_id', $id)->get(),
+                '5' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Immunization Status');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Tetanus Diphteria / Tetanus Toxoid');
+                })
+                ->where('count','Td2/TT2')->where('am_id', $id)->get(),
+                '6' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Immunization Status');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Tetanus Diphteria / Tetanus Toxoid');
+                })
+                ->where('count','Td3/TT3')->where('am_id', $id)->get(),
+                '7' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Immunization Status');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Tetanus Diphteria / Tetanus Toxoid');
+                })
+                ->where('count','Td4/TT4')->where('am_id', $id)->get(),
+                '8' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Immunization Status');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Tetanus Diphteria / Tetanus Toxoid');
+                })
+                ->where('count','Td5/TT5')->where('am_id', $id)->get(),
+                '9' => false,
+                '10' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Micronutrient Supplementation');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Iron Sulfate with Folic Acid');
+                })
+                ->where('count','1st Trimester')->where('am_id', $id)->get(),
+            '11' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Micronutrient Supplementation');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Iron Sulfate with Folic Acid');
+                })
+                ->where('count','2nd Trimester')->where('am_id', $id)->get(),
+                '12' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Micronutrient Supplementation');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Iron Sulfate with Folic Acid');
+                })
+                ->where('count','3rd Trimester')->where('am_id', $id)->get(),
+                '13' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Micronutrient Supplementation');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Iron Sulfate with Folic Acid');
+                })
+                ->where('count','4th Trimester')->where('am_id', $id)->get(),
+                '14' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Micronutrient Supplementation');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Calcium Carbonate');
+                })
+                ->where('count','2nd Trimester')->where('am_id', $id)->get(),
+                '15' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Micronutrient Supplementation');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Calcium Carbonate');
+                })
+                ->where('count','3rd Trimester')->where('am_id', $id)->get(),
+                '16' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Micronutrient Supplementation');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Calcium Carbonate');
+                })
+                ->where('count','4th Trimester')->where('am_id', $id)->get(),
+                '17' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Micronutrient Supplementation');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Iodine Capsules');
+                })
+                ->where('count','1st Trimester')->where('am_id', $id)->get(),
+                '18' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Nutritional Assessment');
+                })
+                ->where('am_id', $id)->get(),
+                '19' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Deworming Tablet');
+                })
+                ->where('am_id', $id)->get(),
+                '20' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Infectious Disease Surveillance');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Screening');
+                })
+                ->where('am_id', $id)->get(),
+                '21' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Infectious Disease Surveillance');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Hepatitis B (Result of HbsAg)');
+                })
+                ->where('am_id', $id)->get(),
+                '22' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Infectious Disease Surveillance');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'HIV (Date of Screening)');
+                })
+                ->where('am_id', $id)->get(),
+                '23' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Laboratory Screening');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'Gestational Diabetes');
+                })
+                ->where('am_id', $id)->get(),
+                '24' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    $query->where('name', 'Laboratory Screening');
+                })
+                ->whereHas('subtype', function ($query) {
+                    $query->where('name', 'CBC/Hgb & Hct Count');
+                })
+                ->where('am_id', $id)->get(),
+            ];
+        }else{
+
+        }
+    }
+
     public function show($code){
+        $appointment = new AppointmentResource(Appointment::with('patient.member','service','status')
+        ->with('family.reason','family.type','family.method','family.visits')
+        ->with('maternal.checkups.type','maternal.checkups.subtype')
+        ->with('maternal.deliveries.outcome','maternal.deliveries.facility','maternal.deliveries.attendant','maternal.deliveries.weight','maternal.deliveries.delivery','maternal.deliveries.member')
+        ->where('id',$code)->first());
         return inertia('Appointments/View',[
-            'a' => new AppointmentResource(Appointment::with('patient.member','service','status')
-            ->with('family.reason','family.type','family.method','family.visits')
-            ->with('maternal.checkups.type','maternal.checkups.subtype')
-            ->with('maternal.deliveries.outcome','maternal.deliveries.facility','maternal.deliveries.attendant','maternal.deliveries.weight','maternal.deliveries.delivery','maternal.deliveries.member')
-            ->where('id',$code)->first()),
+            'a' => $appointment,
             'dropdowns' => [
                 'families' => [
                     'reasons' => $this->dropdowns('Reason')
@@ -326,7 +481,8 @@ class AppointmentController extends Controller
                     'maternals' => $this->dropdowns('Maternal'),
                     'submaternals' => $this->dropdowns('Submaternal')
                 ],
-            ]
+            ],
+            'results' => $this->result($appointment)
         ]);
     }
 }

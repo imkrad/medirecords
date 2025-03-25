@@ -166,6 +166,7 @@ class InsightController extends Controller
 
         return [
             [
+                'id' => 9,
                 'name' => 'Family Planning',
                 'description' => 'Total patients served this month.',
                 'total' => Patient::whereYear('created_at',$year)->count(),
@@ -173,6 +174,7 @@ class InsightController extends Controller
                 'color' => 'text-success'
             ],
             [
+                'id' => 8,
                 'name' => 'Prenatal',
                 'description' => 'Total appointments scheduled this month.',
                 'total' => Appointment::whereYear('created_at',$year)->count(),
@@ -180,6 +182,7 @@ class InsightController extends Controller
                 'color' => 'text-success'
             ],
             [
+                'id' => 7,
                 'name' => 'Child Immunization',
                 'description' => 'Total appointments scheduled this month.',
                 'total' => Appointment::whereYear('created_at',$year)->count(),

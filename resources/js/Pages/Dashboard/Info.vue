@@ -33,7 +33,9 @@
                                     </div>
                                     <div class="flex-shrink-0 text-end">
                                         <h6 class="mt-2" style="cursor: pointer;">
-                                            <i class="ri-printer-fill fw-bold fs-20"></i>
+                                            <a :href="`/tcls/${list.id}`" target="_blank">
+                                                <i class="ri-printer-fill fw-bold fs-20"></i>
+                                            </a>
                                         </h6>
                                     </div>
                                 </div>
@@ -66,9 +68,12 @@
             
         </div>
     </div>
+    <View ref="view"/>
 </template>
 <script>
+import View from './View.vue';
 export default {
+    components : { View },
     data(){
         return {
             currentUrl: window.location.origin,
@@ -93,7 +98,7 @@ export default {
                 this.tcls = response.data.tcls;
             })
             .catch(err => console.log(err));
-        }
+        },
     }
 }
 </script>

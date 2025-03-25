@@ -13,4 +13,9 @@ class DashboardController extends Controller
             return inertia('Dashboard/Index');
         }
     }
+
+    public function tcls($id){
+        return inertia('Dashboard/View');
+    }
+
 }

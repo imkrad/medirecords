@@ -510,7 +510,7 @@ class AppointmentController extends Controller
                 '13' => AppointmentFamilyCheckup::with('type')->where('count','1st dose given')->where('af_id', $id)->first(),
                 '14' => AppointmentFamilyCheckup::with('type')->where('count','2nd dose given')->where('af_id', $id)->first(),
                 '15' => AppointmentFamilyCheckup::with('type')->where('count','3rd dose given')->where('af_id', $id)->first(),
-                '16' => AppointmentFamily::where('is_dropout',1)->where('id', $id)->exists(),
+                '16' => AppointmentFamily::with('reason')->where('is_dropout',1)->where('id', $id)->first(),
             ];
         }
     }

@@ -13,6 +13,11 @@ class AppointmentMaternalCheckup extends Model
         'remarks','value','count','type_id','subtype_id','am_id','date_at'
     ];
 
+    public function am()
+    {
+        return $this->belongsTo('App\Models\AppointmentMaternal', 'am_id', 'id');
+    }
+
     public function type()
     {
         return $this->belongsTo('App\Models\ListDropdown', 'type_id', 'id');

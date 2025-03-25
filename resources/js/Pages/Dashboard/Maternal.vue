@@ -7,8 +7,8 @@
                     <table class="table table-bordered table-nowrap align-middle mb-0 mt-2">
                         <thead class="bg-primary text-white">
                             <tr class="fs-10">
-                                <th class="text-center align-middle" rowspan="3">Registration</th>
-                                <th class="text-center align-middle" rowspan="3">Fullname</th>
+                                <th class="text-center align-middle" style="width: 120px;" rowspan="3">Registration</th>
+                                <th class="text-center align-middle" style="width: 180px;" rowspan="3">Fullname</th>
                                 <th class="text-center align-middle" rowspan="3">Age</th>
                                 <th class="text-center" colspan="3">Prenatal Check-ups</th>
                                 <th class="text-center" colspan="6">Immunization Status</th>
@@ -52,13 +52,16 @@
                                 <th class="text-center">1st Tri</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white">
-                            <tr>
-                                <!-- <td class="text-center" v-for="(list,index) in results" v-bind:key="index" style="cursor: pointer;" @click="openView(list)">
-                                    <i v-if="list.length > 0" class="text-success fs-16 ri-checkbox-circle-fill"></i>
-                                    <i v-else class="text-danger fs-16 ri-close-circle-line"></i>
-                                </td> -->
-                            </tr>
+                        <tbody class="bg-white fs-11">
+                            <tr v-for="(list,index) in lists" v-bind:key="index">
+                                    <td class="text-center"> {{ list.registration}}</td>
+                                    <td class="text-center"> {{ list.name}}</td>
+                                    <td class="text-center"> {{ list.age}}</td>
+                                    <td class="text-center" v-for="(list1,index2) in list.checkups" v-bind:key="index2" :style="index2 > 11 ? 'cursor: pointer;' : ''" @click="handleClick(index2, list1)">
+                                        <i v-if="list1" class="text-success fs-16 ri-checkbox-circle-fill"></i>
+                                        <i v-else class="text-danger fs-16 ri-close-circle-line"></i>
+                                    </td>
+                                </tr>
                         </tbody>
                     </table>
                 </div>

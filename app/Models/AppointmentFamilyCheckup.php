@@ -13,6 +13,11 @@ class AppointmentFamilyCheckup extends Model
         'remarks','count','date_at','type_id','af_id'
     ];
 
+    public function af()
+    {
+        return $this->belongsTo('App\Models\AppointmentFamily', 'af_id', 'id');
+    }
+
     public function type()
     {
         return $this->belongsTo('App\Models\ListDropdown', 'type_id', 'id');

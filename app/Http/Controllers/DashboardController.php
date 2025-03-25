@@ -21,7 +21,6 @@ class DashboardController extends Controller
 
     public function tcls($id){
         if($id == 9){
-
             $data = Appointment::with([
                 'patient.member',
                 'service',
@@ -87,6 +86,10 @@ class DashboardController extends Controller
          
             return inertia('Dashboard/Family',[
                 'lists' => $data
+            ]);
+        }else if($id == 8){
+            return inertia('Dashboard/Maternal',[
+                'lists' => []
             ]);
         }
     }

@@ -40,7 +40,7 @@
                                     <td class="text-center"> {{ list.name}}</td>
                                     <td class="text-center"> {{ list.type}}</td>
                                     <td class="text-center"> {{ list.method}}</td>
-                                    <td class="text-center" v-for="(list1,index) in list.visits" v-bind:key="index2" :style="index2 > 12 ? 'cursor: pointer;' : ''" @click="handleClick(index2, list2)">
+                                    <td class="text-center" v-for="(list1,index2) in list.visits" v-bind:key="index2" :style="index2 > 11 ? 'cursor: pointer;' : ''" @click="handleClick(index2, list1)">
                                         <i v-if="list1" class="text-success fs-16 ri-checkbox-circle-fill"></i>
                                         <i v-else class="text-danger fs-16 ri-close-circle-line"></i>
                                     </td>
@@ -63,9 +63,9 @@ export default {
     components: { ViewF, ViewD },
     methods: {
         handleClick(index, value) {
-            if (index > 12) {
+            if (index > 11) {
                 if(value){
-                    if(index == 16){
+                    if(index == 15){
                         this.$refs.viewd.show(value);
                     }else{
                         this.$refs.viewf.show(value);

@@ -37,6 +37,11 @@ class AppointmentFamily extends Model
      {
          return $this->hasMany('App\Models\AppointmentFamilyVisit', 'af_id');
      }
+
+     public function checkups()
+     {
+         return $this->hasMany('App\Models\AppointmentFamilyCheckup', 'af_id');
+     }
  
      public function getUpdatedAtAttribute($value)
      {

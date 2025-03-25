@@ -58,7 +58,7 @@
         <BCol lg="4">
             <div class="table-responsive mt-4">
                 <simplebar style="height: calc(100vh - 480px);">
-                <table class="table table-nowrap table-striped align-middle mb-0">
+                <table class="table table-nowrap table-bordered table-striped align-middle mb-0">
                     <thead class="bg-primary text-white thead-fixed">
                         <tr class="fs-13 fw-bold">
                             <th colspan="2">Prenatal Details</th>
@@ -113,8 +113,8 @@
                         <tr class="fs-13 fw-bold text-white">
                             <th colspan="5">Check-ups</th>
                             <th class="text-end">
-                                <button @click="openDelivery()" type="button" class="btn btn-light btn-sm material-shadow-none mt-n2 mb-n2">
-                                    Add Delivery
+                                <button @click="openCheckup()" type="button" class="btn btn-light btn-sm material-shadow-none mt-n2 mb-n2">
+                                    New Check-up
                                 </button>
                             </th>
                         </tr>

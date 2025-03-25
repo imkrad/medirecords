@@ -52,7 +52,7 @@
                         </div>
                     </BCard>
                 </BCol>
-                <Family :a="a" :appointment="appointment" :dropdowns="dropdowns.families" v-if="appointment.service_id == 9"/>
+                <Family :a="a" :appointment="appointment" :dropdowns="dropdowns.families" :results="results" v-if="appointment.service_id == 9"/>
                 <Maternal :a="a" :appointment="appointment" :dropdowns="dropdowns.maternals" :results="results" v-if="appointment.service_id == 8"/>
                 <Immunization :a="a" :appointment="appointment" :dropdowns="dropdowns.maternals" v-if="appointment.service_id == 7"/>
             </BRow>

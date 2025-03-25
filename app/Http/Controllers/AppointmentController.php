@@ -8,6 +8,8 @@ use App\Models\FamilyMember;
 use App\Models\Appointment;
 use App\Models\AppointmentFamily;
 use App\Models\AppointmentFamilyVisit;
+use App\Models\AppointmentFamilyCheckup;
+use App\Models\AppointmentMaternal;
 use App\Models\AppointmentMaternalCheckup;
 use App\Models\AppointmentMaternalDelivery;
 use App\Models\ListDropdown;
@@ -254,10 +256,46 @@ class AppointmentController extends Controller
             $data->type_id = $request->type_id['value'];
             $data->date_at = $request->date_at;
             $data->am_id = $request->id;
-            $data->save();
+            if($data->save()){
+                $status = AppointmentMaternal::where('id',$request->id)->first();
+                $status->appointment()->update(['status_id' => 34]);
+            }
             return [
                 'data' => [],
                 'message' => 'Delivery creation was successful!', 
+                'info' => "You've successfully added delivery."
+            ];
+        });
+
+        return back()->with([
+            'data' => $result['data'],
+            'message' => $result['message'],
+            'info' => $result['info'],
+            'status' => $result['status'],
+        ]);
+    }
+
+    public function checkupf(Request $request){
+        $request->validate([
+            'type_id' => 'required',
+            'count' => 'required_if:type_id.value,38,39',
+            'date_at' => 'required'
+        ]);
+
+        $result = $this->handleTransaction(function () use ($request) {
+            $data = new AppointmentFamilyCheckup;
+            $data->remarks = $request->remarks;
+            $data->count = $request->count;
+            $data->type_id = $request->type_id['value'];
+            $data->date_at = $request->date_at;
+            $data->af_id = $request->id;
+            if($data->save()){
+                $status = AppointmentFamily::where('id',$request->id)->first();
+                $status->appointment()->update(['status_id' => 34]);
+            }
+            return [
+                'data' => [],
+                'message' => 'Checkup creation was successful!', 
                 'info' => "You've successfully added delivery."
             ];
         });
@@ -454,8 +492,26 @@ class AppointmentController extends Controller
                 })
                 ->where('am_id', $id)->get(),
             ];
-        }else{
-
+        }else if($appointment->service_id == 9){
+            $id = $appointment->family->id;
+            return [
+                '1' => AppointmentFamilyVisit::whereMonth('visited_at',1)->where('af_id', $id)->exists(),
+                '2' => AppointmentFamilyVisit::whereMonth('visited_at',2)->where('af_id', $id)->exists(),
+                '3' => AppointmentFamilyVisit::whereMonth('visited_at',3)->where('af_id', $id)->exists(),
+                '4' => AppointmentFamilyVisit::whereMonth('visited_at',4)->where('af_id', $id)->exists(),
+                '5' => AppointmentFamilyVisit::whereMonth('visited_at',5)->where('af_id', $id)->exists(),
+                '6' => AppointmentFamilyVisit::whereMonth('visited_at',6)->where('af_id', $id)->exists(),
+                '7' => AppointmentFamilyVisit::whereMonth('visited_at',7)->where('af_id', $id)->exists(),
+                '8' => AppointmentFamilyVisit::whereMonth('visited_at',8)->where('af_id', $id)->exists(),
+                '9' => AppointmentFamilyVisit::whereMonth('visited_at',9)->where('af_id', $id)->exists(),
+                '10' => AppointmentFamilyVisit::whereMonth('visited_at',10)->where('af_id', $id)->exists(),
+                '11' => AppointmentFamilyVisit::whereMonth('visited_at',11)->where('af_id', $id)->exists(),
+                '12' => AppointmentFamilyVisit::whereMonth('visited_at',12)->where('af_id', $id)->exists(),
+                '13' => AppointmentFamilyCheckup::with('type')->where('count','1st dose given')->where('af_id', $id)->first(),
+                '14' => AppointmentFamilyCheckup::with('type')->where('count','2nd dose given')->where('af_id', $id)->first(),
+                '15' => AppointmentFamilyCheckup::with('type')->where('count','3rd dose given')->where('af_id', $id)->first(),
+                '16' => AppointmentFamily::where('is_dropout',1)->where('id', $id)->exists(),
+            ];
         }
     }
 
@@ -469,7 +525,8 @@ class AppointmentController extends Controller
             'a' => $appointment,
             'dropdowns' => [
                 'families' => [
-                    'reasons' => $this->dropdowns('Reason')
+                    'reasons' => $this->dropdowns('Reason'),
+                    'types' => $this->dropdowns('FamilyType'),
                 ],
                 'maternals' => [
                     'lists' => $this->dropdowns('Maternal'),

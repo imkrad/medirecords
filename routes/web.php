@@ -27,6 +27,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::post('/status', [App\Http\Controllers\AppointmentController::class, 'status']);
     Route::post('/delivery', [App\Http\Controllers\AppointmentController::class, 'delivery']);
     Route::post('/checkup', [App\Http\Controllers\AppointmentController::class, 'checkup']);
+    Route::post('/checkupf', [App\Http\Controllers\AppointmentController::class, 'checkupf']);
 
     Route::get('/insights', [App\Http\Controllers\InsightController::class, 'index']);
 });

@@ -888,6 +888,66 @@ class ListDropdownsTableSeeder extends Seeder
                 'others' => 'n/a',
                 'is_active' => 1,
             ),
+            87 => 
+            array (
+                'id' => 88,
+                'name' => '1st',
+                'classification' => 'Trimester',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            88 => 
+            array (
+                'id' => 89,
+                'name' => '2nd',
+                'classification' => 'Trimester',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            89 => 
+            array (
+                'id' => 90,
+                'name' => '3rd',
+                'classification' => 'Trimester',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            90 => 
+            array (
+                'id' => 91,
+                'name' => '4th',
+                'classification' => 'Trimester',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            91 => 
+            array (
+                'id' => 92,
+                'name' => 'Prenatal Check-ups',
+                'classification' => 'Maternal',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            92 => 
+            array (
+                'id' => 93,
+                'name' => 'Deworming Drugs Given to 20-40 yrs old',
+                'classification' => 'FamilyType',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
         ));
 
         

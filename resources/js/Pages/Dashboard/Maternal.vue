@@ -7,6 +7,9 @@
                     <table class="table table-bordered table-nowrap align-middle mb-0 mt-2">
                         <thead class="bg-primary text-white">
                             <tr class="fs-10">
+                                <th class="text-center align-middle" rowspan="3">Registration</th>
+                                <th class="text-center align-middle" rowspan="3">Fullname</th>
+                                <th class="text-center align-middle" rowspan="3">Age</th>
                                 <th class="text-center" colspan="3">Prenatal Check-ups</th>
                                 <th class="text-center" colspan="6">Immunization Status</th>
                                 <th class="text-center" colspan="8">Micronutrient Supplementation</th>

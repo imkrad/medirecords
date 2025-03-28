@@ -4,7 +4,7 @@
         <div class="auth-page-content">
             <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-1">
                 <div class="file-manager-content w-100 p-4 pb-0" ref="box">
-                    <table class="table table-bordered table-nowrap align-middle mb-0 mt-2">
+                    <table class="table table-bordered table-nowrap align-middle">
                         <thead class="bg-primary text-white">
                             <tr class="fs-10">
                                 <th class="text-center align-middle" style="width: 120px;" rowspan="3">Registration</th>
@@ -57,8 +57,8 @@
                                     <td class="text-center"> {{ list.registration}}</td>
                                     <td class="text-center"> {{ list.name}}</td>
                                     <td class="text-center"> {{ list.age}}</td>
-                                    <td class="text-center" v-for="(list1,index2) in list.checkups" v-bind:key="index2" :style="index2 > 11 ? 'cursor: pointer;' : ''" @click="handleClick(index2, list1)">
-                                        <i v-if="list1" class="text-success fs-16 ri-checkbox-circle-fill"></i>
+                                    <td class="text-center" v-for="(list1,index2) in list.checkups" v-bind:key="index2" style="cursor: pointer;" @click="handleClick(index2, list1)">
+                                        <i v-if="list1.length > 0" class="text-success fs-16 ri-checkbox-circle-fill"></i>
                                         <i v-else class="text-danger fs-16 ri-close-circle-line"></i>
                                     </td>
                                 </tr>

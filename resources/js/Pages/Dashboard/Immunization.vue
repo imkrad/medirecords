@@ -34,7 +34,7 @@
                                     <th class="text-center align-middle">3rd dose given</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white fs-11">
+                            <!-- <tbody class="bg-white fs-11">
                                 <tr v-for="(list,index) in lists" v-bind:key="index">
                                     <td class="text-center"> {{ list.registration}}</td>
                                     <td class="text-center"> {{ list.name}}</td>
@@ -45,34 +45,19 @@
                                         <i v-else class="text-danger fs-16 ri-close-circle-line"></i>
                                     </td>
                                 </tr>
-                            </tbody>
+                            </tbody> -->
                         </table>
                 </div>
             </div>
         </div>
     </div>
-    <ViewF ref="viewf"/>
-    <ViewD ref="viewd"/>
 </template>
 <script>
-import ViewF from '../Appointments/Modals/ViewF.vue';
-import ViewD from '../Appointments/Modals/ViewD.vue';
 export default {
     layout: null,
     props: ['lists'],
-    components: { ViewF, ViewD },
     methods: {
-        handleClick(index, value) {
-            if (index > 11) {
-                if(value){
-                    if(index == 15){
-                        this.$refs.viewd.show(value);
-                    }else{
-                        this.$refs.viewf.show(value);
-                    }
-                }
-            }
-        }
+
     }
 }
 </script>

@@ -36,14 +36,14 @@ class DashboardController extends Controller
             ->map(function ($item) {
                 $aid = $item->id;
         
-                $appointmentVisits = AppointmentFamilyVisit::whereHas('am.appointment', function ($query) use ($aid) {
+                $appointmentVisits = AppointmentFamilyVisit::whereHas('af.appointment', function ($query) use ($aid) {
                     $query->where('id', $aid);
                 })->get()->groupBy(fn ($visit) => (int) Carbon::parse($visit->visited_at)->format('m'));
         
                 $visits = array_map(fn ($month) => isset($appointmentVisits[$month]), range(1, 12));
         
                 $checkups = AppointmentFamilyCheckup::with('type')
-                    ->whereHas('am.appointment', function ($query) use ($aid) {
+                    ->whereHas('af.appointment', function ($query) use ($aid) {
                         $query->where('id', $aid);
                     })
                     ->whereIn('count', ['1st dose given', '2nd dose given', '3rd dose given'])
@@ -136,7 +136,7 @@ class DashboardController extends Controller
                         $query->where('name', 'Iron Sulfate with Folic Acid');
                     })
                     ->where('count','1st Trimester')->whereHas('am.appointment', function ($query) use ($aid) { $query->where('id', $aid); })->get(),
-                '11' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
+                    '11' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('type', function ($query) {
                         $query->where('name', 'Micronutrient Supplementation');
                     })
                     ->whereHas('subtype', function ($query) {
@@ -230,7 +230,7 @@ class DashboardController extends Controller
                     ->whereHas('am.appointment', function ($query) use ($aid) { $query->where('id', $aid); })->get(),
                 ];
                 return [
-                    'name'         => $item->patient->member->lastname . ', ' . $item->patient->member->firstname . ' ' . $item->patient->member->middlename,
+                    'name'         => $item->patient->member->lastname . ', ' . $item->patient->member->firstname . ' ' . $item->patient->member->middlename[0].'.',
                     'registration' => $item->registration_at,
                     'age'          => $item->age,
                     'checkups' => $checkups
@@ -239,6 +239,10 @@ class DashboardController extends Controller
 
             return inertia('Dashboard/Maternal',[
                 'lists' => $data
+            ]);
+        }else if($id == 7){
+            return inertia('Dashboard/Immunization',[
+                'lists' => []
             ]);
         }
     }

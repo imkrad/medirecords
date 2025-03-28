@@ -948,6 +948,146 @@ class ListDropdownsTableSeeder extends Seeder
                 'others' => 'n/a',
                 'is_active' => 1,
             ),
+            93 => 
+            array (
+                'id' => 94,
+                'name' => 'Female Sterilization/Bilateral tubal ligation',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'FSTR/BTL',
+                'is_active' => 1,
+            ),
+            94 => 
+            array (
+                'id' => 95,
+                'name' => 'Male Sterilization/No-Scapel Vasectomy',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'MSTR/NSV',
+                'is_active' => 1,
+            ),
+            95 => 
+            array (
+                'id' => 96,
+                'name' => 'Condom',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'CON',
+                'is_active' => 1,
+            ),
+            96 => 
+            array (
+                'id' => 97,
+                'name' => 'Progestin Only Pills',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'Pills-POP',
+                'is_active' => 1,
+            ),
+            97 => 
+            array (
+                'id' => 98,
+                'name' => 'Combined Oral Contraceptives',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'Pills-COC',
+                'is_active' => 1,
+            ),
+            98 => 
+            array (
+                'id' => 99,
+                'name' => 'DMPA or CIC',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'INJ',
+                'is_active' => 1,
+            ),
+            99 => 
+            array (
+                'id' => 100,
+                'name' => 'Single rod sub-thermal Implant',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'IMP',
+                'is_active' => 1,
+            ),
+            100 => 
+            array (
+                'id' => 101,
+                'name' => 'IUD Interval',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'IUD-I',
+                'is_active' => 1,
+            ),
+            101 => 
+            array (
+                'id' => 102,
+                'name' => 'IUD Postpartum',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'IUD-PP',
+                'is_active' => 1,
+            ),
+            102 => 
+            array (
+                'id' => 103,
+                'name' => 'Lactational Amenorrhea Method',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'NFP-LAM',
+                'is_active' => 1,
+            ),
+            103 => 
+            array (
+                'id' => 104,
+                'name' => 'Basal Body Temperature',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'NFP-BBT',
+                'is_active' => 1,
+            ),
+            104 => 
+            array (
+                'id' => 105,
+                'name' => 'Cervical Mucus Method',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'NPF-CMM',
+                'is_active' => 1,
+            ),
+            105 => 
+            array (
+                'id' => 106,
+                'name' => 'Symptothermal Method',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'NFP-STM',
+                'is_active' => 1,
+            ),
+            106 => 
+            array (
+                'id' => 107,
+                'name' => 'Standard Days Method',
+                'classification' => 'Method',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'NFP-SDM',
+                'is_active' => 1,
+            ),
         ));
 
         

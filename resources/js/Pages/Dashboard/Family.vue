@@ -4,12 +4,15 @@
         <div class="auth-page-content">
             <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-1">
                 <div class="file-manager-content w-100 p-4 pb-0" ref="box">
-                    <div class="d-flex justify-content-sm-end gap-2" style="margin-bottom: 30px;">
-                <div class="search-box" style="width: 60%;">
-                    <input type="text"  class="form-control" placeholder="Search...">
-                    <i class="ri-search-line search-icon"></i>
-                </div>
-            </div>
+                    <div class="d-flex justify-content-sm-end gap-2" style="margin-bottom: 10px; margin-top: 10px;">
+                        <div class="search-box" style="width: 95%;">
+                            <input type="text"  class="form-control" placeholder="Search...">
+                            <i class="ri-search-line search-icon"></i>
+                        </div>
+                        <button @click="openCreate" class="btn btn-danger btn-sm" type="button">
+                            <div class="btn-content"><i class="ri-printer-fill  align-middle"></i> Print TCL </div>
+                        </button>
+                    </div>
                         <table class="table table-bordered table-nowrap align-middle">
                             <thead class="bg-primary text-white">
                                 <tr class="fs-10">

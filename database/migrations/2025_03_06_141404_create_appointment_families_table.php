@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('source')->nullable();
             $table->date('dropout_at')->nullable();
             $table->boolean('is_dropout')->default(0);
+            $table->json('additional_info');
             $table->tinyInteger('reason_id')->unsigned()->nullable(); //reason family planning
             $table->foreign('reason_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
             $table->tinyInteger('method_id')->unsigned()->nullable(); //method family planning

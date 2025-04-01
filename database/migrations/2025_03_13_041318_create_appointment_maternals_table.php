@@ -18,6 +18,8 @@ return new class extends Migration
             $table->date('edc_at');
             $table->decimal('height', 5, 2)->nullable();
             $table->decimal('weight', 6, 2)->nullable();
+            $table->json('additional_info');
+            $table->boolean('with_medication');
             $table->integer('appointment_id')->unsigned()->index();
             $table->foreign('appointment_id')->references('id')->on('appointments')->onDelete('cascade');
             $table->timestamps();

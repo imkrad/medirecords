@@ -1,5 +1,5 @@
 <template>
-    <b-modal v-model="showModal" style="--vz-modal-width: 700px;" header-class="p-3 bg-light" title="Add Checkup" class="v-modal-custom" modal-class="zoomIn" centered no-close-on-backdrop>
+    <b-modal v-model="showModal" style="--vz-modal-width: 900px;" header-class="p-3 bg-light" title="Add Checkup" class="v-modal-custom" modal-class="zoomIn" centered no-close-on-backdrop>
         <form class="customform">
             <BRow class="g-3 mt-n3">
                 <div class="col-md-6 mt-0">
@@ -39,12 +39,75 @@
                 <div class="col-md-6 mt-2">
                     <label class="form-label">Date <span v-if="form.errors.date_at" class="text-danger" style="font-size: 9px;">({{form.errors.date_at}})</span></label>
                     <input type="date" v-model="form.date_at" class="form-control bg-light border-0" placeholder="Please enter date_at">
-                </div>             
+                </div>     
+                <template v-if="this.form.type_id">        
+                <div class="col-md-12 mt-0">
+                    <hr class="text-muted mt0 mb-0"/>
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">AOG in Week</label>
+                    <input type="text" v-model="form.additional_info.aog_week" class="form-control bg-light border-0" placeholder="Enter AOG in week">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">Fetal Heart Rate</label>
+                    <input type="text" v-model="form.additional_info.fetal_heart_rate" class="form-control bg-light border-0" placeholder="Enter FHR">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">Height</label>
+                    <input type="text" v-model="form.additional_info.height" class="form-control bg-light border-0" placeholder="Enter height">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">Weight (kg)</label>
+                    <input type="text" v-model="form.additional_info.weight" class="form-control bg-light border-0" placeholder="Enter weight">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">Blood Pressure</label>
+                    <input type="text" v-model="form.additional_info.blood_pressure" class="form-control bg-light border-0" placeholder="Enter BP">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">Fundal Height (cm)</label>
+                    <input type="text" v-model="form.additional_info.fundal_height" class="form-control bg-light border-0" placeholder="Enter fundal height">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">BP > 140? (Y/N)</label>
+                    <input type="text" v-model="form.additional_info.bp_over_140" class="form-control bg-light border-0" placeholder="Enter Y or N">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">Fever? (Y/N)</label>
+                    <input type="text" v-model="form.additional_info.fever" class="form-control bg-light border-0" placeholder="Enter Y or N">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">Abnormal Presentation? (Y/N)</label>
+                    <input type="text" v-model="form.additional_info.abnormal_presentation" class="form-control bg-light border-0" placeholder="Enter Y or N">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">FHT (bpm)</label>
+                    <input type="text" v-model="form.additional_info.fht" class="form-control bg-light border-0" placeholder="Enter FHT BPM">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">Edema? (Y/N)</label>
+                    <input type="text" v-model="form.additional_info.edema" class="form-control bg-light border-0" placeholder="Enter Y or N">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">Vaginal Bleeding? (Y/N)</label>
+                    <input type="text" v-model="form.additional_info.vaginal_bleeding" class="form-control bg-light border-0" placeholder="Enter Y or N">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">Urinary Tract Infection? (Y/N)</label>
+                    <input type="text" v-model="form.additional_info.urinary_tract_infection" class="form-control bg-light border-0" placeholder="Enter Y or N">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">Vaginal Infection? (Y/N)</label>
+                    <input type="text" v-model="form.additional_info.vaginal_infection" class="form-control bg-light border-0" placeholder="Enter Y or N">
+                </div>
+            </template>
+
+
                 <div class="col-md-12 mt-0">
                     <hr class="text-muted mt0 mb-0"/>
                 </div>
                 <div class="col-md-12 mt-2">
-                    <label class="form-label">Remarks </label>
+                    <label class="form-label">Remarks <span v-if="form.errors.remarks" class="text-danger" style="font-size: 9px;">({{form.errors.remarks}})</span></label>
                     <textarea type="text" rows="3" v-model="form.remarks" class="form-control bg-light border-0" placeholder="Please enter remarks"/>
                 </div>
             </BRow>
@@ -74,7 +137,23 @@ export default {
                 type_id: null,
                 subtype_id: null,
                 date_at: null,
-                remarks: null
+                remarks: null,
+                additional_info: {
+                    aog_week: '',
+                    fetal_heart_rate: '',
+                    height: '',
+                    weight: '',
+                    blood_pressure: '',
+                    bp_over_140: '',
+                    fever: '',
+                    fundal_height: '',
+                    abnormal_presentation: '',
+                    fht: '',
+                    edema: '',
+                    vaginal_bleeding: '',
+                    urinary_tract_infection: '',
+                    vaginal_infection: ''
+                }
             }),
             subtypes: [],
             counts: [],

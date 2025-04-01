@@ -57,7 +57,7 @@
         </BCol>
         <BCol lg="4">
             <div class="table-responsive mt-4">
-                <simplebar style="height: calc(100vh - 480px);">
+                <simplebar style="height: 400px;">
                 <table class="table table-nowrap table-bordered table-striped align-middle mb-0">
                     <thead class="bg-primary text-white thead-fixed">
                         <tr class="fs-13 fw-bold">
@@ -107,7 +107,7 @@
         </BCol>
         <BCol lg="8">
             <div class="table-responsive mt-4">
-                <simplebar style="height: calc(100vh - 480px);">
+                <simplebar style="height: 400px;">
                     <table class="table table-nowrap table-striped align-middle mb-0">
                     <thead class="bg-primary thead-fixed">
                         <tr class="fs-13 fw-bold text-white">
@@ -220,6 +220,87 @@
                 </BCol>
             </div> -->
         </BCol>
+        <BCol lg="4">
+            <div class="table-responsive mt-4">
+                <simplebar style="height: 400px;">
+                <table class="table table-nowrap table-bordered table-striped align-middle mb-0">
+                    <thead class="bg-primary text-white thead-fixed">
+                        <tr class="fs-13 fw-bold">
+                            <th colspan="2">Additional Information</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white fs-12">
+                        <tr>
+                            <td class="text-center" style="width: 50%;">No. of Previous Pregnancy</td>
+                            <td class="text-center" style="width: 50%;">{{ maternalInfo.previous_pregnancy }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">G <span class="fs-10 text-muted">(Prev + Curr)</span></td>
+                            <td class="text-center">{{ maternalInfo.g }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">P <span class="fs-10 text-muted">(> 20 weeks pregnancy)</span></td>
+                            <td class="text-center">{{ maternalInfo.p }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">A <span class="fs-10 text-muted">(Abortion)</span></td>
+                            <td class="text-center">{{ maternalInfo.a }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">L <span class="fs-10 text-muted">(Living Child)</span></td>
+                            <td class="text-center">{{ maternalInfo.l }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">Preterm</td>
+                            <td class="text-center">{{ maternalInfo.preterm }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">Fullterm</td>
+                            <td class="text-center">{{ maternalInfo.fullterm }}</td>
+                        </tr>
+                    </tbody>
+                </table></simplebar>
+            </div>
+        </BCol>
+        <BCol lg="8">
+            <div class="table-responsive mt-4">
+                <simplebar style="height: 400px;">
+                    <table class="table table-nowrap table-striped align-middle mb-0">
+                    <thead class="bg-primary thead-fixed">
+                        <tr class="fs-13 fw-bold text-white">
+                            <th colspan="5">Delivery</th>
+                            <th class="text-end">
+                                <button @click="openDelivery()" type="button" class="btn btn-light btn-sm material-shadow-none mt-n2 mb-n2">
+                                    Add Delivery
+                                </button>
+                            </th>
+                        </tr>
+                        <tr class="fs-10 bg-light">
+                            <th>Name</th>
+                            <th style="width: 15%;" class="text-center">Delivery</th>
+                            <th style="width: 12%;" class="text-center">Outcome</th>
+                            <th style="width: 15%;" class="text-center">Weight</th>
+                            <th style="width: 17%;" class="text-center">Facility</th>
+                            <th style="width: 12%;" class="text-center">Attendant</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white fs-10">
+                        <tr v-for="(list,index) in a.data.maternal.deliveries" v-bind:key="index" >
+                            <td>
+                                <h5 class="fs-11 mb-0 fw-semibold text-uppercase" :class="(list.member.sex == 'Male') ? 'text-info' : 'text-danger'">{{list.member.lastname}}, {{list.member.firstname}} {{list.member.middlename}}.</h5>
+                                <p class="fs-10 text-muted mb-0">{{list.member.birthdate}} | </p>
+                            </td>
+                            <td class="text-center">{{ list.delivery.name }}</td>
+                            <td class="text-center">{{ list.outcome.name }}</td>
+                            <td class="text-center">{{ list.weight.name }}</td>
+                            <td class="text-center">{{ list.facility.name }}</td>
+                            <td class="text-center">{{ list.attendant.name }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </simplebar>
+            </div>
+            </BCol>
     <View ref="view"/>
     <Delivery :dropdowns="dropdowns" ref="delivery"/>
     <Checkup :dropdowns="dropdowns" ref="checkup"/>
@@ -236,6 +317,17 @@ export default {
         return {
 
         }
+    },
+    computed: {
+        maternalInfo() {
+            try {
+                return typeof this.appointment.maternal.additional_info === "string"
+                ? JSON.parse(this.appointment.maternal.additional_info)
+                : this.appointment.maternal.additional_info;
+            } catch (e) {
+                return {}; // Return an empty object if parsing fails
+            }
+        },
     },
     methods: {
         openDelivery(){

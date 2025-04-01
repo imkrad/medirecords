@@ -10,7 +10,7 @@ class AppointmentMaternal extends Model
     use HasFactory;
 
     protected $fillable = [
-        'lmp_at','edc_at','height','weight','appointment_id'
+        'lmp_at','edc_at','height','weight','appointment_id','additional_info','with_medication'
     ];
     
     public function checkups()

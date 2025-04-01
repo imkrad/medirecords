@@ -10,7 +10,7 @@ class AppointmentFamily extends Model
     use HasFactory;
 
     protected $fillable = [
-        'source','dropout_at','is_dropdout','reason_id','method_id','type_id','appointment_id'
+        'source','dropout_at','is_dropdout','reason_id','method_id','type_id','appointment_id','additional_info'
      ];
  
      public function reason()

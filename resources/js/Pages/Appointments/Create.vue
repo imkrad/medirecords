@@ -68,7 +68,24 @@ export default {
                 type_id: null,
                 method_id: null,
                 source: null,
+                additional_info: {
+                    bp: null,
+                    pulse_rate: null,
+                    temperature: null,
+                    medical_history: [],
+                    remarks: null
+                },
+                additional_info2: {
+                    previous_pregnancy: null,
+                    g: null,
+                    p: null,
+                    a: null,
+                    l: null,
+                    fullterm: null,
+                    preterm: null
+                },
                 registration_at: null,
+                with_medication: null,
                 lmp_at: null,
                 edc_at: null,
                 weight: null,
@@ -77,6 +94,7 @@ export default {
                 weight_id: null,
                 weight: null,
                 length: null,
+                menstrual_cycle: null,
                 was_breastfeed: null
 
             }),

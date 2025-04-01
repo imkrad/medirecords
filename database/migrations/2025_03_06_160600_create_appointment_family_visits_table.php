@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('appointment_family_visits', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('bloodpressure',100)->nullable();
+            $table->string('pulserate',100)->nullable();
+            $table->string('temperature',100)->nullable();
             $table->longText('remarks')->nullable();
             $table->integer('af_id')->unsigned()->index();
             $table->foreign('af_id')->references('id')->on('appointment_families')->onDelete('cascade');

@@ -2,13 +2,25 @@
     <b-modal v-model="showModal" header-class="p-3 bg-light" title="Visit Date" class="v-modal-custom" modal-class="zoomIn" centered no-close-on-backdrop>
         <form class="customform">
             <BRow class="g-3 mt-2">
-                <BCol lg="12" class="mt-2">
+                <BCol lg="6" class="mt-2">
                     <InputLabel for="name" value="Visited Date" :message="form.errors.visited_at"/>
                     <input type="date" v-model="form.visited_at" class="form-control bg-light border-0" placeholder="Please enter visited_at" @input="handleInput('visited_at')">
                 </BCol>
+                <BCol lg="6" class="mt-2">
+                    <InputLabel for="name" value="Blood Pressure" :message="form.errors.bloodpressure"/>
+                    <input type="text" v-model="form.bloodpressure" class="form-control bg-light border-0" placeholder="Please enter bloodpressure" @input="handleInput('bloodpressure')">
+                </BCol>
+                <BCol lg="6" class="mt-2">
+                    <InputLabel for="name" value="Pulse Rate" :message="form.errors.pulserate"/>
+                    <input type="text" v-model="form.pulserate" class="form-control bg-light border-0" placeholder="Please enter pulserate" @input="handleInput('pulserate')">
+                </BCol>
+                <BCol lg="6" class="mt-2">
+                    <InputLabel for="name" value="Temperature" :message="form.errors.temperature"/>
+                    <input type="text" v-model="form.temperature" class="form-control bg-light border-0" placeholder="Please enter temperature" @input="handleInput('temperature')">
+                </BCol>
                 <BCol lg="12" class="mt-2">
                     <InputLabel for="name" value="Remarks" :message="form.errors.remarks"/>
-                    <textarea type="date" v-model="form.remarks" class="form-control bg-light border-0" placeholder="Please enter date of birth"/>
+                    <textarea type="text" v-model="form.remarks" class="form-control bg-light border-0" placeholder="Please enter date of birth"/>
                 </BCol>
 
             </BRow>
@@ -32,6 +44,9 @@ export default {
             form: useForm({
                 af_id: null,
                 visited_at: null,
+                bloodpressure: null,
+                pulserate: null,
+                temperature: null,
                 remarks: null
             }),
             showModal: false

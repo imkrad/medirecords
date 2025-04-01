@@ -27,6 +27,7 @@ class AppointmentRequest extends FormRequest
             'method_id' => 'required_if:service_id,9',
             'lmp_at' => 'required_if:service_id,8',
             'edc_at' => 'required_if:service_id,8',
+            'with_medication' => 'required_if:service_id,8',
             'cpab_id' => 'required_if:service_id,7',
             'weight_id' => 'required_if:service_id,7',
             'weight' => 'required_if:service_id,7',

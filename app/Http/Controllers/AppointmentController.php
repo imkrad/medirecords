@@ -59,7 +59,8 @@ class AppointmentController extends Controller
                     $family = $data->family()->create([
                         'method_id' => $request->method_id,
                         'type_id' => $request->type_id,
-                        'source' => $request->source
+                        'source' => $request->source,
+                        'additional_info' => json_encode($request->additional_info)
                     ]);
                 }else if($request->service_id == 8){
                     $maternal = $data->maternal()->create([
@@ -67,6 +68,8 @@ class AppointmentController extends Controller
                         'edc_at' => $request->edc_at,
                         'height' => $request->height,
                         'weight' => $request->weight,
+                        'with_medication' => $request->with_medication,
+                        'additional_info' => json_encode($request->additional_info2)
                     ]);
                 }else if($request->service_id == 7){
                     $immunization = $data->immunization()->create([
@@ -158,11 +161,17 @@ class AppointmentController extends Controller
     public function visit(Request $request){
         $request->validate([
             'visited_at' => 'required',
+            'bloodpressure' => 'required',
+            'pulserate' => 'required',
+            'temperature' => 'required',
             'remarks' => 'required'
         ]);
 
         $data = AppointmentFamilyVisit::with('af')->where('id',$request->af_id)->first();
         $data->visited_at = $request->visited_at;
+        $data->bloodpressure = $request->bloodpressure;
+        $data->pulserate = $request->pulserate;
+        $data->temperature = $request->temperature;
         $data->remarks = $request->remarks;
         if($data->save()){
             $status = Appointment::where('id',$data->af->appointment_id)->first();
@@ -244,7 +253,8 @@ class AppointmentController extends Controller
             'subtype_id' => 'required_if:type_id.value:38,39,42,43',
             'count' => 'required_if:type_id.value,38,39',
             'value' => 'required_if:type_id.value,39,42,43',
-            'date_at' => 'required'
+            'date_at' => 'required',
+            'remarks' => 'required'
         ]);
 
         $result = $this->handleTransaction(function () use ($request) {
@@ -256,6 +266,7 @@ class AppointmentController extends Controller
             $data->type_id = $request->type_id['value'];
             $data->date_at = $request->date_at;
             $data->am_id = $request->id;
+            $data->additional_info = json_encode($request->additional_info);
             if($data->save()){
                 $status = AppointmentMaternal::where('id',$request->id)->first();
                 $status->appointment()->update(['status_id' => 34]);

@@ -14,6 +14,18 @@
                                 <th class="text-primary">{{selected.visited_date}}</th>
                             </tr>
                             <tr>
+                                <th class="ps-0" scope="row">Blood Pressure :</th>
+                                <th class="text-primary">{{selected.bloodpressure}}</th>
+                            </tr>
+                            <tr>
+                                <th class="ps-0" scope="row">Pulse Rate :</th>
+                                <th class="text-primary">{{selected.pulserate}}</th>
+                            </tr>
+                            <tr>
+                                <th class="ps-0" scope="row">Temperature :</th>
+                                <th class="text-primary">{{selected.temperature}}</th>
+                            </tr>
+                            <tr>
                                 <th class="ps-0" scope="row">Remarks :</th>
                                 <th class="text-primary">{{selected.remarks}}</th>
                             </tr>

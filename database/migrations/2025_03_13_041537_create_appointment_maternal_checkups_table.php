@@ -17,6 +17,7 @@ return new class extends Migration
             $table->longText('remarks');
             $table->string('value')->nullable();
             $table->string('count')->nullable();
+            $table->json('additional_info');
             $table->tinyInteger('subtype_id')->unsigned()->nullable(); 
             $table->foreign('subtype_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
             $table->tinyInteger('type_id')->unsigned()->nullable(); 

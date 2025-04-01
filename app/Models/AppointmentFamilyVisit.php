@@ -9,6 +9,10 @@ class AppointmentFamilyVisit extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'remarks','af_id','visited_at','bloodpressure','pulserate','temperature'
+    ];
+
     public function af()
     {
         return $this->belongsTo('App\Models\AppointmentFamily', 'af_id', 'id');

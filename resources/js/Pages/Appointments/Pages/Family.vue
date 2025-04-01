@@ -63,6 +63,14 @@
                         <td class="text-center">{{appointment.family.source}}</td>
                     </tr>
                     <tr>
+                        <td class="text-center">Additional Information</td>
+                        <td class="text-center">
+                            <button @click="openViewInfo(appointment.family.additional_info)" type="button" class="btn btn-primary btn-sm material-shadow-none mt-n2 mb-n2">
+                                View Information
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="text-center">Remarks</td>
                         <td class="text-center">{{ (appointment.remarks) ?  appointment.remarks : '-' }}</td>
                     </tr>
@@ -132,6 +140,7 @@
     <Checkup :dropdowns="dropdowns" ref="checkup"/>
     <ViewF ref="viewf"/>
     <ViewD ref="viewd"/>
+    <Viewinfo ref="viewinfo"/>
 </template>
 <script>
 import Checkup from '../Modals/CheckupFamily.vue';
@@ -140,10 +149,11 @@ import Dropout from '../Modals/Dropout.vue';
 import Schedule from '../Modals/Schedule.vue';
 import Visit from '../Modals/Visit.vue';
 import View from '../Modals/View.vue';
+import Viewinfo from '../Modals/Viewinfo.vue';
 import ViewF from '../Modals/ViewF.vue';
 import ViewD from '../Modals/ViewD.vue';
 export default {
-    components: { Dropout, Schedule, Visit, View, simplebar, Checkup, ViewF, ViewD },
+    components: { Dropout, Schedule, Visit, View, simplebar, Checkup, ViewF, ViewD, Viewinfo },
     props:['a','appointment','dropdowns','results'],
     data(){
         return {
@@ -177,6 +187,9 @@ export default {
                     schedule_date: visit ? visit.scheduled_at : null,
                     is_active: visit ? visit.is_active : false,
                     remarks: visit ? visit.remarks : '-',
+                    bloodpressure: visit ? visit.bloodpressure : '-',
+                    pulserate: visit ? visit.pulserate : '-',
+                    temperature: visit ? visit.temperature : '-',
                 };
             });
         }
@@ -193,6 +206,9 @@ export default {
         },
         openView(id){
             this.$refs.view.show(id);
+        },
+        openViewInfo(data){
+            this.$refs.viewinfo.show(data);
         },
         handleClick(index, value) {
             if (index > 12) {

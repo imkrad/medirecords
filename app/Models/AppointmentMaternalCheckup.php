@@ -10,7 +10,7 @@ class AppointmentMaternalCheckup extends Model
     use HasFactory;
 
     protected $fillable = [
-        'remarks','value','count','type_id','subtype_id','am_id','date_at'
+        'remarks','value','count','type_id','subtype_id','am_id','date_at','additional_info'
     ];
 
     public function am()

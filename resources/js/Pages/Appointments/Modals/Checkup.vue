@@ -45,7 +45,7 @@
                     <hr class="text-muted mt0 mb-0"/>
                 </div>
                 <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
-                    <label class="form-label">AOG in Week</label>
+                    <label class="form-label">AOG in weeks</label>
                     <input type="text" v-model="form.additional_info.aog_week" class="form-control bg-light border-0" placeholder="Enter AOG in week">
                 </div>
                 <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
@@ -53,7 +53,7 @@
                     <input type="text" v-model="form.additional_info.fetal_heart_rate" class="form-control bg-light border-0" placeholder="Enter FHR">
                 </div>
                 <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
-                    <label class="form-label">Height</label>
+                    <label class="form-label">Height (cm)</label>
                     <input type="text" v-model="form.additional_info.height" class="form-control bg-light border-0" placeholder="Enter height">
                 </div>
                 <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
@@ -65,20 +65,24 @@
                     <input type="text" v-model="form.additional_info.blood_pressure" class="form-control bg-light border-0" placeholder="Enter BP">
                 </div>
                 <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">BP > 140? (Y/N)</label>
+                    <input type="text" v-model="form.additional_info.bp_over_140" class="form-control bg-light border-0" placeholder="Enter Y or N" readonly>
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">Temperature</label>
+                    <input type="text" v-model="form.additional_info.temperature" class="form-control bg-light border-0" placeholder="Enter Temperature">
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
+                    <label class="form-label">Fever? (Y/N)</label>
+                    <input type="text" v-model="form.additional_info.fever" class="form-control bg-light border-0" placeholder="Enter Y or N" readonly>
+                </div>
+                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
                     <label class="form-label">Fundal Height (cm)</label>
                     <input type="text" v-model="form.additional_info.fundal_height" class="form-control bg-light border-0" placeholder="Enter fundal height">
                 </div>
                 <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
-                    <label class="form-label">BP > 140? (Y/N)</label>
-                    <input type="text" v-model="form.additional_info.bp_over_140" class="form-control bg-light border-0" placeholder="Enter Y or N">
-                </div>
-                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
-                    <label class="form-label">Fever? (Y/N)</label>
-                    <input type="text" v-model="form.additional_info.fever" class="form-control bg-light border-0" placeholder="Enter Y or N">
-                </div>
-                <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
                     <label class="form-label">Abnormal Presentation? (Y/N)</label>
-                    <input type="text" v-model="form.additional_info.abnormal_presentation" class="form-control bg-light border-0" placeholder="Enter Y or N">
+                    <input type="text" @input="validateYN($event, 'abnormal_presentation')" v-model="form.additional_info.abnormal_presentation" class="form-control bg-light border-0" placeholder="Enter Y or N">
                 </div>
                 <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
                     <label class="form-label">FHT (bpm)</label>
@@ -86,19 +90,19 @@
                 </div>
                 <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
                     <label class="form-label">Edema? (Y/N)</label>
-                    <input type="text" v-model="form.additional_info.edema" class="form-control bg-light border-0" placeholder="Enter Y or N">
+                    <input type="text" @input="validateYN($event, 'edema')" v-model="form.additional_info.edema" class="form-control bg-light border-0" placeholder="Enter Y or N">
                 </div>
                 <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
                     <label class="form-label">Vaginal Bleeding? (Y/N)</label>
-                    <input type="text" v-model="form.additional_info.vaginal_bleeding" class="form-control bg-light border-0" placeholder="Enter Y or N">
+                    <input type="text" @input="validateYN($event, 'vaginal_bleeding')" v-model="form.additional_info.vaginal_bleeding" class="form-control bg-light border-0" placeholder="Enter Y or N">
                 </div>
                 <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
                     <label class="form-label">Urinary Tract Infection? (Y/N)</label>
-                    <input type="text" v-model="form.additional_info.urinary_tract_infection" class="form-control bg-light border-0" placeholder="Enter Y or N">
+                    <input type="text" @input="validateYN($event, 'urinary_tract_infection')" v-model="form.additional_info.urinary_tract_infection" class="form-control bg-light border-0" placeholder="Enter Y or N">
                 </div>
                 <div class="col-md-3 mt-2" v-if="this.form.type_id.name == 'Prenatal Check-ups'">
                     <label class="form-label">Vaginal Infection? (Y/N)</label>
-                    <input type="text" v-model="form.additional_info.vaginal_infection" class="form-control bg-light border-0" placeholder="Enter Y or N">
+                    <input type="text" @input="validateYN($event, 'vaginal_infection')" v-model="form.additional_info.vaginal_infection" class="form-control bg-light border-0" placeholder="Enter Y or N">
                 </div>
             </template>
 
@@ -145,6 +149,7 @@ export default {
                     weight: '',
                     blood_pressure: '',
                     bp_over_140: '',
+                    temperature: '',
                     fever: '',
                     fundal_height: '',
                     abnormal_presentation: '',
@@ -201,6 +206,24 @@ export default {
                 this.form.count = null;
                 this.form.value = null;
             }
+        },
+        'form.additional_info.temperature'(newVal){
+            if(newVal){
+                if(newVal >= 37){
+                    this.form.additional_info.fever = 'Y';
+                }else{
+                    this.form.additional_info.fever = 'N';
+                }
+            }
+        },
+        'form.additional_info.blood_pressure'(newVal){
+            if(newVal){
+                if(newVal > 140){
+                    this.form.additional_info.bp_over_140 = 'Y';
+                }else{
+                    this.form.additional_info.bp_over_140 = 'N';
+                }
+            }
         }
     },
     methods: { 
@@ -209,6 +232,14 @@ export default {
             this.form.id = id;
             this.showModal = true;
         },
+        validateYN(event, key) {
+    let val = event.target.value.toUpperCase();
+    if (val === 'Y' || val === 'N') {
+      this.form.additional_info[key] = val;
+    } else {
+      this.form.additional_info[key] = '';
+    }
+  },
         submit(){
             this.form.post('/checkup',{
                 preserveScroll: true,

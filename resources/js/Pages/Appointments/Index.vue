@@ -1,9 +1,9 @@
 <template>
     <Head title="Appointments" />
-    <PageHeader title="Appointments" pageTitle="Lists" />
+    <PageHeader title="Check Up" pageTitle="Lists" />
     <div class="card">
         <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Lists of Appointments</h4>
+            <h4 class="card-title mb-0 flex-grow-1">List of Check Ups</h4>
             <div class="flex-shrink-0">
                 <button @click="openCreate" class="btn btn-primary btn-sm" type="button">
                     <div class="btn-content"><i class="ri-user-line align-middle"></i> Create Appointment </div>

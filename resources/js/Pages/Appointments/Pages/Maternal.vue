@@ -268,7 +268,7 @@
                     <table class="table table-nowrap table-striped align-middle mb-0">
                     <thead class="bg-primary thead-fixed">
                         <tr class="fs-13 fw-bold text-white">
-                            <th colspan="5">Delivery</th>
+                            <th colspan="5">Newborn Information</th>
                             <th class="text-end">
                                 <button @click="openDelivery()" type="button" class="btn btn-light btn-sm material-shadow-none mt-n2 mb-n2">
                                     Add Delivery

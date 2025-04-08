@@ -4,7 +4,7 @@
         <Multiselect :options="dropdowns.types" label="name" v-model="form.type_id" :message="errors.type_id" placeholder="Select type" ref="multiselect1"/>
     </div>
     <div class="col-md-6">
-        <label class="form-label">Method <span v-if="errors.method_id" class="text-danger" style="font-size: 9px;">({{form.errors.method_id}})</span></label>
+        <label class="form-label">Previous Method <span v-if="errors.method_id" class="text-danger" style="font-size: 9px;">({{form.errors.method_id}})</span></label>
         <Multiselect :options="dropdowns.methods" label="name" v-model="form.method_id" :message="errors.method_id" placeholder="Select method" ref="multiselect1"/>
     </div>
     <div class="col-md-6 mt-2">
@@ -45,9 +45,9 @@
     />
     </div>
     <div class="col-md-12 mt-2">
-                    <label class="form-label">Remarks <span v-if="form.errors.remarks" class="text-danger" style="font-size: 9px;">({{form.errors.remarks}})</span></label>
-                    <textarea type="text" rows="3" v-model="form.remarks" class="form-control bg-light border-0" placeholder="Please enter remarks"/>
-                </div>
+        <label class="form-label">Remarks (Any allergies or medications?) <span v-if="form.errors.remarks" class="text-danger" style="font-size: 9px;">({{form.errors.remarks}})</span></label>
+        <textarea type="text" rows="3" v-model="form.remarks" class="form-control bg-light border-0" placeholder="Please enter any allergies or medications taken"/>
+    </div>
 </template>
 <script>
 import Multiselect from "@vueform/multiselect";

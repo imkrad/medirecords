@@ -34,6 +34,9 @@
                                     <div class="flex-shrink-0 text-end">
                                         <h6 class="mt-2" style="cursor: pointer;">
                                             <a :href="`/tcls/${list.id}`" target="_blank">
+                                                <i class="ri-eye-fill fw-bold fs-20 me-2"></i>
+                                            </a>
+                                            <a :href="`/tcls/${list.id}`" target="_blank">
                                                 <i class="ri-printer-fill fw-bold fs-20"></i>
                                             </a>
                                         </h6>

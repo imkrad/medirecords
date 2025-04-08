@@ -8,7 +8,7 @@
         <input type="date" v-model="form.edc_at" class="form-control bg-light border-0" placeholder="Please enter last name">
     </div>
     <div class="col-md-3 mt-2">
-        <label class="form-label">Height (m)<span v-if="errors.height" class="text-danger" style="font-size: 9px;">({{form.errors.height}})</span></label>
+        <label class="form-label">Height (cm)<span v-if="errors.height" class="text-danger" style="font-size: 9px;">({{form.errors.height}})</span></label>
         <input type="text" v-model="form.height" class="form-control bg-light border-0" placeholder="Please enter height">
     </div>
     <div class="col-md-3 mt-2">
@@ -32,11 +32,11 @@
         <label class="form-label">No. of previous pregnancy<span v-if="errors.weight" class="text-danger" style="font-size: 9px;">({{form.errors.weight}})</span></label>
         <input type="number" v-model="form.additional_info2.previous_pregnancy" class="form-control bg-light border-0" placeholder="Please enter count">
     </div>
-    <div class="col-md-3 mt-2">
+    <div class="col-md-3 mt-0">
         <label class="form-label">Fullterm<span v-if="errors.fullterm" class="text-danger" style="font-size: 9px;">({{form.errors.fullterm}})</span></label>
         <input type="number" v-model="form.additional_info2.fullterm" class="form-control bg-light border-0" placeholder="Please enter count">
     </div>
-    <div class="col-md-3 mt-2">
+    <div class="col-md-3 mt-0">
         <label class="form-label">Preterm<span v-if="errors.preterm" class="text-danger" style="font-size: 9px;">({{form.errors.preterm}})</span></label>
         <input type="number" v-model="form.additional_info2.preterm" class="form-control bg-light border-0" placeholder="Please enter count">
     </div>

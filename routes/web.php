@@ -8,6 +8,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/search', [App\Http\Controllers\WelcomeController::class, 'search']);
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('/tcls/{id}', [App\Http\Controllers\DashboardController::class, 'tcls']);
+    Route::get('/print/{id}', [App\Http\Controllers\DashboardController::class, 'print']);
 
     Route::resource('/users', App\Http\Controllers\UserController::class);
     Route::resource('/profile', App\Http\Controllers\ProfileController::class);

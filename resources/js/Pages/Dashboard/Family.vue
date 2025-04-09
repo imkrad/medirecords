@@ -6,6 +6,9 @@
                 <div class="file-manager-content w-100 p-4 pb-0" ref="box">
                         <table class="table table-bordered table-nowrap align-middle">
                             <thead class="bg-primary text-white">
+                                <tr>
+                                    <th colspan="20" class="text-center align-middle">Family Planning</th>
+                                </tr>
                                 <tr class="fs-10">
                                     <th class="text-center align-middle" rowspan="2" style="width: 9%;">Registration</th>
                                     <th class="text-center align-middle" rowspan="2" style="width: 15%;">Fullname</th>

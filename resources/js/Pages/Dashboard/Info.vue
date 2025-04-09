@@ -36,8 +36,8 @@
                                             <a :href="`/tcls/${list.id}`" target="_blank">
                                                 <i class="ri-eye-fill fw-bold fs-20 me-2"></i>
                                             </a>
-                                            <a :href="`/tcls/${list.id}`" target="_blank">
-                                                <i class="ri-printer-fill fw-bold fs-20"></i>
+                                            <a @click="openPrint(list.id)">
+                                                <i class="ri-printer-fill text-danger fw-bold fs-20"></i>
                                             </a>
                                         </h6>
                                     </div>
@@ -98,6 +98,9 @@ export default {
                 this.tcls = response.data.tcls;
             })
             .catch(err => console.log(err));
+        },
+        openPrint(id){
+            window.open('/print/'+id);
         },
     }
 }

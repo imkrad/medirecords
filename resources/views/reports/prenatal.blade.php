@@ -115,40 +115,57 @@
           
             <thead  style="background-color:#c8c8c8; padding: 5px; font-size: 9px;">
                 <tr>
-                    <th colspan="22" class="text-center align-middle">Prenetal</th>
+                    <th colspan="27" class="text-center align-middle">Prenetal</th>
                 </tr>
                 <tr class="fs-10">
-                    <th class="text-center align-middle" rowspan="2" style="width: 4.5%;">Registration</th>
-                    <th class="text-center align-middle" rowspan="2" style="width: 3.5%;">Serial No.</th>
-                    <th class="text-center align-middle" rowspan="2" style="width: 8%;">Fullname</th>
-                    <th class="text-center align-middle" rowspan="2" style="width: 2%;">Age</th>
-                    <th class="text-center align-middle" rowspan="2" style="width: 5%;">Client Type</th>
-                    <th class="text-center align-middle" rowspan="2" style="width: 10%;">Method</th>
-                    <th class="text-center" colspan="12">Follow-up Visits</th>
-                    <th class="text-center" colspan="3" style="width: 15%;">Deworming Drugs Given to 20-40 yrs old</th>
-                    <th class="text-center align-middle" style="width: 5%;" rowspan="2">Drop-out</th>
+                    <th class="text-center align-middle" style="width: 120px;" rowspan="3">Registration</th>
+                    <th class="text-center align-middle" style="width: 180px;" rowspan="3">Fullname</th>
+                    <th class="text-center align-middle" rowspan="3">Age</th>
+                    <th class="text-center" colspan="3">Prenatal Check-ups</th>
+                    <th class="text-center" colspan="6">Immunization Status</th>
+                    <th class="text-center" colspan="8">Micronutrient Supplementation</th>
+                    <th class="text-center">Nutritional Assessment</th>
+                    <th class="text-center">Deworming Tablet</th>
+                    <th class="text-center" colspan="3">Infectious Disease Surveillance</th>
+                    <th class="text-center" colspan="2">Laboratory Screening</th>
                 </tr>
                 <tr class="fs-10">
-                    <th class="text-center align-middle">Jan</th>
-                    <th class="text-center align-middle">Feb</th>
-                    <th class="text-center align-middle">Mar</th>
-                    <th class="text-center align-middle">Apr</th>
-                    <th class="text-center align-middle">May</th>
-                    <th class="text-center align-middle">Jun</th>
-                    <th class="text-center align-middle">Jul</th>
-                    <th class="text-center align-middle">Aug</th>
-                    <th class="text-center align-middle">Sep</th>
-                    <th class="text-center align-middle">Oct</th>
-                    <th class="text-center align-middle">Nov</th>
-                    <th class="text-center align-middle">Dec</th>
-                    <th class="text-center align-middle">1st dose given</th>
-                    <th class="text-center align-middle">2nd dose given</th>
-                    <th class="text-center align-middle">3rd dose given</th>
+                    <th class="text-center align-middle" rowspan="2">1st Tri</th>
+                    <th class="text-center align-middle" rowspan="2">2nd Tri</th>
+                    <th class="text-center align-middle" rowspan="2">3rd Tri</th>
+                    <th class="text-center" colspan="5">Tetanus Diphtheria/Toxoid</th>
+                    <th class="text-center">FIM</th>
+                    <th class="text-center" colspan="4">Iron Sulfate</th>
+                    <th class="text-center" colspan="3">Calcium Carbonate</th>
+                    <th class="text-center">Iodine Capsules</th>
+                    <th class="text-center align-middle" rowspan="2">-</th>
+                    <th class="text-center align-middle" rowspan="2">-</th>
+                    <th class="text-center align-middle" rowspan="2">Screening</th>
+                    <th class="text-center align-middle" rowspan="2">Hepatitis B</th>
+                    <th class="text-center align-middle" rowspan="2">HIV</th>
+                    <th class="text-center align-middle" rowspan="2">Gestational Diabetes</th>
+                    <th class="text-center align-middle" rowspan="2">CBC/HGB/HCT</th>
+                </tr>
+                <tr class="fs-10">
+                    <th class="text-center">1</th>
+                    <th class="text-center">2</th>
+                    <th class="text-center">3</th>
+                    <th class="text-center">4</th>
+                    <th class="text-center">5</th>
+                    <th class="text-center">-</th>
+                    <th class="text-center">1st Tri</th>
+                    <th class="text-center">2nd Tri</th>
+                    <th class="text-center">3rd Tri</th>
+                    <th class="text-center">4th Tri</th>
+                    <th class="text-center">2nd Tri</th>
+                    <th class="text-center">3rd Tri</th>
+                    <th class="text-center">4th Tri</th>
+                    <th class="text-center">1st Tri</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($lists as $index=>$list)
-                    <tr style="text-align: center; font-size: 10px; color: #072388;">
+                    {{-- <tr style="text-align: center; font-size: 10px; color: #072388;">
                         <td class="text-center"> {{ $list['registration']}}</td>
                         <td class="text-center"> {{ $list['serial_no']}}</td>
                         <td class="text-center"> {{ $list['name']}}</td>
@@ -160,7 +177,7 @@
                                 {{($visit) ? $visit : '-'}}
                             </td>
                         @endforeach
-                    </tr>
+                    </tr> --}}
                 @endforeach
             </tbody>
         </table>

@@ -329,7 +329,7 @@ class DashboardController extends Controller
         $data = Appointment::with('patient.member','service','status')
             ->with('maternal.checkups.type','maternal.checkups.subtype')
             ->with('maternal.deliveries.outcome','maternal.deliveries.facility','maternal.deliveries.attendant','maternal.deliveries.weight','maternal.deliveries.delivery','maternal.deliveries.member')
-            ->where('service_id', $id)
+            ->where('service_id', $code)
             ->get()
             ->map(function ($item) {
                 $aid = $item->id;
@@ -491,7 +491,7 @@ class DashboardController extends Controller
                 'lists' => $data,
             ];
             $doubleLandscape = [0, 0, 1800, 595.28];
-            $pdf = \PDF::loadView('reports.family',$array)->setPaper($doubleLandscape, 'portrait'); 
+            $pdf = \PDF::loadView('reports.prenatal',$array)->setPaper($doubleLandscape, 'portrait'); 
             $pdf->output();
             $dompdf = $pdf->getDomPDF();
             $canvas = $dompdf->getCanvas();

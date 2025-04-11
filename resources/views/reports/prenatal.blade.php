@@ -115,11 +115,12 @@
           
             <thead  style="background-color:#c8c8c8; padding: 5px; font-size: 9px;">
                 <tr>
-                    <th colspan="27" class="text-center align-middle">Prenetal</th>
+                    <th colspan="28" class="text-center align-middle">Prenetal</th>
                 </tr>
                 <tr class="fs-10">
                     <th class="text-center align-middle" style="width: 120px;" rowspan="3">Registration</th>
-                    <th class="text-center align-middle" style="width: 180px;" rowspan="3">Fullname</th>
+                    <th class="text-center align-middle" rowspan="3" style="width: 3.5%;">Serial No.</th>
+                    <th class="text-center align-middle" style="width: 150px;" rowspan="3">Fullname</th>
                     <th class="text-center align-middle" rowspan="3">Age</th>
                     <th class="text-center" colspan="3">Prenatal Check-ups</th>
                     <th class="text-center" colspan="6">Immunization Status</th>
@@ -165,19 +166,20 @@
             </thead>
             <tbody>
                 @foreach($lists as $index=>$list)
-                    {{-- <tr style="text-align: center; font-size: 10px; color: #072388;">
+                    <tr style="text-align: center; font-size: 10px; color: #072388;">
                         <td class="text-center"> {{ $list['registration']}}</td>
                         <td class="text-center"> {{ $list['serial_no']}}</td>
                         <td class="text-center"> {{ $list['name']}}</td>
                         <td class="text-center"> {{ $list['age']}}</td>
-                        <td class="text-center"> {{ $list['type']}}</td>
-                        <td class="text-center"> {{ $list['method']}}</td>
-                        @foreach($list['visits'] as $index2=>$visit)
-                            <td class="text-center">
-                                {{($visit) ? $visit : '-'}}
-                            </td>
-                        @endforeach
-                    </tr> --}}
+                        @foreach($list['checkups'] as $index2=>$check)
+                        <td class="text-center">
+                            {{($check) ? $check[0]['date_at'] : '-'}}
+                        </td>
+                    @endforeach
+                        {{-- <td class="text-center"> {{ $list['type']}}</td> --}}
+                        {{-- <td class="text-center"> {{ $list['method']}}</td> --}}
+                       
+                    </tr>
                 @endforeach
             </tbody>
         </table>

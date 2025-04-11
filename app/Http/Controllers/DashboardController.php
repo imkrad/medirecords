@@ -326,7 +326,7 @@ class DashboardController extends Controller
 
        }else if($code == 8){
 
-        $data = Appointment::with('patient.member','service','status')
+        $data = Appointment::with('patient.member.families.family','service','status')
             ->with('maternal.checkups.type','maternal.checkups.subtype')
             ->with('maternal.deliveries.outcome','maternal.deliveries.facility','maternal.deliveries.attendant','maternal.deliveries.weight','maternal.deliveries.delivery','maternal.deliveries.member')
             ->where('service_id', $code)
@@ -482,6 +482,7 @@ class DashboardController extends Controller
                 return [
                     'name'         => $item->patient->member->lastname . ', ' . $item->patient->member->firstname . ' ' . $item->patient->member->middlename[0].'.',
                     'registration' => $item->registration_at,
+                    'serial_no'    => $item->patient->member->families[0]->family->code,
                     'age'          => $item->age,
                     'checkups' => $checkups
                 ];
@@ -490,7 +491,9 @@ class DashboardController extends Controller
             $array = [
                 'lists' => $data,
             ];
-            $doubleLandscape = [0, 0, 1800, 595.28];
+
+            // dd($array);
+            $doubleLandscape = [0, 0, 2000, 595.28];
             $pdf = \PDF::loadView('reports.prenatal',$array)->setPaper($doubleLandscape, 'portrait'); 
             $pdf->output();
             $dompdf = $pdf->getDomPDF();

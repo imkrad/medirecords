@@ -48,7 +48,7 @@ class InsightController extends Controller
     }
 
     private function checkups_sched($request){
-        $data = AppointmentFamilyVisit::with('af.appointment.patient.member')->whereNull('visited_at')->get();
+        $data = AppointmentMaternalCheckup::with('am.appointment.patient.member')->where('type_id',92)->where('date_at','>',now())->get();
         return $data;
     }
 

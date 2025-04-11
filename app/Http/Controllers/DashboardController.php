@@ -286,7 +286,7 @@ class DashboardController extends Controller
                     ->whereHas('appointment', function ($query) use ($aid) {
                         $query->where('id', $aid);
                     })
-                    ->first();
+                    ->value('dropout_at');
         
                 return [
                     'name'         => $item->patient->member->lastname . ', ' . $item->patient->member->firstname . ' ' . $item->patient->member->middlename,

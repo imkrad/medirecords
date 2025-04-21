@@ -115,84 +115,75 @@
           
             <thead  style="background-color:#c8c8c8; padding: 5px; font-size: 9px;">
                 <tr>
-                    <th colspan="54" class="text-center align-middle">Immunization and Nutrition Service</th>
+                    <th colspan="58" class="text-center align-middle">Immunization and Nutrition Service</th>
                 </tr>
                 <tr class="fs-10">
-                    {{-- <th class="text-center align-middle" rowspan="2" style="width: 4.5%;">Registration</th>
-                    <th class="text-center align-middle" rowspan="2" style="width: 3.5%;">Serial No.</th>
-                    <th class="text-center align-middle" rowspan="2" style="width: 8%;">Fullname</th>
-                    <th class="text-center align-middle" rowspan="2" style="width: 2%;">Age</th>
-                    <th class="text-center align-middle" rowspan="2" style="width: 5%;">Client Type</th>
-                    <th class="text-center align-middle" rowspan="2" style="width: 10%;">Method</th>
-                    <th class="text-center" colspan="12">Follow-up Visits</th>
-                    <th class="text-center" colspan="3" style="width: 15%;">Deworming Drugs Given to 20-40 yrs old</th>
-                    <th class="text-center align-middle" style="width: 5%;" rowspan="2">Drop-out</th> --}}
-                    <th class="text-center align-middle" rowspan="3" style="width: 4%;">Registration</th>
-                    <th class="text-center align-middle" rowspan="3" style="width: 3%;">Serial No.</th>
-                    <th class="text-center align-middle" rowspan="3" style="width: 8%;">Name of Child</th>
-                    <th class="text-center align-middle" rowspan="3">Sex</th>
-                    <th class="text-center align-middle" colspan="2" rowspan="1" style="width: 3.5%;">Child Protected at Birth</th>
+                    <th class="text-center align-middle" rowspan="4" style="width: 3%;">Registration</th>
+                    <th class="text-center align-middle" rowspan="4" style="width: 3%;">Serial No.</th>
+                    <th class="text-center align-middle" rowspan="4" style="width: 6%;">Name of Child</th>
+                    <th class="text-center align-middle" rowspan="4">Sex</th>
+                    <th class="text-center align-middle" colspan="2" rowspan="1" style="width: 3%;">CPAB</th>
                     <th class="text-center" colspan="6" rowspan="1" width="10%">Newborn (0-28 days old)</th>
-                    <th class="text-center" colspan="15" rowspan="1" width="15%">1-3 months</th>
+                    <th class="text-center" colspan="19" rowspan="1">1-3 months</th>
                     <th class="text-center" colspan="11" rowspan="1" width="10%">6-11 months</th>
                     <th class="text-center" colspan="6" rowspan="1" width="10%">12 months old</th>
-                    <th class="text-center" rowspan="3" width="5%">CIC</th>
+                    <th class="text-center" rowspan="4" width="3%">CIC</th>
                     <th class="text-center" colspan="8" rowspan="1" width="10%">0-11 months</th>
-                    <th class="text-center" rowspan="3" width="5%">Remarks</th>
+                    <th class="text-center" rowspan="4" width="5%">Remarks</th>
                 </tr>
                 <tr class="fs-10">
-                    <th class="text-center align-middle" rowspan="2">TT2/TD2</th>
-                    <th class="text-center align-middle" rowspan="2">TT3/TD3</th>
-                    <th class="text-center align-middle" rowspan="2">Length</th>
-                    <th class="text-center align-middle" rowspan="2">Weight</th>
-                    <th class="text-center align-middle" rowspan="2">Breast Feeding</th>
-                    <th class="text-center align-middle" rowspan="2">Status</th>
+                    <th class="text-center align-middle" style="width: 4px;" rowspan="3">TT2/TD2</th>
+                    <th class="text-center align-middle" style="width: 4px;" rowspan="3">TT3/TD3</th>
+                    <th class="text-center align-middle" rowspan="3">Length</th>
+                    <th class="text-center align-middle" rowspan="3">Weight</th>
+                    <th class="text-center align-middle" rowspan="3">Status</th>
+                    <th class="text-center align-middle" rowspan="3">Breast Feeding (Date)</th>
                     <th class="text-center align-middle" colspan="2">Immunization</th>
                     <th class="text-center align-middle" colspan="4">Breast Feeding</th>
                     <th class="text-center align-middle" colspan="4">Nutritional Status Assessment</th>
                     <th class="text-center align-middle" colspan="3">Birth Weight</th>
-                    <th class="text-center align-middle" colspan="4">Immunization</th>
+                    <th class="text-center align-middle" colspan="8">Immunization</th>
                     <th class="text-center align-middle" colspan="4">Nutritional Status Assessment</th>
                     <th class="text-center align-middle" colspan="2">Complementary Feeding</th>
-                    <th class="text-center align-middle" rowspan="2">Exclusively Breastfed</th>
-                    <th class="text-center align-middle" rowspan="2">Vitamin A</th>
-                    <th class="text-center align-middle" rowspan="2">MNP</th>
-                    <th class="text-center align-middle" rowspan="2">MMR Dose 1</th>
-                    <th class="text-center align-middle" rowspan="2">IPV Dose 2</th>
+                    <th class="text-center align-middle" rowspan="3">Exclusively Breastfed</th>
+                    <th class="text-center align-middle" rowspan="3">Vitamin A</th>
+                    <th class="text-center align-middle" rowspan="3">MNP</th>
+                    <th class="text-center align-middle" rowspan="3">MMR Dose 1</th>
+                    <th class="text-center align-middle" rowspan="3">IPV Dose 2</th>
                     <th class="text-center align-middle" colspan="4">Nutritional Status Assessment</th>
-                    <th class="text-center align-middle" rowspan="2">MMR Dose 2</th>
-                    <th class="text-center align-middle" rowspan="2">FIC Date</th>
+                    <th class="text-center align-middle" rowspan="3">MMR Dose 2</th>
+                    <th class="text-center align-middle" rowspan="3">FIC Date</th>
                     <th class="text-center align-middle" colspan="4">MAM</th>
                     <th class="text-center align-middle" colspan="4">SAM</th>
                 </tr>
                 <tr>
-                    <th class="text-center align-middle">BCG</th>
-                    <th class="text-center align-middle">Hepa B</th>
-                    <th class="text-center align-middle">1 1/2</th>
-                    <th class="text-center align-middle">2 1/2</th>
-                    <th class="text-center align-middle">3 1/2</th>
-                    <th class="text-center align-middle">4-5</th>
-                    <th class="text-center align-middle">Age</th>
-                    <th class="text-center align-middle">Length</th>
-                    <th class="text-center align-middle">Weight</th>
-                    <th class="text-center align-middle">Status</th>
-                    <th class="text-center align-middle">1 mos.</th>
-                    <th class="text-center align-middle">2 mos.</th>
-                    <th class="text-center align-middle">3 mos.</th>
-                    <th class="text-center align-middle">DPT-HIB-HepB</th>
-                    <th class="text-center align-middle">OPV</th>
-                    <th class="text-center align-middle">PCV</th>
+                    <th class="text-center align-middle" rowspan="2">BCG</th>
+                    <th class="text-center align-middle" rowspan="2">Hepa B</th>
+                    <th class="text-center align-middle" rowspan="2">1 1/2</th>
+                    <th class="text-center align-middle" rowspan="2">2 1/2</th>
+                    <th class="text-center align-middle" rowspan="2">3 1/2</th>
+                    <th class="text-center align-middle" rowspan="2">4-5</th>
+                    <th class="text-center align-middle" rowspan="2">Age</th>
+                    <th class="text-center align-middle" rowspan="2">Length</th>
+                    <th class="text-center align-middle" rowspan="2">Weight</th>
+                    <th class="text-center align-middle" rowspan="2">Status</th>
+                    <th class="text-center align-middle" rowspan="2">1 mos.</th>
+                    <th class="text-center align-middle" rowspan="2">2 mos.</th>
+                    <th class="text-center align-middle" rowspan="2">3 mos.</th>
+                    <th class="text-center align-middle" rowspan="2">DPT-HIB-HepB</th>
+                    <th class="text-center align-middle" colspan="3">OPV</th>
+                    <th class="text-center align-middle" colspan="3">PCV</th>
                     <th class="text-center align-middle">IPV</th>
-                    <th class="text-center align-middle">Age</th>
-                    <th class="text-center align-middle">Length</th>
-                    <th class="text-center align-middle">Weight</th>
-                    <th class="text-center align-middle">Status</th>
-                    <th class="text-center align-middle">Y/N</th>
-                    <th class="text-center align-middle">1/2</th>
-                    <th class="text-center align-middle">Age</th>
-                    <th class="text-center align-middle">Length</th>
-                    <th class="text-center align-middle">Weight</th>
-                    <th class="text-center align-middle">Status</th>
+                    <th class="text-center align-middle" rowspan="2">Age</th>
+                    <th class="text-center align-middle" rowspan="2">Length</th>
+                    <th class="text-center align-middle" rowspan="2">Weight</th>
+                    <th class="text-center align-middle" rowspan="2">Status</th>
+                    <th class="text-center align-middle" rowspan="2">Y/N</th>
+                    <th class="text-center align-middle" rowspan="2">1/2</th>
+                    <th class="text-center align-middle" rowspan="2">Age</th>
+                    <th class="text-center align-middle" rowspan="2">Length</th>
+                    <th class="text-center align-middle" rowspan="2">Weight</th>
+                    <th class="text-center align-middle" rowspan="2">Status</th>
                     <th class="text-center align-middle">Admitted</th>
                     <th class="text-center align-middle">Cured</th>
                     <th class="text-center align-middle">Defaulted</th>
@@ -201,22 +192,43 @@
                     <th class="text-center align-middle">Cured</th>
                     <th class="text-center align-middle">Defaulted</th>
                     <th class="text-center align-middle">Died</th>
+                </tr>
                 <tr>
+                    <th class="text-center align-middle">1st</th>
+                    <th class="text-center align-middle">2nd</th>
+                    <th class="text-center align-middle">3rd</th>
+                    <th class="text-center align-middle">1st</th>
+                    <th class="text-center align-middle">2nd</th>
+                    <th class="text-center align-middle">3rd</th>
+                    <th class="text-center align-middle">1st</th>
+                    <th class="text-center align-middle"></th>
+                    <th class="text-center align-middle"></th>
+                    <th class="text-center align-middle"></th>
+                    <th class="text-center align-middle"></th>
+                    <th class="text-center align-middle"></th>
+                    <th class="text-center align-middle"></th>
+                    <th class="text-center align-middle"></th>
+                    <th class="text-center align-middle"></th>
+                </tr>
             </thead>
-            <tbody>1
+            <tbody>
                 @foreach($lists as $index=>$list)
                     <tr style="text-align: center; font-size: 10px; color: #072388;">
                         <td class="text-center"> {{ $list['registration']}}</td>
                         <td class="text-center"> {{ $list['serial_no']}}</td>
                         <td class="text-center"> {{ $list['name']}}</td>
-                        <td class="text-center"> {{ $list['age']}}</td>
-                        <td class="text-center"> {{ $list['type']}}</td>
-                        <td class="text-center"> {{ $list['method']}}</td>
-                        @foreach($list['visits'] as $index2=>$visit)
+                        <td class="text-center"> {{ ($list['sex'] == 'Male') ? 'M' : 'F'}}</td>
+                        <td class="text-center"> {{ ($list['cpab'] == 56) ? '/' : ''}}</td>
+                        <td class="text-center"> {{ ($list['cpab'] == 57) ? '/' : ''}}</td>
+                        <td class="text-center"> {{ $list['height']}}</td>
+                        <td class="text-center"> {{ $list['weight']}}</td>
+                        <td class="text-center"> {{ $list['weightname']}}</td>
+                        <td class="text-center"> {{ ($list['was_bf']) ? $list['bday'] : '-'}}</td>
+                        @foreach($list['lists'] as $index2=>$list)
                             <td class="text-center">
-                                {{($visit) ? $visit : '-'}}
+                                {{($list) ? $list : '-'}}
                             </td>
-                        @endforeach
+                        @endforeach 
                     </tr>
                 @endforeach
             </tbody>

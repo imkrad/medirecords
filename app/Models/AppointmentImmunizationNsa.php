@@ -9,6 +9,10 @@ class AppointmentImmunizationNsa extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'weight','height','range_id','date_at'
+    ];
+
     
     public function range()
     {
@@ -17,6 +21,6 @@ class AppointmentImmunizationNsa extends Model
 
     public function status()
     {
-        return $this->belongsTo('App\Models\ListStatus', 'status_id', 'id');
+        return $this->belongsTo('App\Models\ListDropdown', 'status_id', 'id');
     }
 }

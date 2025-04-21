@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('appointment_immunization_nsas', function (Blueprint $table) {
             $table->engine = 'InnoDB';
+            $table->increments('id');
             $table->boolean('is_completed')->default(0);
             $table->date('date_at')->nullable();
             $table->string('age');

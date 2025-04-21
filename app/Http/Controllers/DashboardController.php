@@ -8,6 +8,8 @@ use App\Models\AppointmentFamily;
 use App\Models\AppointmentFamilyVisit;
 use App\Models\AppointmentFamilyCheckup;
 use App\Models\AppointmentMaternalCheckup;
+use App\Models\AppointmentImmunizationNsa;
+use App\Models\AppointmentImmunizationList;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -493,7 +495,7 @@ class DashboardController extends Controller
             ];
 
             // dd($array);
-            $doubleLandscape = [0, 0, 2000, 595.28];
+            $doubleLandscape = [0, 0, 10000, 595.28];
             $pdf = \PDF::loadView('reports.prenatal',$array)->setPaper($doubleLandscape, 'portrait'); 
             $pdf->output();
             $dompdf = $pdf->getDomPDF();
@@ -511,9 +513,43 @@ class DashboardController extends Controller
             return $pdf->stream('prenatal.pdf');
        }else{
            
+        $data = Appointment::with('patient.member.families.family','service','status')
+        ->with('immunization.weightname')
+        ->where('service_id', $code)
+        ->get()
+        ->map(function ($item) {
+            $ai_id = $item->immunization->id;
+            $nsa1 = AppointmentImmunizationNsa::with('status')->where('ai_id',$ai_id)->first();
+            $lists = [
+                '1' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',1) ->where('is_completed',1)->first())->date_at ?? '-',
+                '2' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',2) ->where('is_completed',1)->first())->date_at ?? '-',
+                '3' => '-',
+                '4' => '-',
+                '5' => '-',
+                '6' => '-',
+                '7' => $nsa1->age,
+                '8' => $nsa1->length,
+                '9' => $nsa1->weight,
+                '10' => $nsa1->status->name,
+                
+            ];
+            return [
+                'name'         => $item->patient->member->lastname . ', ' . $item->patient->member->firstname . ' ' . $item->patient->member->middlename[0].'.',
+                'registration' => $item->registration_at,
+                'serial_no'    => $item->patient->member->families[0]->family->code,
+                'sex'          => $item->patient->member->sex,
+                'cpab'         => $item->immunization->cpab_id,
+                'height'         => $item->immunization->height,
+                'weight'         => $item->immunization->weight,
+                'weightname'         => $item->immunization->weightname->name,
+                'was_bf'         => $item->immunization->was_breastfeed,
+                'bday'            => $item->patient->member->birthdate,
+                'lists' => $lists
+            ];
+        });
 
             $array = [
-                'lists' => [],
+                'lists' => $data,
             ];
             $doubleLandscape = [0, 0, 2200, 595.28];
             $pdf = \PDF::loadView('reports.immunization',$array)->setPaper($doubleLandscape, 'portrait'); 

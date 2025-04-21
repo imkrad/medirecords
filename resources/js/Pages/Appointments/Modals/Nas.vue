@@ -2,9 +2,13 @@
     <b-modal v-model="showModal" style="--vz-modal-width: 500px;" header-class="p-3 bg-light" title="Add Nsas" class="v-modal-custom" modal-class="zoomIn" centered no-close-on-backdrop>
         <form class="customform">
             <BRow class="g-3 mt-n3">
-                <div class="col-md-12 mt-0">
+                <div class="col-md-12 mt-1">
                     <label class="form-label">Range <span v-if="form.errors.range_id" class="text-danger" style="font-size: 9px;">({{form.errors.range_id}})</span></label>
                     <Multiselect :options="dropdowns.ranges" label="name" v-model="form.range_id" object :message="form.errors.range_id" placeholder="Select Range" ref="multiselect1"/>
+                </div>  
+                <div class="col-md-12 mt-1">
+                    <label class="form-label">Status <span v-if="form.errors.status_id" class="text-danger" style="font-size: 9px;">({{form.errors.status_id}})</span></label>
+                    <Multiselect :options="dropdowns.statuses" label="name" v-model="form.status_id" :message="form.errors.status_id" placeholder="Select Status" ref="multiselect1"/>
                 </div>  
                 <div class="col-md-6">
                     <label class="form-label">Length <span v-if="form.errors.length" class="text-danger" style="font-size: 9px;">({{form.errors.length}})</span></label>
@@ -47,6 +51,7 @@ export default {
                 length: null,
                 weight: null,
                 age: null,
+                status_id: null,
                 date_at: new Date().toISOString().split('T')[0],
                 range_id: null
             

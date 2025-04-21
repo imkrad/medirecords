@@ -413,6 +413,7 @@ class AppointmentController extends Controller
                         return $query->where('ai_id', $id );
                     })
             ],
+            'status_id' => 'required',
             'age' => 'required',
             'length' => 'required',
             'weight' => 'required',
@@ -427,7 +428,7 @@ class AppointmentController extends Controller
             $data->range_id = $request->range_id['value'];
             $data->date_at = $request->date_at;
             $data->ai_id = $id;
-            $data->status_id = 18;
+            $data->status_id = $request->status_id;
             if($data->save()){
                 $status = Appointment::where('id',$request->id)->first();
                 $status->update(['status_id' => 34]);
@@ -679,7 +680,8 @@ class AppointmentController extends Controller
                     'submaternals' => $this->dropdowns('Submaternal')
                 ],
                 'immunizations' => [
-                    'ranges' => $this->dropdowns('Range')
+                    'ranges' => $this->dropdowns('Range'),
+                    'statuses' => $this->dropdowns('Nsa')
                 ],
             ],
             'results' => $this->result($appointment)

@@ -22,4 +22,9 @@ class AppointmentImmunization extends Model
     {
         return $this->hasMany('App\Models\AppointmentImmunizationList', 'ai_id');
     }
+
+    public function weightname()
+    {
+        return $this->belongsTo('App\Models\ListDropdown', 'weight_id', 'id');
+    }
 }

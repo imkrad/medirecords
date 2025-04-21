@@ -72,7 +72,7 @@
                     <tr class="fs-13 fw-bold text-white">
                         <th colspan="5">Immunization</th>
                         <th class="text-end">
-                            <button @click="openImmunization()" type="button" class="btn btn-light btn-sm material-shadow-none mt-n2 mb-n2">
+                            <button @click="openConfirm()" type="button" class="btn btn-light btn-sm material-shadow-none mt-n2 mb-n2">
                                 Add Immunization
                             </button>
                         </th>
@@ -81,7 +81,7 @@
                         <th style="width: 4%;">#</th>
                         <th>Vaccine</th>
                         <th style="width: 20%;" class="text-center">Dose</th>
-                        <th style="width: 20%;" class="text-center">Range</th>
+                        <!-- <th style="width: 20%;" class="text-center">Range</th> -->
                         <th style="width: 20%;" class="text-center">Date</th>
                         <th style="width: 20%;" class="text-center">Status</th>
                         <th></th>
@@ -92,11 +92,16 @@
                         <td>{{ index+1 }}</td>
                         <td>{{ list.vaccine.vaccine.short }}</td>
                         <td class="text-center">{{ toOrdinal(list.vaccine.dose) }}</td>
-                        <td class="text-center">{{ list.range.name }}</td>
+                        <!-- <td class="text-center">{{ list.range.name }}</td> -->
                         <td class="text-center">{{ list.date_at }}</td>
                         <td class="text-center">
                             <span v-if="list.is_completed" class="badge bg-success">Completed</span>
                             <span v-else class="badge bg-warning">Pending</span>
+                        </td>
+                        <td class="text-center" >
+                            <button v-if="!list.is_completed" @click="openConfirm(list)" type="button" class="btn btn-primary btn-sm material-shadow-none mt-n2 mb-n2">
+                                Confirm
+                            </button>
                         </td>
                     </tr>
                 </tbody>
@@ -104,11 +109,13 @@
         </div>
     </BCol>
     <Nas :dropdowns="dropdowns" ref="nas"/>
+    <Immunization ref="immunization"/>
 </template>
 <script>
 import Nas from '../Modals/Nas.vue';
+import Immunization from '../Modals/Immunuzation.vue';
 export default {
-    components: { Nas},
+    components: { Nas, Immunization },
     props:['a','appointment','dropdowns'],
     data(){
         return {
@@ -129,8 +136,8 @@ export default {
         }
     },
     methods: {
-        openImmunization(){
-            this.$refs.nas.show(this.appointment.id);
+        openConfirm(data){
+            this.$refs.immunization.show(data);
         },
         openNas(){
             this.$refs.nas.show(this.appointment.id,this.appointment);

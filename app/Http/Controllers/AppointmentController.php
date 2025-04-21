@@ -15,6 +15,7 @@ use App\Models\AppointmentMaternalCheckup;
 use App\Models\AppointmentMaternalDelivery;
 use App\Models\AppointmentImmunization;
 use App\Models\AppointmentImmunizationNsa;
+use App\Models\AppointmentImmunizationList;
 use App\Models\ListDropdown;
 use Illuminate\Http\Request;
 use App\Http\Requests\AppointmentRequest;
@@ -392,6 +393,34 @@ class AppointmentController extends Controller
                 'data' => [],
                 'message' => 'Checkup creation was successful!', 
                 'info' => "You've successfully added delivery."
+            ];
+        });
+
+        return back()->with([
+            'data' => $result['data'],
+            'message' => $result['message'],
+            'info' => $result['info'],
+            'status' => $result['status'],
+        ]);
+    }
+
+    public function immunization(Request $request){
+        $request->validate([
+            'date_at' => 'required',
+            'remarks' => 'nullable'
+        ]);
+
+        $result = $this->handleTransaction(function () use ($request) {
+            $data = AppointmentImmunizationList::where('id',$request->id)->first();
+            $data->remarks = $request->remarks;
+            $data->date_at = $request->date_at;
+            $data->is_completed = 1;
+            $data->save();
+
+            return [
+                'data' => [],
+                'message' => 'Immunization update was successful!', 
+                'info' => "You've successfully updated the immunization."
             ];
         });
 

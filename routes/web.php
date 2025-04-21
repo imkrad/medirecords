@@ -31,6 +31,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::post('/checkup', [App\Http\Controllers\AppointmentController::class, 'checkup']);
     Route::post('/checkupf', [App\Http\Controllers\AppointmentController::class, 'checkupf']);
     Route::post('/nsas', [App\Http\Controllers\AppointmentController::class, 'nsas']);
+    Route::post('/immunization', [App\Http\Controllers\AppointmentController::class, 'immunization']);
 
     Route::get('/insights', [App\Http\Controllers\InsightController::class, 'index']);
 });

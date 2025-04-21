@@ -46,5 +46,11 @@ import Multiselect from "@vueform/multiselect";
 export default {
     components: { Multiselect },
     props: ['form','dropdowns','errors'],
+    mounted() {
+        if (!this.form.registration_at) {
+        const today = new Date().toISOString().split('T')[0];
+        this.form.registration_at = today;
+        }
+    }
 }
 </script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Validation\Rule;
 use Carbon\Carbon;
 use App\Models\Member;
 use App\Models\FamilyMember;
@@ -12,6 +13,8 @@ use App\Models\AppointmentFamilyCheckup;
 use App\Models\AppointmentMaternal;
 use App\Models\AppointmentMaternalCheckup;
 use App\Models\AppointmentMaternalDelivery;
+use App\Models\AppointmentImmunization;
+use App\Models\AppointmentImmunizationNsa;
 use App\Models\ListDropdown;
 use Illuminate\Http\Request;
 use App\Http\Requests\AppointmentRequest;
@@ -38,6 +41,7 @@ class AppointmentController extends Controller
                     'immunizations' => [
                         'cpabs' => $this->dropdowns('Cpab'),
                         'weights' => $this->dropdowns('Weight'),
+                        'ranges' => $this->dropdowns('Range'),
                     ]
                 ]);
         }
@@ -79,6 +83,86 @@ class AppointmentController extends Controller
                         'height' => $request->height,
                         'weight' => $request->weight,
                     ]);
+                    if($immunization){
+                        $date = Carbon::parse($request->patient_id['birthdate']);
+                        $immunization->lists()->createMany([
+                            [
+                                'vaccine_id' => 1,
+                                'range_id' => 64,
+                                'date_at' => $date
+                            ],
+                            [
+                                'vaccine_id' => 2,
+                                'range_id' => 64,
+                                'date_at' => $date
+                            ],
+                            [
+                                'vaccine_id' => 3,
+                                'range_id' => 65,
+                                'date_at' => $date->copy()->addMonthsNoOverflow(1)->addDays(15)
+                            ],
+                            [
+                                'vaccine_id' => 4,
+                                'range_id' => 65,
+                                'date_at' => $date->copy()->addMonthsNoOverflow(2)->addDays(15)
+                            ],
+                            [
+                                'vaccine_id' => 5,
+                                'range_id' => 65,
+                                'date_at' => $date->copy()->addMonthsNoOverflow(3)->addDays(15)
+                            ],
+                            [
+                                'vaccine_id' => 6,
+                                'range_id' => 65,
+                                'date_at' => $date->copy()->addMonthsNoOverflow(1)->addDays(15)
+                            ],
+                            [
+                                'vaccine_id' => 7,
+                                'range_id' => 65,
+                                'date_at' => $date->copy()->addMonthsNoOverflow(2)->addDays(15)
+                            ],
+                            [
+                                'vaccine_id' => 8,
+                                'range_id' => 65,
+                                'date_at' => $date->copy()->addMonthsNoOverflow(3)->addDays(15)
+                            ],
+                            [
+                                'vaccine_id' => 9,
+                                'range_id' => 65,
+                                'date_at' => $date->copy()->addMonthsNoOverflow(1)->addDays(15)
+                            ],
+                            [
+                                'vaccine_id' => 10,
+                                'range_id' => 65,
+                                'date_at' => $date->copy()->addMonthsNoOverflow(2)->addDays(15)
+                            ],
+                            [
+                                'vaccine_id' => 11,
+                                'range_id' => 65,
+                                'date_at' => $date->copy()->addMonthsNoOverflow(3)->addDays(15)
+                            ],
+                            [
+                                'vaccine_id' => 12,
+                                'range_id' => 65,
+                                'date_at' => $date->copy()->addMonthsNoOverflow(3)->addDays(15)
+                            ],
+                            [
+                                'vaccine_id' => 13,
+                                'range_id' => 66,
+                                'date_at' => $date->copy()->addMonthsNoOverflow(9)
+                            ],
+                            [
+                                'vaccine_id' => 14,
+                                'range_id' => 66,
+                                'date_at' => $date->copy()->addMonthsNoOverflow(9)
+                            ],
+                            [
+                                'vaccine_id' => 15,
+                                'range_id' => 66,
+                                'date_at' => $date->copy()->addMonthsNoOverflow(12)
+                            ],
+                        ]);
+                    }
                 }
             }
 
@@ -319,6 +403,50 @@ class AppointmentController extends Controller
         ]);
     }
 
+    public function nsas(Request $request){
+        $id = AppointmentImmunization::where('appointment_id',$request->id)->value('id');
+        $request->validate([
+            'range_id' => [
+                'required',
+                Rule::unique('appointment_immunization_nsas') // or your actual table name
+                    ->where(function ($query) use ($request,$id) {
+                        return $query->where('ai_id', $id );
+                    })
+            ],
+            'age' => 'required',
+            'length' => 'required',
+            'weight' => 'required',
+            'date_at' => 'required'
+        ]);
+
+        $result = $this->handleTransaction(function () use ($request,$id) {
+            $data = new AppointmentImmunizationNsa;
+            $data->length = $request->length;
+            $data->weight = $request->weight;
+            $data->age = $request->age;
+            $data->range_id = $request->range_id['value'];
+            $data->date_at = $request->date_at;
+            $data->ai_id = $id;
+            $data->status_id = 18;
+            if($data->save()){
+                $status = Appointment::where('id',$request->id)->first();
+                $status->update(['status_id' => 34]);
+            }
+            return [
+                'data' => [],
+                'message' => 'NSAS creation was successful!', 
+                'info' => "You've successfully added NSAS."
+            ];
+        });
+
+        return back()->with([
+            'data' => $result['data'],
+            'message' => $result['message'],
+            'info' => $result['info'],
+            'status' => $result['status'],
+        ]);
+    }
+
     private function lists($request){
         $data = Appointment::query()
         ->with('patient.member','service','status')
@@ -528,6 +656,7 @@ class AppointmentController extends Controller
 
     public function show($code){
         $appointment = new AppointmentResource(Appointment::with('patient.member','service','status')
+        ->with('immunization.nsas.status','immunization.nsas.range','immunization.lists.range','immunization.lists.vaccine.vaccine')
         ->with('family.reason','family.type','family.method','family.visits')
         ->with('maternal.checkups.type','maternal.checkups.subtype')
         ->with('maternal.deliveries.outcome','maternal.deliveries.facility','maternal.deliveries.attendant','maternal.deliveries.weight','maternal.deliveries.delivery','maternal.deliveries.member')
@@ -548,6 +677,9 @@ class AppointmentController extends Controller
                     'weights' => $this->dropdowns('Weight'),
                     'maternals' => $this->dropdowns('Maternal'),
                     'submaternals' => $this->dropdowns('Submaternal')
+                ],
+                'immunizations' => [
+                    'ranges' => $this->dropdowns('Range')
                 ],
             ],
             'results' => $this->result($appointment)

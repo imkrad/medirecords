@@ -186,6 +186,30 @@ class ListStatusesTableSeeder extends Seeder
                 'created_at' => '2024-08-18 15:57:50',
                 'updated_at' => '2024-08-18 15:57:50',
             ),
+            14 => 
+            array (
+                'id' => 17,
+                'name' => 'Pending',
+                'type' => 'Nsas',
+                'color' => 'bg-warning',
+                'others' => 'text-warning',
+                'step' => 0,
+                'is_active' => 1,
+                'created_at' => '2024-08-18 15:57:50',
+                'updated_at' => '2024-08-18 15:57:50',
+            ),
+            15 => 
+            array (
+                'id' => 18,
+                'name' => 'Completed',
+                'type' => 'Nsas',
+                'color' => 'bg-success',
+                'others' => 'text-success',
+                'step' => 0,
+                'is_active' => 1,
+                'created_at' => '2024-08-18 15:57:50',
+                'updated_at' => '2024-08-18 15:57:50',
+            ),
         ));
 
         

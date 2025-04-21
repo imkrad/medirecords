@@ -15,7 +15,7 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('dose');
-            $table->integer('old');
+            $table->float('old');
             $table->string('type');
             $table->boolean('is_active')->default(1);
             $table->integer('vaccine_id')->unsigned()->index();

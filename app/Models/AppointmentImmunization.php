@@ -12,4 +12,14 @@ class AppointmentImmunization extends Model
     protected $fillable = [
         'weight_id','height','weight','appointment_id','was_breastfeed','cpab_id'
     ];
+
+    public function nsas()
+    {
+        return $this->hasMany('App\Models\AppointmentImmunizationNsa', 'ai_id');
+    }
+
+    public function lists()
+    {
+        return $this->hasMany('App\Models\AppointmentImmunizationList', 'ai_id');
+    }
 }

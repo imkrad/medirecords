@@ -117,6 +117,24 @@ class VaccinesTableSeeder extends Seeder
                 'created_at' => '2025-02-25 14:28:44',
                 'updated_at' => '2025-02-25 14:28:44',
             ),
+            11 => 
+            array (
+                'id' => 12,
+                'name' => 'DPT-Hib-HepB',
+            'description' => 'This combination vaccine protects against six serious diseases D – Diphtheria, P – Pertussis (Whooping Cough), T – Tetanus, Hib – Haemophilus influenzae type b, HepB – Hepatitis B',
+                'short' => 'DPT-Hib-HepB',
+                'created_at' => '2025-02-25 14:28:44',
+                'updated_at' => '2025-02-25 14:28:44',
+            ),
+            12 => 
+            array (
+                'id' => 13,
+                'name' => 'Measles, Mumps, and Rubella',
+                'description' => 'Measles, Mumps, and Rubella',
+                'short' => 'MMR',
+                'created_at' => '2025-02-25 14:28:44',
+                'updated_at' => '2025-02-25 14:28:44',
+            ),
         ));
 
         

@@ -31,6 +31,7 @@
                         <tr class="fs-11">
                             <th style="width: 3%;"></th>
                             <th>Patient</th>
+                            <th style="width: 15%;" class="text-center">Relationship</th>
                             <th style="width: 15%;" class="text-center">Service</th>
                             <th style="width: 12%;" class="text-center">Registration Date</th>
                             <th style="width: 12%;" class="text-center">Status</th>
@@ -48,6 +49,7 @@
                                 <h5 class="fs-13 mb-0 fw-semibold text-primary text-uppercase">{{list.patient.member.lastname}}, {{list.patient.member.firstname}} {{list.patient.member.middlename}}.</h5>
                                 <p class="fs-12 text-muted mb-0">{{list.patient.cellphone}}</p>
                             </td>
+                            <td class="text-center">{{ list.patient.relationship }}</td>
                             <td class="text-center">{{ list.service.name }}</td>
                             <td class="text-center">{{ list.registration_at }}</td>
                             <td class="text-center">

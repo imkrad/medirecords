@@ -510,7 +510,27 @@ class DashboardController extends Controller
             });
             return $pdf->stream('prenatal.pdf');
        }else{
+           
 
+            $array = [
+                'lists' => [],
+            ];
+            $doubleLandscape = [0, 0, 2200, 595.28];
+            $pdf = \PDF::loadView('reports.immunization',$array)->setPaper($doubleLandscape, 'portrait'); 
+            $pdf->output();
+            $dompdf = $pdf->getDomPDF();
+            $canvas = $dompdf->getCanvas();
+            $canvas->page_script(function ($pageNumber, $pageCount, $canvas, $fontMetrics) {
+                $copies = 1;
+                $totalPagesPerCopy = $pageCount / $copies;
+                $currentPageInCopy = ($pageNumber - 1) % $totalPagesPerCopy + 1;
+                $text = "PAGE $currentPageInCopy OF $totalPagesPerCopy";
+                $font = $fontMetrics->get_font("Helvetica", "normal");
+                $size = 7;
+                $width = $fontMetrics->get_text_width($text, $font, $size);
+                $canvas->text(106 - $width, 796, $text, $font, $size);
+            });
+            return $pdf->stream('immunization.pdf');
        }
     }
 

@@ -63,6 +63,12 @@ export default {
             }
         }
     },
+    mounted() {
+        if (!this.form.registration_at) {
+        const today = new Date().toISOString().split('T')[0];
+        this.form.registration_at = today;
+        }
+    },
     data(){
         return {
             wew : []

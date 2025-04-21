@@ -115,7 +115,7 @@
           
             <thead  style="background-color:#c8c8c8; padding: 5px; font-size: 9px;">
                 <tr>
-                    <th colspan="58" class="text-center align-middle">Immunization and Nutrition Service</th>
+                    <th colspan="60" class="text-center align-middle">Immunization and Nutrition Service</th>
                 </tr>
                 <tr class="fs-10">
                     <th class="text-center align-middle" rowspan="4" style="width: 3%;">Registration</th>
@@ -124,7 +124,7 @@
                     <th class="text-center align-middle" rowspan="4">Sex</th>
                     <th class="text-center align-middle" colspan="2" rowspan="1" style="width: 3%;">CPAB</th>
                     <th class="text-center" colspan="6" rowspan="1" width="10%">Newborn (0-28 days old)</th>
-                    <th class="text-center" colspan="19" rowspan="1">1-3 months</th>
+                    <th class="text-center" colspan="21" rowspan="1">1-3 months</th>
                     <th class="text-center" colspan="11" rowspan="1" width="10%">6-11 months</th>
                     <th class="text-center" colspan="6" rowspan="1" width="10%">12 months old</th>
                     <th class="text-center" rowspan="4" width="3%">CIC</th>
@@ -142,7 +142,7 @@
                     <th class="text-center align-middle" colspan="4">Breast Feeding</th>
                     <th class="text-center align-middle" colspan="4">Nutritional Status Assessment</th>
                     <th class="text-center align-middle" colspan="3">Birth Weight</th>
-                    <th class="text-center align-middle" colspan="8">Immunization</th>
+                    <th class="text-center align-middle" colspan="10">Immunization</th>
                     <th class="text-center align-middle" colspan="4">Nutritional Status Assessment</th>
                     <th class="text-center align-middle" colspan="2">Complementary Feeding</th>
                     <th class="text-center align-middle" rowspan="3">Exclusively Breastfed</th>
@@ -170,7 +170,7 @@
                     <th class="text-center align-middle" rowspan="2">1 mos.</th>
                     <th class="text-center align-middle" rowspan="2">2 mos.</th>
                     <th class="text-center align-middle" rowspan="2">3 mos.</th>
-                    <th class="text-center align-middle" rowspan="2">DPT-HIB-HepB</th>
+                    <th class="text-center align-middle" colspan="3">DPT-HIB-HepB</th>
                     <th class="text-center align-middle" colspan="3">OPV</th>
                     <th class="text-center align-middle" colspan="3">PCV</th>
                     <th class="text-center align-middle">IPV</th>
@@ -193,7 +193,10 @@
                     <th class="text-center align-middle">Defaulted</th>
                     <th class="text-center align-middle">Died</th>
                 </tr>
-                <tr>
+                <tr>  
+                    <th class="text-center align-middle">1st</th>
+                    <th class="text-center align-middle">2nd</th>
+                    <th class="text-center align-middle">3rd</th>
                     <th class="text-center align-middle">1st</th>
                     <th class="text-center align-middle">2nd</th>
                     <th class="text-center align-middle">3rd</th>

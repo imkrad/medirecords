@@ -519,7 +519,9 @@ class DashboardController extends Controller
         ->get()
         ->map(function ($item) {
             $ai_id = $item->immunization->id;
-            $nsa1 = AppointmentImmunizationNsa::with('status')->where('ai_id',$ai_id)->first();
+            $nsa1 = AppointmentImmunizationNsa::with('status')->where('range_id',65)->where('ai_id',$ai_id)->first();
+            $nsa2 = AppointmentImmunizationNsa::with('status')->where('range_id',66)->where('ai_id',$ai_id)->first();
+            $nsa3 = AppointmentImmunizationNsa::with('status')->where('range_id',67)->where('ai_id',$ai_id)->first();
             $lists = [
                 '1' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',1) ->where('is_completed',1)->first())->date_at ?? '-',
                 '2' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',2) ->where('is_completed',1)->first())->date_at ?? '-',
@@ -527,11 +529,50 @@ class DashboardController extends Controller
                 '4' => '-',
                 '5' => '-',
                 '6' => '-',
-                '7' => $nsa1->age,
-                '8' => $nsa1->length,
-                '9' => $nsa1->weight,
-                '10' => $nsa1->status->name,
-                
+                '7' => ($nsa1) ? $nsa1->age : '-',
+                '8' => ($nsa1) ? $nsa1->length : '-',
+                '9' => ($nsa1) ? $nsa1->weight : '-',
+                '10' => ($nsa1) ? $nsa1->status->name : '-',
+                '11' => '-',
+                '12' => '-',
+                '13' => '-',
+                '14' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',3) ->where('is_completed',1)->first())->date_at ?? '-',
+                '15' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',4) ->where('is_completed',1)->first())->date_at ?? '-',
+                '16' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',5) ->where('is_completed',1)->first())->date_at ?? '-',
+                '17' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',6) ->where('is_completed',1)->first())->date_at ?? '-',
+                '18' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',7) ->where('is_completed',1)->first())->date_at ?? '-',
+                '19' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',8) ->where('is_completed',1)->first())->date_at ?? '-',
+                '20' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',9) ->where('is_completed',1)->first())->date_at ?? '-',
+                '21' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',10) ->where('is_completed',1)->first())->date_at ?? '-',
+                '22' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',11) ->where('is_completed',1)->first())->date_at ?? '-',
+                '23' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',12) ->where('is_completed',1)->first())->date_at ?? '-',
+                '24' => ($nsa2) ? $nsa2->age : '-',
+                '25' => ($nsa2) ? $nsa2->length : '-',
+                '26' => ($nsa2) ? $nsa2->weight : '-',
+                '27' => ($nsa2) ? $nsa2->status->name : '-',
+                '28' => '-',
+                '29' => '-',
+                '30' => '-',
+                '31' => '-',
+                '32' => '-',
+                '33' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',13) ->where('is_completed',1)->first())->date_at ?? '-',
+                '34' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',14) ->where('is_completed',1)->first())->date_at ?? '-',
+                '35' => ($nsa3) ? $nsa3->age : '-',
+                '36' => ($nsa3) ? $nsa3->length : '-',
+                '37' => ($nsa3) ? $nsa3->weight : '-',
+                '38' => ($nsa3) ? $nsa3->status->name : '-',
+                '39' => optional( AppointmentImmunizationList::where('ai_id', $ai_id) ->where('vaccine_id',15) ->where('is_completed',1)->first())->date_at ?? '-',
+                '40' => '-',
+                '41' => '-',
+                '42' => '-',
+                '43' => '-',
+                '44' => '-',
+                '45' => '-',
+                '46' => '-',
+                '47' => '-',
+                '48' => '-',
+                '49' => '-',
+                '50' => '-',
             ];
             return [
                 'name'         => $item->patient->member->lastname . ', ' . $item->patient->member->firstname . ' ' . $item->patient->member->middlename[0].'.',

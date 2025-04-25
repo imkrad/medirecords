@@ -55,28 +55,149 @@
                     <div class="card">
                         <div class="card-body" style="height: calc(100vh - 290px);">
                             <BTabs nav-class="nav-pills nav-custom nav-custom-light" pills>
-                                <BTab title="Overview">
-                                  
-
-                                </BTab>
-                                <BTab title="Patient Information">
-                                  
-
-                                </BTab>
-                                <BTab title="Medical History">
-                                   
-                                </BTab>
                                 <BTab title="Appointments">
-                                   
+                                    <table class="table align-middle table-centered mb-0 mt-3">
+                                        <thead class="table-primary thead-fixed">
+                                            <tr class="fs-11">
+                                                <th style="width: 3%;"></th>
+                                                <th>Service</th>
+                                                <th style="width: 20%;" class="text-center">Age</th>
+                                                <th style="width: 20%;" class="text-center">Status</th>
+                                                <th style="width: 20%;" class="text-center">Registration Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-white">
+                                            <tr v-for="(list,index) in appointments" v-bind:key="index" >
+                                                <td class="text-center">{{ index+1 }}</td>
+                                                <td>
+                                                    <h5 class="fs-13 mb-0 fw-semibold text-primary text-uppercase">{{list.service.name}}</h5>
+                                                </td>
+                                                <td class="text-center">{{ list.age }}</td>
+                                                <td class="text-center">{{ list.status.name }}</td>
+                                                <td class="text-center">{{ list.registration_at }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </BTab>
-                                <BTab title="Laboratory & Diagnostic Tests">
-                                   
+                                <BTab title="Maternal Checkups">
+                                    <table class="table align-middle table-centered mb-0 mt-3">
+                                        <thead class="table-primary thead-fixed">
+                                            <tr class="fs-11">
+                                                <th style="width: 3%;"></th>
+                                                <th>Type</th>
+                                                <th style="width: 25%;" class="text-center">Subtype</th>
+                                                <th style="width: 15%;" class="text-center">Count</th>
+                                                <th style="width: 15%;" class="text-center">Value</th>
+                                                <th style="width: 25%;" class="text-center">Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-white">
+                                            <tr v-for="(list,index) in maternalcheckups" v-bind:key="index" >
+                                                <td class="text-center">{{ index+1 }}</td>
+                                                <td>
+                                                    <h5 class="fs-13 mb-0 fw-semibold text-primary text-uppercase">{{list.type.name}}</h5>
+                                                </td>
+                                                <td class="text-center">{{ list.subtype.name }}</td>
+                                                <td class="text-center">{{ list.count }}</td>
+                                                <td class="text-center">{{ (list.value) ? list.value : '-' }}</td>
+                                                <td class="text-center">{{ list.date_at }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </BTab>
-                                <BTab title="Prescription & Medication Dispensing">
-                                   
+                                <BTab title="Immunizations">
+                                    <table class="table align-middle table-centered mb-0 mt-3">
+                                        <thead class="table-primary thead-fixed">
+                                            <tr class="fs-11">
+                                                <th style="width: 3%;"></th>
+                                                <th>Vaccine</th>
+                                                <th style="width: 15%;" class="text-center">Short</th>
+                                                <th style="width: 15%;" class="text-center">Range</th>
+                                                <th style="width: 20%;" class="text-center">Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-white">
+                                            <tr v-for="(list,index) in immunizations" v-bind:key="index" >
+                                                <td class="text-center">{{ index+1 }}</td>
+                                                <td>
+                                                    <h5 class="fs-13 mb-0 fw-semibold text-primary text-uppercase">{{list.vaccine.vaccine.name}}</h5>
+                                                </td>
+                                                <td class="text-center">{{ list.vaccine.vaccine.short }}</td>
+                                                <td class="text-center">{{ list.range.name }}</td>
+                                                <td class="text-center">{{ list.date_at }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
                                 </BTab>
+                                <BTab title="Family Visits">
+                                    <table class="table align-middle table-centered mb-0 mt-3">
+                                        <thead class="table-primary thead-fixed">
+                                            <tr class="fs-11">
+                                                <th style="width: 3%;"></th>
+                                                <th>Visited Date</th>
+                                                <th style="width: 15%;" class="text-center">Blood Pressure</th>
+                                                <th style="width: 15%;" class="text-center">Pulse Rate</th>
+                                                <th style="width: 15%;" class="text-center">Tempperature</th>
+                                                <th style="width: 20%;" class="text-center">Scheduled Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-white">
+                                            <tr v-for="(list,index) in familyvisits" v-bind:key="index" >
+                                                <td class="text-center">{{ index+1 }}</td>
+                                                <td>
+                                                    <h5 class="fs-13 mb-0 fw-semibold text-primary text-uppercase">{{list.visited_at}}</h5>
+                                                </td>
+                                                <td class="text-center">{{ list.bloodpressure }}</td>
+                                                <td class="text-center">{{ list.pulserate }}</td>
+                                                <td class="text-center">{{ list.temperature }}</td>
+                                                <td class="text-center">{{ list.scheduled_at }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </BTab>
+                                <BTab title="Family Checkups">
+                                    <table class="table align-middle table-centered mb-0 mt-3">
+                                        <thead class="table-primary thead-fixed">
+                                            <tr class="fs-11">
+                                                <th style="width: 3%;"></th>
+                                                <th>Type</th>
+                                                <th style="width: 15%;" class="text-center">Count</th>
+                                                <th style="width: 20%;" class="text-center">Given Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-white">
+                                            <tr v-for="(list,index) in familycheckups" v-bind:key="index" >
+                                                <td class="text-center">{{ index+1 }}</td>
+                                                <td>
+                                                    <h5 class="fs-13 mb-0 fw-semibold text-primary text-uppercase">{{list.type.name}}</h5>
+                                                </td>
+                                                <td class="text-center">{{ list.count }}</td>
+                                                <td class="text-center">{{ list.date_at }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </BTab>
+                                
                                 <BTab title="Family Member">
-                                    {{ patient.families }}
+                                    <table class="table align-middle table-centered mb-0 mt-3">
+                                        <thead class="table-primary thead-fixed">
+                                            <tr class="fs-11">
+                                                <th style="width: 3%;"></th>
+                                                <th>Name</th>
+                                                <th style="width: 10%;" class="text-center">Type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-white">
+                                            <tr v-for="(list,index) in patient.families[0].members" v-bind:key="index" >
+                                                <td class="text-center">{{ index+1 }}</td>
+                                                <td>
+                                                    <h5 class="fs-13 mb-0 fw-semibold text-primary text-uppercase">{{list.name}}</h5>
+                                                </td>
+                                                <td class="text-center">{{ list.type }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </BTab>
                             </BTabs>
                         </div>
@@ -88,7 +209,7 @@
 </template>
 <script>
 export default {
-    props:['p'],
+    props:['p','appointments','familyvisits','familycheckups','maternalcheckups','immunizations'],
     data(){
         return {
             currentUrl: window.location.origin,

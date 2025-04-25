@@ -13,6 +13,11 @@ class AppointmentImmunizationList extends Model
         'date_at','range_id','vaccine_id','ai_id','remarks'
     ];
 
+    public function ai()
+    {
+        return $this->belongsTo('App\Models\AppointmentImmunization', 'ai_id', 'id');
+    }
+
     public function range()
     {
         return $this->belongsTo('App\Models\ListDropdown', 'range_id', 'id');

@@ -200,13 +200,6 @@
     "src": "public/images/sidebar/img-4.jpg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-BjK8AJXZ.js",
-    "name": "app",
-    "src": "resources/js/app.js",
-    "isEntry": true,
-    "css": [
-      "assets/app-Ct1kaJ-m.css"
-    ],
     "assets": [
       "assets/doh-logo-DIuqTx-E.png",
       "assets/img-1-C6VsSbnm.jpg",
@@ -257,6 +250,12 @@
       "assets/layers-BWBAp2CZ.png",
       "assets/layers-2x-Bpkbi35X.png",
       "assets/marker-icon-hN30_KVU.png"
-    ]
+    ],
+    "css": [
+      "assets/app-BAjegAhV.css"
+    ],
+    "file": "assets/app-CKsmBDhR.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
   }
 }

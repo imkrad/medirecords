@@ -13,6 +13,11 @@ class AppointmentImmunization extends Model
         'weight_id','height','weight','appointment_id','was_breastfeed','cpab_id'
     ];
 
+    public function appointment()
+    {
+        return $this->belongsTo('App\Models\Appointment', 'appointment_id', 'id');
+    }
+
     public function nsas()
     {
         return $this->hasMany('App\Models\AppointmentImmunizationNsa', 'ai_id');

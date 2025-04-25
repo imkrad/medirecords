@@ -6,6 +6,11 @@ use App\Models\Family;
 use App\Models\Member;
 use App\Models\FamilyMember;
 use App\Models\Patient;
+use App\Models\Appointment;
+use App\Models\AppointmentFamilyVisit;
+use App\Models\AppointmentFamilyCheckup;
+use App\Models\AppointmentMaternalCheckup;
+use App\Models\AppointmentImmunizationList;
 use Illuminate\Http\Request;
 use App\Http\Resources\PatientResource;
 use App\Traits\HandlesTransaction;
@@ -181,8 +186,31 @@ class PatientController extends Controller
     }
 
     public function show($code){
+        $id =  Patient::where('code',$code)->value('id');
+
         return inertia('Patients/View',[
             'p' => new PatientResource(Patient::with('member.families.family.members.member','member.families.family.members.type')->where('code',$code)->first()),
+            'appointments' => Appointment::with('service','status')->where('patient_id',$id)->get(),
+            'familyvisits' => AppointmentFamilyVisit::whereHas('af',function ($query) use ($id) {
+                $query->whereHas('appointment',function ($query) use ($id) {
+                    $query->where('patient_id',$id);
+                });
+            })->get(),
+            'familycheckups' => AppointmentFamilyCheckup::with('type')->whereHas('af',function ($query) use ($id) {
+                $query->whereHas('appointment',function ($query) use ($id) {
+                    $query->where('patient_id',$id);
+                });
+            })->get(),
+            'maternalcheckups' => AppointmentMaternalCheckup::with('type','subtype')->whereHas('am',function ($query) use ($id) {
+                $query->whereHas('appointment',function ($query) use ($id) {
+                    $query->where('patient_id',$id);
+                });
+            })->get(),
+            'immunizations' => AppointmentImmunizationList::with('vaccine.vaccine','range')->whereHas('ai',function ($query) use ($id) {
+                $query->whereHas('appointment',function ($query) use ($id) {
+                    $query->where('patient_id',$id);
+                });
+            })->get()
         ]);
     }
 }

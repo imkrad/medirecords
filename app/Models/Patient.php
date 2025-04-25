@@ -21,6 +21,11 @@ class Patient extends Model
         'member_id'
     ];
 
+    public function appointments()
+    {
+        return $this->hasOne('App\Models\Appointment', 'patient_id');
+    }
+
     public function member()
     {
         return $this->belongsTo('App\Models\Member', 'member_id', 'id');

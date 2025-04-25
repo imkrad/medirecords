@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Immunization;
+use App\Models\AppointmentImmunizationList;
 use Illuminate\Http\Request;
 
 class ImmunizationController extends Controller
@@ -14,7 +15,8 @@ class ImmunizationController extends Controller
             break;
             default: 
                 return inertia('Immunizations/Index',[
-                    'immunizations' => Immunization::with('vaccine')->where('is_active',1)->get()
+                    'immunizations' => Immunization::with('vaccine')->where('is_active',1)->get(),
+                    'lists' => AppointmentImmunizationList::with('range','vaccine.vaccine','ai.appointment.patient.member')->get()
                 ]);
         }
     }

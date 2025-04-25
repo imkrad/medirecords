@@ -51,44 +51,27 @@
                                 <tr class="fs-11">
                                     <th style="width: 3%;"></th>
                                     <th>Name</th>
-                                    <th style="width: 10%;" class="text-center">Sex</th>
-                                    <th style="width: 12%;" class="text-center">Marital</th>
-                                    <th style="width: 12%;" class="text-center">Birthday</th>
-                                    <th style="width: 12%;" class="text-center">Cellphone</th>
-                                    <th style="width: 15%;" class="text-center">Email</th>
-                                    <th style="width: 7%;"></th>
+                                    <th style="width: 20%;" class="text-center">Appointment</th>
+                                    <th style="width: 25%;" class="text-center">Vaccine</th>
+                                    <th style="width: 15%;" class="text-center">Range</th>
+                                    <th style="width: 12%;" class="text-center">Date</th>
+                                    <th style="width: 12%;" class="text-center">Status</th>
                                 </tr>
                             </thead>
                             <tbody class="table-white">
                                 <tr v-for="(list,index) in lists" v-bind:key="index" >
-                                    <td class="text-center"> 
-                                        <div class="avatar-xs chat-user-img online">
-                                            <img :src="list.avatar" alt="" class="avatar-xs rounded-circle">
-                                            <!-- <span v-if="list.is_active" class="user-status text-success"></span> -->
-                                        </div>
-                                    </td>
+                                    <td class="text-center">{{ index + 1 }}</td>
                                     <td>
-                                        <h5 class="fs-13 mb-0 fw-semibold text-primary text-uppercase">{{list.lastname}}, {{list.firstname}} {{list.middlename}}.</h5>
-                                        <p class="fs-12 text-muted mb-0">{{list.address}}</p>
+                                        <h5 class="fs-13 mb-0 fw-semibold text-primary text-uppercase">{{list.ai.appointment.patient.member.lastname}}, {{list.ai.appointment.patient.member.firstname}}</h5>
+                                        <p class="fs-12 text-muted mb-0">{{list.ai.appointment.patient.cellphone}}</p>
                                     </td>
-                                    <td class="text-center">{{ list.sex }}</td>
-                                    <td class="text-center">{{ list.status }}</td>
-                                    <td class="text-center">{{ list.birthdate }}</td>
-                                    <td class="text-center">{{ list.cellphone }}</td>
-                                    <td class="text-center">{{ list.email }}</td>
-                                    <td>
-                                        <ul class="list-inline hstack gap-2 mb-0">
-                                            <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Vie">
-                                                <Link :href="`/patients/${list.code}`" class="text-primary d-inline-block edit-item-btn">
-                                                    <i class="ri-eye-fill fs-16"></i>
-                                                </Link>
-                                            </li>
-                                            <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Remove">
-                                                <a class="text-danger d-inline-block remove-item-btn" data-bs-toggle="modal" href="#deleteRecordModal">
-                                                    <i class="ri-pencil-fill fs-16"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                    <td class="text-center">{{ list.ai.appointment.code }}</td>
+                                    <td class="text-center">{{ list.vaccine.vaccine.name }}</td>
+                                    <td class="text-center">{{ list.range.name }}</td>
+                                    <td class="text-center">{{ list.date_at }}</td>
+                                    <td class="text-center">
+                                        <span v-if="list.is_completed" class="badge bg-success">Completed</span>
+                                        <span v-else class="badge bg-warning">Pending</span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -104,7 +87,7 @@ import PageHeader from '@/Shared/Components/PageHeader.vue';
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
     components: { Pagination, PageHeader }, 
-    props: ['immunizations'],
+    props: ['immunizations','lists'],
     data(){
         return {
             currentUrl: window.location.origin,
